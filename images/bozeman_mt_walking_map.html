@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8ef1240a78807907bd414347978dba4c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:12px; padding: 15px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="margin-top: 0; font-size: 16px;">Downtown Bozeman, Montana</h3>
+    <p><b>🏨 Kimpton Armory Hotel</b></p>
+    <p><i>30 minutes walking from hotel</i></p>
+    <hr style="margin: 10px 0;">
+    <p><i class="fa fa-home" style="color:red"></i> Your Accommodation</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Dining & Food</p>
+    <p><i class="fa fa-cutlery" style="color:orange"></i> Bakeries</p>
+    <p><i class="fa fa-beer" style="color:darkgreen"></i> Breweries</p>
+    <p><i class="fa fa-glass" style="color:purple"></i> Wine & Cocktails</p>
+    <p><i class="fa fa-shopping-cart" style="color:blue"></i> Markets</p>
+    <p><i class="fa fa-university" style="color:darkblue"></i> Museums & Culture</p>
+    <p><i class="fa fa-paint-brush" style="color:cadetblue"></i> Art Galleries</p>
+    <p><i class="fa fa-university" style="color:darkred"></i> Historic Sites</p>
+    <p><i class="fa fa-tree" style="color:lightgreen"></i> Parks & Nature</p>
+    <p><i class="fa fa-shopping-bag" style="color:pink"></i> Shopping</p>
+    <p><i class="fa fa-star" style="color:black"></i> Landmarks</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_8ef1240a78807907bd414347978dba4c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8ef1240a78807907bd414347978dba4c = L.map(
+                "map_8ef1240a78807907bd414347978dba4c",
+                {
+                    center: [45.6800443, -111.0380169],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_54d12fe99df6664c6571ecbaaf86ccd5 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_54d12fe99df6664c6571ecbaaf86ccd5.addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var tile_layer_8ca3cece52adcf5255034f85187b46c7 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8ca3cece52adcf5255034f85187b46c7.addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var marker_805e2fcadbb82fa609109f3abade2cb5 = L.marker(
+                [45.6800443, -111.0380169],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_c6618e28e34eb928ad98e9d3310030c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+  "iconSize": [20, 20],
+}
+            );
+        
+    
+        var popup_d1f9a3385195bab09eaf60634582f570 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_80991da641b66edd44537ff472d018ee = $(`<div id="html_80991da641b66edd44537ff472d018ee" style="width: 100.0%; height: 100.0%;"><b>Kimpton Armory Hotel</b><br>24 W Mendenhall St, Bozeman, MT 59715<br><b>Your Hotel</b></div>`)[0];
+                popup_d1f9a3385195bab09eaf60634582f570.setContent(html_80991da641b66edd44537ff472d018ee);
+            
+        
+
+        marker_805e2fcadbb82fa609109f3abade2cb5.bindPopup(popup_d1f9a3385195bab09eaf60634582f570)
+        ;
+
+        
+    
+    
+            marker_805e2fcadbb82fa609109f3abade2cb5.bindTooltip(
+                `<div>
+                     🏨 Kimpton Armory Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_805e2fcadbb82fa609109f3abade2cb5.setIcon(icon_c6618e28e34eb928ad98e9d3310030c2);
+            
+    
+            var marker_891e2f2a486fc383a896673945116b3a = L.marker(
+                [45.6753167, -111.012355],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_6ad2bd1048f14d364687918bb5d482c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6f87be5c47b63c35570b02e3dbd7acf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d6ebad722dafacc04ec8743f41a0336 = $(`<div id="html_7d6ebad722dafacc04ec8743f41a0336" style="width: 100.0%; height: 100.0%;"><b>Main Street Historic District</b><br>Historic downtown area with shops and restaurants<br><i>Main St, Bozeman, MT</i></div>`)[0];
+                popup_f6f87be5c47b63c35570b02e3dbd7acf.setContent(html_7d6ebad722dafacc04ec8743f41a0336);
+            
+        
+
+        marker_891e2f2a486fc383a896673945116b3a.bindPopup(popup_f6f87be5c47b63c35570b02e3dbd7acf)
+        ;
+
+        
+    
+    
+            marker_891e2f2a486fc383a896673945116b3a.bindTooltip(
+                `<div>
+                     Main Street Historic District (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_891e2f2a486fc383a896673945116b3a.setIcon(icon_6ad2bd1048f14d364687918bb5d482c7);
+            
+    
+            var marker_0516b214dd817b99a29dc41e1731eb12 = L.marker(
+                [45.6785125, -111.0271614],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_d876655dc1ce8af19d4b29414a03a98a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b9c2ffd136de74e9efbab7deb770152 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_88c73bf3317a7147a031eb4b9e26cabc = $(`<div id="html_88c73bf3317a7147a031eb4b9e26cabc" style="width: 100.0%; height: 100.0%;"><b>Bozeman Public Library</b><br>Beautiful Carnegie library building<br><i>626 E Main St, Bozeman, MT</i></div>`)[0];
+                popup_5b9c2ffd136de74e9efbab7deb770152.setContent(html_88c73bf3317a7147a031eb4b9e26cabc);
+            
+        
+
+        marker_0516b214dd817b99a29dc41e1731eb12.bindPopup(popup_5b9c2ffd136de74e9efbab7deb770152)
+        ;
+
+        
+    
+    
+            marker_0516b214dd817b99a29dc41e1731eb12.bindTooltip(
+                `<div>
+                     Bozeman Public Library (culture)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0516b214dd817b99a29dc41e1731eb12.setIcon(icon_d876655dc1ce8af19d4b29414a03a98a);
+            
+    
+            var marker_46780666e30714e5bb5ef815c294cd29 = L.marker(
+                [45.6796321, -111.0421847],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_7ddec40b659b6fd30bd465327881519a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87ccda6d67c050f8a08656347c116cb6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2950358d0cd7d6ea17fa48b6334fb650 = $(`<div id="html_2950358d0cd7d6ea17fa48b6334fb650" style="width: 100.0%; height: 100.0%;"><b>Gallatin History Museum</b><br>Local history and culture exhibits<br><i>317 W Main St, Bozeman, MT</i></div>`)[0];
+                popup_87ccda6d67c050f8a08656347c116cb6.setContent(html_2950358d0cd7d6ea17fa48b6334fb650);
+            
+        
+
+        marker_46780666e30714e5bb5ef815c294cd29.bindPopup(popup_87ccda6d67c050f8a08656347c116cb6)
+        ;
+
+        
+    
+    
+            marker_46780666e30714e5bb5ef815c294cd29.bindTooltip(
+                `<div>
+                     Gallatin History Museum (museum)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_46780666e30714e5bb5ef815c294cd29.setIcon(icon_7ddec40b659b6fd30bd465327881519a);
+            
+    
+            var marker_04c2aaac3a1e17a8e97edd3fe15b9d50 = L.marker(
+                [45.6796012, -111.0363216],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_b8f6226364331f761bf85501bcf56f66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b38b6a418667786b3ecc832cdfc16cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_482a5f1092063fdaced34b1b1735df25 = $(`<div id="html_482a5f1092063fdaced34b1b1735df25" style="width: 100.0%; height: 100.0%;"><b>Downtown Bozeman Farmers Market</b><br>Saturday farmers market (seasonal)<br><i>27 E Main St, Bozeman, MT</i></div>`)[0];
+                popup_7b38b6a418667786b3ecc832cdfc16cd.setContent(html_482a5f1092063fdaced34b1b1735df25);
+            
+        
+
+        marker_04c2aaac3a1e17a8e97edd3fe15b9d50.bindPopup(popup_7b38b6a418667786b3ecc832cdfc16cd)
+        ;
+
+        
+    
+    
+            marker_04c2aaac3a1e17a8e97edd3fe15b9d50.bindTooltip(
+                `<div>
+                     Downtown Bozeman Farmers Market (market)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_04c2aaac3a1e17a8e97edd3fe15b9d50.setIcon(icon_b8f6226364331f761bf85501bcf56f66);
+            
+    
+            var marker_bfaef40eda91a8a71ae9ffe8b6977017 = L.marker(
+                [45.67901029999999, -111.0564446],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_df303c85842a51f6d6a6744150a3ab7c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73cf8e4405ae7202a8062275ddb0181f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a80301aaef0b7a69eb853923e091cb9 = $(`<div id="html_9a80301aaef0b7a69eb853923e091cb9" style="width: 100.0%; height: 100.0%;"><b>Wild Crumb Bakery & Cafe</b><br>European-style artisan breads<br><i>1424 W Main St, Bozeman, MT</i></div>`)[0];
+                popup_73cf8e4405ae7202a8062275ddb0181f.setContent(html_9a80301aaef0b7a69eb853923e091cb9);
+            
+        
+
+        marker_bfaef40eda91a8a71ae9ffe8b6977017.bindPopup(popup_73cf8e4405ae7202a8062275ddb0181f)
+        ;
+
+        
+    
+    
+            marker_bfaef40eda91a8a71ae9ffe8b6977017.bindTooltip(
+                `<div>
+                     Wild Crumb Bakery & Cafe (bakery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bfaef40eda91a8a71ae9ffe8b6977017.setIcon(icon_df303c85842a51f6d6a6744150a3ab7c);
+            
+    
+            var marker_c6653f182c55e151a2e5499de175b9ab = L.marker(
+                [45.6793087, -111.0400705],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_7a862df28e37a2e188104c7d0a866979 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eccd20be87db1da2b4ad64986b90bea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d75e0c1162bb266ffd9cdf642ed7158 = $(`<div id="html_7d75e0c1162bb266ffd9cdf642ed7158" style="width: 100.0%; height: 100.0%;"><b>Blackbird Kitchen</b><br>Wood-fired Argentine-style asado<br><i>200 W Main St, Bozeman, MT</i></div>`)[0];
+                popup_1eccd20be87db1da2b4ad64986b90bea.setContent(html_7d75e0c1162bb266ffd9cdf642ed7158);
+            
+        
+
+        marker_c6653f182c55e151a2e5499de175b9ab.bindPopup(popup_1eccd20be87db1da2b4ad64986b90bea)
+        ;
+
+        
+    
+    
+            marker_c6653f182c55e151a2e5499de175b9ab.bindTooltip(
+                `<div>
+                     Blackbird Kitchen (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c6653f182c55e151a2e5499de175b9ab.setIcon(icon_7a862df28e37a2e188104c7d0a866979);
+            
+    
+            var marker_d8c33b8d49251e22323414b349f59e2d = L.marker(
+                [45.67966939999999, -111.0279672],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_011fff58da8566e0dd76bf3e6d2cf6c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "beer",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_afdb81e24f47cdd47ad2840b32b586bc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_77bd8a8dcc64fb1f7ff5dc9b06ff4a13 = $(`<div id="html_77bd8a8dcc64fb1f7ff5dc9b06ff4a13" style="width: 100.0%; height: 100.0%;"><b>Montana Ale Works</b><br>Local brewery in historic railroad building<br><i>611 E Main St, Bozeman, MT</i></div>`)[0];
+                popup_afdb81e24f47cdd47ad2840b32b586bc.setContent(html_77bd8a8dcc64fb1f7ff5dc9b06ff4a13);
+            
+        
+
+        marker_d8c33b8d49251e22323414b349f59e2d.bindPopup(popup_afdb81e24f47cdd47ad2840b32b586bc)
+        ;
+
+        
+    
+    
+            marker_d8c33b8d49251e22323414b349f59e2d.bindTooltip(
+                `<div>
+                     Montana Ale Works (brewery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d8c33b8d49251e22323414b349f59e2d.setIcon(icon_011fff58da8566e0dd76bf3e6d2cf6c2);
+            
+    
+            var marker_20aca5fbd5c5e891c333d48dec089575 = L.marker(
+                [45.6760623, -111.0306488],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_2816223ad915ba36e9aa137c9f6205a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b2015af5b9a64bf8fa43b5c6cdcb528c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e14a792d6810b3a4afbffb04eb319fad = $(`<div id="html_e14a792d6810b3a4afbffb04eb319fad" style="width: 100.0%; height: 100.0%;"><b>Bogert Park</b><br>Riverside park with walking trails<br><i>325 S Church Ave, Bozeman, MT</i></div>`)[0];
+                popup_b2015af5b9a64bf8fa43b5c6cdcb528c.setContent(html_e14a792d6810b3a4afbffb04eb319fad);
+            
+        
+
+        marker_20aca5fbd5c5e891c333d48dec089575.bindPopup(popup_b2015af5b9a64bf8fa43b5c6cdcb528c)
+        ;
+
+        
+    
+    
+            marker_20aca5fbd5c5e891c333d48dec089575.bindTooltip(
+                `<div>
+                     Bogert Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_20aca5fbd5c5e891c333d48dec089575.setIcon(icon_2816223ad915ba36e9aa137c9f6205a9);
+            
+    
+            var marker_868600c0343425b62d4ce297b79dcae5 = L.marker(
+                [45.6738998, -111.0293315],
+                {
+}
+            ).addTo(map_8ef1240a78807907bd414347978dba4c);
+        
+    
+            var icon_a01c64962a443c0764922d5b21dd3b07 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4adf79f73afa39388315b295151f67bd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9edfb93452eff6cecade65f0375aed03 = $(`<div id="html_9edfb93452eff6cecade65f0375aed03" style="width: 100.0%; height: 100.0%;"><b>Peets Hill/Burke Park</b><br>Hill with city views and walking trails<br><i>Burke Park, Bozeman, MT</i></div>`)[0];
+                popup_4adf79f73afa39388315b295151f67bd.setContent(html_9edfb93452eff6cecade65f0375aed03);
+            
+        
+
+        marker_868600c0343425b62d4ce297b79dcae5.bindPopup(popup_4adf79f73afa39388315b295151f67bd)
+        ;
+
+        
+    
+    
+            marker_868600c0343425b62d4ce297b79dcae5.bindTooltip(
+                `<div>
+                     Peets Hill/Burke Park (nature)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_868600c0343425b62d4ce297b79dcae5.setIcon(icon_a01c64962a443c0764922d5b21dd3b07);
+            
+</script>
+</html>

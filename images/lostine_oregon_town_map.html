@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_93b70fc9bc04e1801a629ba513ab6c8c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:14px; padding: 15px">
+    <h3 style="margin-top: 0;">Lostine, Oregon</h3>
+    <p><b>Historic ranching town & mountain gateway</b></p>
+    <p><i class="fa fa-shopping-cart" style="color:red"></i> M. Crow & Co. Store</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Restaurants & Dining</p>
+    <p><i class="fa fa-tree" style="color:blue"></i> Nature & Outdoor Access</p>
+    <p><i class="fa fa-university" style="color:purple"></i> Historic Sites</p>
+    <p><i class="fa fa-envelope" style="color:orange"></i> Services</p>
+    <p><i class="fa fa-users" style="color:darkgreen"></i> Community Spaces</p>
+    <hr>
+    <p><small><b>Distance from Joseph:</b> 8 miles north<br>
+    <b>Drive time:</b> 12 minutes<br>
+    <b>Elevation:</b> 3,640 ft</small></p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_93b70fc9bc04e1801a629ba513ab6c8c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_93b70fc9bc04e1801a629ba513ab6c8c = L.map(
+                "map_93b70fc9bc04e1801a629ba513ab6c8c",
+                {
+                    center: [45.4873692, -117.4296256],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 15,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_151b704a744f395cb92c5439d3c39bd0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_151b704a744f395cb92c5439d3c39bd0.addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var marker_e2ac04078f16b85714e61c4208d6742a = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_6fbacb68df5fc4935dcfe3dd67285341 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_11ceb682e1c066f0f9390b28e5625c61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7dcf1ad56f97c5a04773cb961f3f6b81 = $(`<div id="html_7dcf1ad56f97c5a04773cb961f3f6b81" style="width: 100.0%; height: 100.0%;">             <b>M. Crow & Co. General Store</b><br>             Famous design store by Tyler Hays, featuring handcrafted furniture and home goods<br>             <br><b>Hours:</b> Daily 10 AM - 6 PM<br><b>Phone:</b> (541) 569-2394</div>`)[0];
+                popup_11ceb682e1c066f0f9390b28e5625c61.setContent(html_7dcf1ad56f97c5a04773cb961f3f6b81);
+            
+        
+
+        marker_e2ac04078f16b85714e61c4208d6742a.bindPopup(popup_11ceb682e1c066f0f9390b28e5625c61)
+        ;
+
+        
+    
+    
+            marker_e2ac04078f16b85714e61c4208d6742a.bindTooltip(
+                `<div>
+                     M. Crow & Co. General Store (store)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e2ac04078f16b85714e61c4208d6742a.setIcon(icon_6fbacb68df5fc4935dcfe3dd67285341);
+            
+    
+            var marker_684e25d0bcb00d49ca611e811ac17980 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_d578e0d285d339fffc5488d080b4d26d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17e17710d693551b44fb4a1434eac62b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a452fdeabe085e050f1aa2f49d2b8c7d = $(`<div id="html_a452fdeabe085e050f1aa2f49d2b8c7d" style="width: 100.0%; height: 100.0%;">             <b>Lostine Tavern</b><br>             Historic local tavern and restaurant serving hearty mountain fare<br>             <br><b>Hours:</b> Daily 11 AM - 10 PM</div>`)[0];
+                popup_17e17710d693551b44fb4a1434eac62b.setContent(html_a452fdeabe085e050f1aa2f49d2b8c7d);
+            
+        
+
+        marker_684e25d0bcb00d49ca611e811ac17980.bindPopup(popup_17e17710d693551b44fb4a1434eac62b)
+        ;
+
+        
+    
+    
+            marker_684e25d0bcb00d49ca611e811ac17980.bindTooltip(
+                `<div>
+                     Lostine Tavern (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_684e25d0bcb00d49ca611e811ac17980.setIcon(icon_d578e0d285d339fffc5488d080b4d26d);
+            
+    
+            var marker_14746b5c6d81e47c5bd12fff4da64e3c = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_048304a2942b971f07b37db6012893b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_74cd3a233e22bd83c6212d310d4f5c75 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a49b9cc8d1e62cc3d4b3e8672d25f057 = $(`<div id="html_a49b9cc8d1e62cc3d4b3e8672d25f057" style="width: 100.0%; height: 100.0%;">             <b>Lostine River</b><br>             Beautiful river running through town, popular for fishing and relaxing<br>             </div>`)[0];
+                popup_74cd3a233e22bd83c6212d310d4f5c75.setContent(html_a49b9cc8d1e62cc3d4b3e8672d25f057);
+            
+        
+
+        marker_14746b5c6d81e47c5bd12fff4da64e3c.bindPopup(popup_74cd3a233e22bd83c6212d310d4f5c75)
+        ;
+
+        
+    
+    
+            marker_14746b5c6d81e47c5bd12fff4da64e3c.bindTooltip(
+                `<div>
+                     Lostine River (nature)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_14746b5c6d81e47c5bd12fff4da64e3c.setIcon(icon_048304a2942b971f07b37db6012893b3);
+            
+    
+            var marker_12dbf96fe6b80791eab70639eae9be82 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_69a806290a7ece1c8b6ab86e533b3e63 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22e16a8b44a0986917101cac4bbb43c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1de744ef535ec4e765e1a032218e6386 = $(`<div id="html_1de744ef535ec4e765e1a032218e6386" style="width: 100.0%; height: 100.0%;">             <b>Wallowa-Whitman National Forest Access</b><br>             Trailhead access to Eagle Cap Wilderness and alpine lakes<br>             </div>`)[0];
+                popup_22e16a8b44a0986917101cac4bbb43c9.setContent(html_1de744ef535ec4e765e1a032218e6386);
+            
+        
+
+        marker_12dbf96fe6b80791eab70639eae9be82.bindPopup(popup_22e16a8b44a0986917101cac4bbb43c9)
+        ;
+
+        
+    
+    
+            marker_12dbf96fe6b80791eab70639eae9be82.bindTooltip(
+                `<div>
+                     Wallowa-Whitman National Forest Access (nature)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_12dbf96fe6b80791eab70639eae9be82.setIcon(icon_69a806290a7ece1c8b6ab86e533b3e63);
+            
+    
+            var marker_c78f353c5330ab2f395151660bfd6f33 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_2173d63ffb07ad9a6685566157f46c0b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_32ed67f78ed7a84cc82d4f63b3581e48 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2d1b6b6937030b174a668aaf756afe9 = $(`<div id="html_e2d1b6b6937030b174a668aaf756afe9" style="width: 100.0%; height: 100.0%;">             <b>Historic Lostine Methodist Church</b><br>             Beautiful 1920s wooden church, architectural landmark<br>             </div>`)[0];
+                popup_32ed67f78ed7a84cc82d4f63b3581e48.setContent(html_e2d1b6b6937030b174a668aaf756afe9);
+            
+        
+
+        marker_c78f353c5330ab2f395151660bfd6f33.bindPopup(popup_32ed67f78ed7a84cc82d4f63b3581e48)
+        ;
+
+        
+    
+    
+            marker_c78f353c5330ab2f395151660bfd6f33.bindTooltip(
+                `<div>
+                     Historic Lostine Methodist Church (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c78f353c5330ab2f395151660bfd6f33.setIcon(icon_2173d63ffb07ad9a6685566157f46c0b);
+            
+    
+            var marker_ed111a8f0618aa63afd817c81a5a5570 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_5911ce26ec917f451f93dcd61299236a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "envelope",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7dedea2da190d1d6a83f4cc703251129 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_18ca920f97b7e206ccdabba0f050ae7b = $(`<div id="html_18ca920f97b7e206ccdabba0f050ae7b" style="width: 100.0%; height: 100.0%;">             <b>Lostine Post Office</b><br>             Historic small-town post office<br>             </div>`)[0];
+                popup_7dedea2da190d1d6a83f4cc703251129.setContent(html_18ca920f97b7e206ccdabba0f050ae7b);
+            
+        
+
+        marker_ed111a8f0618aa63afd817c81a5a5570.bindPopup(popup_7dedea2da190d1d6a83f4cc703251129)
+        ;
+
+        
+    
+    
+            marker_ed111a8f0618aa63afd817c81a5a5570.bindTooltip(
+                `<div>
+                     Lostine Post Office (service)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ed111a8f0618aa63afd817c81a5a5570.setIcon(icon_5911ce26ec917f451f93dcd61299236a);
+            
+    
+            var marker_d31a5eca1c8a61279dd83f47b34c70e4 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_9732d0fee33fa06f475015bb8b460961 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkgreen",
+  "iconColor": "white",
+  "icon": "users",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_972a31a9dda40503512b6766aafeaac3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_883c6345066d53435f8be0bd37a19582 = $(`<div id="html_883c6345066d53435f8be0bd37a19582" style="width: 100.0%; height: 100.0%;">             <b>Lostine Community Center</b><br>             Local community gathering place and events venue<br>             </div>`)[0];
+                popup_972a31a9dda40503512b6766aafeaac3.setContent(html_883c6345066d53435f8be0bd37a19582);
+            
+        
+
+        marker_d31a5eca1c8a61279dd83f47b34c70e4.bindPopup(popup_972a31a9dda40503512b6766aafeaac3)
+        ;
+
+        
+    
+    
+            marker_d31a5eca1c8a61279dd83f47b34c70e4.bindTooltip(
+                `<div>
+                     Lostine Community Center (community)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d31a5eca1c8a61279dd83f47b34c70e4.setIcon(icon_9732d0fee33fa06f475015bb8b460961);
+            
+    
+            var marker_3a412d96f2b39b50ff3b4a6445a4d284 = L.marker(
+                [45.4873692, -117.4296256],
+                {
+}
+            ).addTo(map_93b70fc9bc04e1801a629ba513ab6c8c);
+        
+    
+            var icon_bf88a27009edb39fbdedb4f5d0ba3901 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ab1a4048b294e5638be761873de18eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7dc06e9155fb0c489142ba20ebe631c2 = $(`<div id="html_7dc06e9155fb0c489142ba20ebe631c2" style="width: 100.0%; height: 100.0%;">             <b>Historic Ranches</b><br>             Working cattle ranches that define the valley's character<br>             </div>`)[0];
+                popup_4ab1a4048b294e5638be761873de18eb.setContent(html_7dc06e9155fb0c489142ba20ebe631c2);
+            
+        
+
+        marker_3a412d96f2b39b50ff3b4a6445a4d284.bindPopup(popup_4ab1a4048b294e5638be761873de18eb)
+        ;
+
+        
+    
+    
+            marker_3a412d96f2b39b50ff3b4a6445a4d284.bindTooltip(
+                `<div>
+                     Historic Ranches (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a412d96f2b39b50ff3b4a6445a4d284.setIcon(icon_bf88a27009edb39fbdedb4f5d0ba3901);
+            
+</script>
+</html>

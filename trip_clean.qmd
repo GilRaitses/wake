@@ -1,0 +1,397 @@
+---
+title: "Pacific Northwest Summer Adventure"
+subtitle: "August 2025 Trip Itinerary"
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    embed-resources: true
+    css: |
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #f8f9fa;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: #2c3e50;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 1rem;
+        color: #2c3e50;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        color: #e74c3c;
+        border-bottom: 2px solid #e74c3c;
+        padding-bottom: 0.5rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        color: #27ae60;
+      }
+      
+      h4 {
+        font-size: 1.3rem;
+        color: #f39c12;
+      }
+      
+      #TOC {
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        border: 1px solid #dee2e6;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      
+      #TOC ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      
+      #TOC li {
+        margin: 0.5rem 0;
+      }
+      
+      #TOC a {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      #TOC a:hover {
+        color: #2980b9;
+        text-decoration: underline;
+      }
+      
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      
+      ul, ol {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      
+      strong, b {
+        font-weight: 600;
+        color: #2c3e50;
+      }
+      
+      hr {
+        border: none;
+        height: 2px;
+        background: #dee2e6;
+        margin: 2rem 0;
+      }
+      
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        color: #2980b9;
+        text-decoration: underline;
+      }
+      
+      .header-section-number {
+        color: #7f8c8d;
+        margin-right: 0.5rem;
+      }
+      
+      /* Page break and orphan/widow controls */
+      @media print {
+        /* Prevent orphans and widows */
+        p {
+          orphans: 3;
+          widows: 3;
+        }
+        
+        /* Keep headings with following content */
+        h1, h2, h3, h4, h5, h6 {
+          page-break-after: avoid;
+          break-after: avoid;
+          orphans: 4;
+          widows: 4;
+        }
+        
+        /* Avoid breaks inside these elements */
+        .section, .subsection, .subsubsection {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        
+        /* Force page breaks before major sections */
+        h1 {
+          page-break-before: always;
+          break-before: page;
+        }
+        
+        /* Avoid page breaks after short content */
+        .avoid-break-after {
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+        
+        /* Keep lists together */
+        ul, ol {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        
+        /* Keep tables together */
+        table {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        
+        /* Better spacing for sections */
+        .section + .section {
+          page-break-before: auto;
+          break-before: auto;
+        }
+      }
+      
+      /* General content flow improvements */
+      .content-section {
+        margin-bottom: 2rem;
+      }
+      
+      .content-section:last-child {
+        margin-bottom: 0;
+      }
+      
+      /* Better list spacing */
+      ul ul, ol ol {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      /* Improved section breaks */
+      .section-break {
+        margin: 3rem 0;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 1rem;
+      }
+  pdf:
+    documentclass: scrartcl
+    classoption: ["DIV=10", "numbers=noendperiod"]
+    papersize: letter
+    mainfont: "Times New Roman"
+    mainfontoptions: "Regular"
+    sansfont: "Times New Roman"
+    sansfontoptions: "Regular"
+    fontsize: "14pt"
+    linestretch: 1.3
+    geometry:
+      - top=0.8in
+      - bottom=0.8in
+      - left=0.8in
+      - right=0.8in
+    toc: true
+    toc-depth: 2
+    toc-title: "Trip Overview"
+    titlepage: false
+    include-in-header:
+      - text: |
+          \usepackage{fancyhdr}
+          \usepackage{graphicx}
+          \usepackage{xcolor}
+          \usepackage{titletoc}
+          \usepackage{tikz}
+          \usepackage{geometry}
+          \usepackage{titlesec}
+          \usepackage{sectsty}
+          \usepackage{everypage}
+          \usepackage{afterpage}
+          \definecolor{forestgreen}{RGB}{34,139,34}
+          \definecolor{steelblue}{RGB}{70,130,180}
+          \definecolor{lightgray}{RGB}{128,128,128}
+          \definecolor{mountainblue}{RGB}{72,118,255}
+          \definecolor{sunsetorange}{RGB}{255,140,0}
+          \definecolor{pinegreen}{RGB}{0,100,0}
+          \definecolor{riverblue}{RGB}{65,105,225}
+          \definecolor{twinpeaksred}{RGB}{139,0,0}
+          \definecolor{twinpeaksblack}{RGB}{0,0,0}
+          \definecolor{twinpeaksgold}{RGB}{218,165,32}
+          
+          % Global background images for all pages - cycling through 50 unique backgrounds
+          \newcounter{backgroundcounter}
+          \setcounter{backgroundcounter}{1}
+          \AddEverypageHook{
+            \ifnum\value{page}>2
+              \begin{tikzpicture}[remember picture,overlay]
+                \edef\bgnum{\ifnum\value{backgroundcounter}<10 0\fi\number\value{backgroundcounter}}
+                \node[opacity=0.9] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{images/page_background_\bgnum.jpg}};
+              \end{tikzpicture}
+              \stepcounter{backgroundcounter}
+              \ifnum\value{backgroundcounter}>50
+                \setcounter{backgroundcounter}{1}
+              \fi
+            \fi
+          }
+          
+          % Force TOC to one page - compact styling
+          \setcounter{tocdepth}{2}
+          \renewcommand{\contentsname}{Trip Overview}
+          
+          % Force TOC to fit on one page
+          \usepackage{tocloft}
+          \setlength{\cftbeforesecskip}{0.2em}
+          \setlength{\cftbeforesubsecskip}{0.1em}
+          
+          % Absolutely prevent TOC from breaking across pages
+          \renewcommand{\tableofcontents}{%
+            \begin{minipage}{\textwidth}
+            \@starttoc{toc}%
+            \end{minipage}
+          }
+          
+          % Make section headers much larger and more prominent
+          \titleformat{\section}
+            {\normalfont\fontsize{20}{24}\bfseries\color{twinpeaksred}}
+            {\thesection}{1em}{}[\vspace{0.3em}{\titlerule[2pt]}\vspace{0.5em}]
+          
+          \titleformat{\subsection}
+            {\normalfont\fontsize{16}{20}\bfseries\color{steelblue}}
+            {\thesubsection}{1em}{}[\vspace{0.2em}{\titlerule[1pt]}\vspace{0.5em}]
+          
+          \titleformat{\subsubsection}
+            {\normalfont\fontsize{14}{18}\bfseries\color{pinegreen}}
+            {\thesubsubsection}{1em}{}[\vspace{0.1em}{\titlerule[0.5pt]}\vspace{0.3em}]
+          
+          % Add more spacing around sections
+          \titlespacing*{\section}{0pt}{2em}{1.5em}
+          \titlespacing*{\subsection}{0pt}{1.5em}{1em}
+          \titlespacing*{\subsubsection}{0pt}{1em}{0.5em}
+          
+          % Improve page breaks and prevent orphans/widows
+          \usepackage{needspace}
+          \clubpenalty=10000
+          \widowpenalty=10000
+          \displaywidowpenalty=10000
+          \raggedbottom
+          
+          % Better page breaking penalties
+          \brokenpenalty=10000
+          \predisplaypenalty=10000
+          \postdisplaypenalty=10000
+          \interlinepenalty=0
+          
+          % Prevent bad page breaks
+          \usepackage{etoolbox}
+          \preto{\section}{\needspace{4\baselineskip}}
+          \preto{\subsection}{\needspace{3\baselineskip}}
+          \preto{\subsubsection}{\needspace{2\baselineskip}}
+          
+          \pagestyle{fancy}
+          \fancyhf{}
+          \fancyhead[L]{\fontsize{11}{13}\selectfont Pacific Northwest Adventure}
+          \fancyhead[R]{\fontsize{11}{13}\selectfont August 2025}
+          \fancyfoot[C]{\fontsize{12}{14}\selectfont\thepage}
+          \renewcommand{\headrulewidth}{0.5pt}
+          \renewcommand{\footrulewidth}{0pt}
+          
+          % Ultra-compact TOC styling to fit on one page
+          \titlecontents{section}
+            [0em]
+            {\vspace{0.2em}\fontsize{11}{13}\selectfont\bfseries\color{twinpeaksred}}
+            {\thecontentslabel\quad}
+            {}
+            {\titlerule*[0.5em]{.}\contentspage}
+          
+          \titlecontents{subsection}
+            [1.2em]
+            {\vspace{0.1em}\fontsize{9}{11}\selectfont\color{steelblue}}
+            {\thecontentslabel\quad}
+            {}
+            {\titlerule*[0.4em]{.}\contentspage}
+            
+          % Custom title page with Twin Peaks styling
+          \makeatletter
+          \def\maketitle{%
+            \begin{titlepage}
+              \newgeometry{margin=0.5in}
+              % Cover background with collage
+              \begin{tikzpicture}[remember picture,overlay]
+                \node[opacity=0.95] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{images/page_background_01.jpg}};
+              \end{tikzpicture}
+              
+              \vspace{1cm}
+              
+              % Twin Peaks style title with serif font
+              \begin{center}
+                {\fontfamily{ptm}\fontsize{36}{42}\selectfont\textbf{\textcolor{twinpeaksred}{PACIFIC NORTHWEST}}}
+                
+                \vspace{0.3cm}
+                
+                {\fontfamily{ptm}\fontsize{32}{38}\selectfont\textbf{\textcolor{twinpeaksblack}{SUMMER ADVENTURE}}}
+                
+                \vspace{1cm}
+                
+                % Dates in Twin Peaks style
+                {\fontfamily{ptm}\fontsize{20}{24}\selectfont\textbf{\textcolor{twinpeaksgold}{August 3-14, 2025}}}
+                
+                \vspace{1.5cm}
+                
+                % States
+                {\fontfamily{ptm}\fontsize{18}{22}\selectfont\textbf{\textcolor{twinpeaksblack}{MONTANA • IDAHO • OREGON • WASHINGTON}}}
+                
+                \vspace{2cm}
+                
+                % Decorative line
+                \textcolor{twinpeaksred}{\rule{0.7\textwidth}{3pt}}
+                
+                \vspace{1cm}
+                
+                % Travelers in Twin Peaks credits style
+                {\fontfamily{ptm}\fontsize{16}{20}\selectfont\textbf{\textcolor{twinpeaksred}{TRAVELERS}}}
+                
+                \vspace{0.5cm}
+                
+                {\fontfamily{ptm}\fontsize{14}{18}\selectfont\textcolor{twinpeaksblack}{GIL \& CAMILA}}
+                
+                \vspace{0.3cm}
+                
+                {\fontfamily{ptm}\fontsize{14}{18}\selectfont\textcolor{twinpeaksblack}{AVIV \& SMADAR}}
+                
+                \vspace{2cm}
+                
+                % Twin Peaks style decorative elements
+                \textcolor{twinpeaksred}{\rule{0.5\textwidth}{2pt}}
+                
+                \vspace{0.5cm}
+                
+                {\fontfamily{ptm}\fontsize{12}{14}\selectfont\textcolor{twinpeaksblack}{Hot Springs • Mountain Lakes • Wine Country • Glamping}}
+                
+                \vspace{0.3cm}
+                
+                {\fontfamily{ptm}\fontsize{12}{14}\selectfont\textcolor{twinpeaksblack}{Luxury Lodging • Scenic Drives • Artist Communities}}
+                
+              \end{center}
+              
+              \restoregeometry
+            \end{titlepage}
+          }
+          \makeatother
+date: "2025-08-03 to 2025-08-14"
+---

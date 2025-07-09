@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_eb31dc4b70fc9537321d26443055e701 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:12px; padding: 15px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="margin-top: 0; font-size: 16px;">Joseph, Oregon Town Center</h3>
+    <p><b>🏨 The Jennings Hotel</b></p>
+    <p><i>30 minutes walking from Jennings Hotel</i></p>
+    <hr style="margin: 10px 0;">
+    <p><i class="fa fa-home" style="color:red"></i> Your Accommodation</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Dining & Food</p>
+    <p><i class="fa fa-cutlery" style="color:orange"></i> Bakeries</p>
+    <p><i class="fa fa-beer" style="color:darkgreen"></i> Breweries</p>
+    <p><i class="fa fa-glass" style="color:purple"></i> Wine & Cocktails</p>
+    <p><i class="fa fa-shopping-cart" style="color:blue"></i> Markets</p>
+    <p><i class="fa fa-university" style="color:darkblue"></i> Museums & Culture</p>
+    <p><i class="fa fa-paint-brush" style="color:cadetblue"></i> Art Galleries</p>
+    <p><i class="fa fa-university" style="color:darkred"></i> Historic Sites</p>
+    <p><i class="fa fa-tree" style="color:lightgreen"></i> Parks & Nature</p>
+    <p><i class="fa fa-shopping-bag" style="color:pink"></i> Shopping</p>
+    <p><i class="fa fa-star" style="color:black"></i> Landmarks</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_eb31dc4b70fc9537321d26443055e701" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_eb31dc4b70fc9537321d26443055e701 = L.map(
+                "map_eb31dc4b70fc9537321d26443055e701",
+                {
+                    center: [45.3511765, -117.2295573],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_331f3257ec2fcef3939ff032c4a195f7 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_331f3257ec2fcef3939ff032c4a195f7.addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var tile_layer_b1d8430b843df4e2b9f30423055e595b = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b1d8430b843df4e2b9f30423055e595b.addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var marker_55c40ad7d5eb4b9f008dab8341d9735d = L.marker(
+                [45.3511765, -117.2295573],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_dfacc629d1984750f068413e796ed85c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+  "iconSize": [20, 20],
+}
+            );
+        
+    
+        var popup_0bf3f2d751464d1f5867f365ac39755e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c414691871d2c8f00d0c654cfd9aeb2 = $(`<div id="html_3c414691871d2c8f00d0c654cfd9aeb2" style="width: 100.0%; height: 100.0%;"><b>The Jennings Hotel</b><br>100 Main St, Joseph, OR 97846<br><b>Your Hotel</b></div>`)[0];
+                popup_0bf3f2d751464d1f5867f365ac39755e.setContent(html_3c414691871d2c8f00d0c654cfd9aeb2);
+            
+        
+
+        marker_55c40ad7d5eb4b9f008dab8341d9735d.bindPopup(popup_0bf3f2d751464d1f5867f365ac39755e)
+        ;
+
+        
+    
+    
+            marker_55c40ad7d5eb4b9f008dab8341d9735d.bindTooltip(
+                `<div>
+                     🏨 The Jennings Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_55c40ad7d5eb4b9f008dab8341d9735d.setIcon(icon_dfacc629d1984750f068413e796ed85c);
+            
+    
+            var marker_f80d559d211bef5490923b55ad83d1ff = L.marker(
+                [45.3515883, -117.2294513],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_05eac15ccf94f2eb087a2a9c7298fdd2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "paint-brush",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17c061b176ee566f4fc87e349135a182 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47140272352be7e0a640e589003eb9a0 = $(`<div id="html_47140272352be7e0a640e589003eb9a0" style="width: 100.0%; height: 100.0%;"><b>Valley Bronze of Oregon</b><br>Working bronze foundry with tours<br><i>18 S Main St, Joseph, OR</i></div>`)[0];
+                popup_17c061b176ee566f4fc87e349135a182.setContent(html_47140272352be7e0a640e589003eb9a0);
+            
+        
+
+        marker_f80d559d211bef5490923b55ad83d1ff.bindPopup(popup_17c061b176ee566f4fc87e349135a182)
+        ;
+
+        
+    
+    
+            marker_f80d559d211bef5490923b55ad83d1ff.bindTooltip(
+                `<div>
+                     Valley Bronze of Oregon (art)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f80d559d211bef5490923b55ad83d1ff.setIcon(icon_05eac15ccf94f2eb087a2a9c7298fdd2);
+            
+    
+            var marker_f32130073d9b9733988403fb09b0c677 = L.marker(
+                [45.35564979999999, -117.2303699],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_fb93a548f843ae88bc03a56eef24886b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b03c137256f04b24e0f1f21e2fbe9dc0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a0cc23ec36273f2b1a68339478aa22f = $(`<div id="html_9a0cc23ec36273f2b1a68339478aa22f" style="width: 100.0%; height: 100.0%;"><b>Josephy Center for Arts & Culture</b><br>Local arts center and pottery classes<br><i>403 N Main St, Joseph, OR</i></div>`)[0];
+                popup_b03c137256f04b24e0f1f21e2fbe9dc0.setContent(html_9a0cc23ec36273f2b1a68339478aa22f);
+            
+        
+
+        marker_f32130073d9b9733988403fb09b0c677.bindPopup(popup_b03c137256f04b24e0f1f21e2fbe9dc0)
+        ;
+
+        
+    
+    
+            marker_f32130073d9b9733988403fb09b0c677.bindTooltip(
+                `<div>
+                     Josephy Center for Arts & Culture (culture)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f32130073d9b9733988403fb09b0c677.setIcon(icon_fb93a548f843ae88bc03a56eef24886b);
+            
+    
+            var marker_0f26fd3e80561a9512844c889055cae8 = L.marker(
+                [45.3543539, -117.2298941],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_e4daf44828e906a7982bbc91df7880a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_433f0385ce01cdac20d9c70dd7143880 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e87cb0d7ee0c1cd6ba91c71d31c60981 = $(`<div id="html_e87cb0d7ee0c1cd6ba91c71d31c60981" style="width: 100.0%; height: 100.0%;"><b>Main Street Historic District</b><br>Historic western town atmosphere<br><i>Main St, Joseph, OR</i></div>`)[0];
+                popup_433f0385ce01cdac20d9c70dd7143880.setContent(html_e87cb0d7ee0c1cd6ba91c71d31c60981);
+            
+        
+
+        marker_0f26fd3e80561a9512844c889055cae8.bindPopup(popup_433f0385ce01cdac20d9c70dd7143880)
+        ;
+
+        
+    
+    
+            marker_0f26fd3e80561a9512844c889055cae8.bindTooltip(
+                `<div>
+                     Main Street Historic District (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f26fd3e80561a9512844c889055cae8.setIcon(icon_e4daf44828e906a7982bbc91df7880a4);
+            
+    
+            var marker_cd85217135d1e76758b2bde718cd8b9a = L.marker(
+                [45.3537312, -117.2295607],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_ea67d83d49743ad9a9b6762f661d9d53 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5813a4406ac81d63f30f0ad4d04cf9c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b52d2b274f7c76e742944dac5be86f95 = $(`<div id="html_b52d2b274f7c76e742944dac5be86f95" style="width: 100.0%; height: 100.0%;"><b>Embers Brewhouse & Eatery</b><br>Local brewery with wood-fired pizza<br><i>204 N Main St, Joseph, OR</i></div>`)[0];
+                popup_d5813a4406ac81d63f30f0ad4d04cf9c.setContent(html_b52d2b274f7c76e742944dac5be86f95);
+            
+        
+
+        marker_cd85217135d1e76758b2bde718cd8b9a.bindPopup(popup_d5813a4406ac81d63f30f0ad4d04cf9c)
+        ;
+
+        
+    
+    
+            marker_cd85217135d1e76758b2bde718cd8b9a.bindTooltip(
+                `<div>
+                     Embers Brewhouse & Eatery (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cd85217135d1e76758b2bde718cd8b9a.setIcon(icon_ea67d83d49743ad9a9b6762f661d9d53);
+            
+    
+            var marker_ff1165a1f9ddd14a8005c3ed0ddb5763 = L.marker(
+                [43.8041334, -120.5542012],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_1c46067acd8785aa5f946be08b06e2d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_89efd7cfbbaa6fde6f308d1cb8db3488 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0ccc4565ddf181f084c41025f955b82b = $(`<div id="html_0ccc4565ddf181f084c41025f955b82b" style="width: 100.0%; height: 100.0%;"><b>Lear's Main Street Grill</b><br>Mountain BBQ and smoked meats<br><i>111 W Main St, Joseph, OR</i></div>`)[0];
+                popup_89efd7cfbbaa6fde6f308d1cb8db3488.setContent(html_0ccc4565ddf181f084c41025f955b82b);
+            
+        
+
+        marker_ff1165a1f9ddd14a8005c3ed0ddb5763.bindPopup(popup_89efd7cfbbaa6fde6f308d1cb8db3488)
+        ;
+
+        
+    
+    
+            marker_ff1165a1f9ddd14a8005c3ed0ddb5763.bindTooltip(
+                `<div>
+                     Lear's Main Street Grill (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ff1165a1f9ddd14a8005c3ed0ddb5763.setIcon(icon_1c46067acd8785aa5f946be08b06e2d5);
+            
+    
+            var marker_3060915b15b731e98b8f5da4796c1f7f = L.marker(
+                [45.3543187, -117.2296126],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_fba097fc799158cb977e7238d0c67bc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_413af62dc28fcf47abe4d7ba25afd268 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43164c2a219aee2d8d4980ea5f79c542 = $(`<div id="html_43164c2a219aee2d8d4980ea5f79c542" style="width: 100.0%; height: 100.0%;"><b>Joseph Branch Railhead</b><br>Historic railroad remnants<br><i>Joseph, OR</i></div>`)[0];
+                popup_413af62dc28fcf47abe4d7ba25afd268.setContent(html_43164c2a219aee2d8d4980ea5f79c542);
+            
+        
+
+        marker_3060915b15b731e98b8f5da4796c1f7f.bindPopup(popup_413af62dc28fcf47abe4d7ba25afd268)
+        ;
+
+        
+    
+    
+            marker_3060915b15b731e98b8f5da4796c1f7f.bindTooltip(
+                `<div>
+                     Joseph Branch Railhead (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3060915b15b731e98b8f5da4796c1f7f.setIcon(icon_fba097fc799158cb977e7238d0c67bc4);
+            
+    
+            var marker_657a68b193da5bdf67a127397cc9078c = L.marker(
+                [45.3543187, -117.2296126],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_17247093db83e67ea8a663b7d267773f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "monument",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_083fa03cbff1ef5ecc37a9cdc1758b80 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_41fe19b0102ce532408d934701b71953 = $(`<div id="html_41fe19b0102ce532408d934701b71953" style="width: 100.0%; height: 100.0%;"><b>Chief Joseph Monument</b><br>Monument to Nez Perce leader<br><i>Joseph, OR</i></div>`)[0];
+                popup_083fa03cbff1ef5ecc37a9cdc1758b80.setContent(html_41fe19b0102ce532408d934701b71953);
+            
+        
+
+        marker_657a68b193da5bdf67a127397cc9078c.bindPopup(popup_083fa03cbff1ef5ecc37a9cdc1758b80)
+        ;
+
+        
+    
+    
+            marker_657a68b193da5bdf67a127397cc9078c.bindTooltip(
+                `<div>
+                     Chief Joseph Monument (monument)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_657a68b193da5bdf67a127397cc9078c.setIcon(icon_17247093db83e67ea8a663b7d267773f);
+            
+    
+            var marker_b5366bd9a51c9797fc7b3b3d155eb8f7 = L.marker(
+                [45.3543187, -117.2296126],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_c030d374df0d6b5a778cf25a54325ccf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_880b6e39055db53b228f86d3d8d6700f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_270cec9a7e1a9f00cec9d2bc39c23ab5 = $(`<div id="html_270cec9a7e1a9f00cec9d2bc39c23ab5" style="width: 100.0%; height: 100.0%;"><b>Town Park</b><br>Small town park for relaxation<br><i>Joseph, OR</i></div>`)[0];
+                popup_880b6e39055db53b228f86d3d8d6700f.setContent(html_270cec9a7e1a9f00cec9d2bc39c23ab5);
+            
+        
+
+        marker_b5366bd9a51c9797fc7b3b3d155eb8f7.bindPopup(popup_880b6e39055db53b228f86d3d8d6700f)
+        ;
+
+        
+    
+    
+            marker_b5366bd9a51c9797fc7b3b3d155eb8f7.bindTooltip(
+                `<div>
+                     Town Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5366bd9a51c9797fc7b3b3d155eb8f7.setIcon(icon_c030d374df0d6b5a778cf25a54325ccf);
+            
+    
+            var marker_0a2e47498df04825beb4d36b797414b0 = L.marker(
+                [45.3543539, -117.2298941],
+                {
+}
+            ).addTo(map_eb31dc4b70fc9537321d26443055e701);
+        
+    
+            var icon_ccfc25bab4a1d3b5ad1b347af03e5633 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "paint-brush",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a6f8593d390c95202d5a3b29329f6f2d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_78fd989f1cd2621dcac9ec53d41f5661 = $(`<div id="html_78fd989f1cd2621dcac9ec53d41f5661" style="width: 100.0%; height: 100.0%;"><b>Local Art Galleries</b><br>Various art galleries throughout downtown<br><i>Main St, Joseph, OR</i></div>`)[0];
+                popup_a6f8593d390c95202d5a3b29329f6f2d.setContent(html_78fd989f1cd2621dcac9ec53d41f5661);
+            
+        
+
+        marker_0a2e47498df04825beb4d36b797414b0.bindPopup(popup_a6f8593d390c95202d5a3b29329f6f2d)
+        ;
+
+        
+    
+    
+            marker_0a2e47498df04825beb4d36b797414b0.bindTooltip(
+                `<div>
+                     Local Art Galleries (art)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0a2e47498df04825beb4d36b797414b0.setIcon(icon_ccfc25bab4a1d3b5ad1b347af03e5633);
+            
+</script>
+</html>

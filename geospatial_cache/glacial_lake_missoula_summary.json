@@ -1,0 +1,62 @@
+{
+  "geological_timeline": {
+    "ice_sheet_advance": {
+      "time": "20,000 years ago",
+      "description": "Cordilleran Ice Sheet advances south",
+      "critical_points": [
+        "Purcell Trench lobe formation",
+        "Clark Fork River blocked"
+      ]
+    },
+    "lake_formation": {
+      "time": "20,000-15,000 years ago",
+      "description": "Glacial Lake Missoula forms",
+      "critical_points": [
+        "Ice dam 2,500 feet high",
+        "Lake volume: 500 cubic miles",
+        "Water depth: 2,000 feet"
+      ]
+    },
+    "dam_failure_cycle": {
+      "time": "Repeated over 2,500 years",
+      "description": "40+ catastrophic dam failures",
+      "critical_points": [
+        "Peak discharge: 20+ million cubic meters/second",
+        "Flood speed: 65 mph",
+        "Complete drainage: 48 hours"
+      ]
+    },
+    "scablands_formation": {
+      "time": "Each flood event",
+      "description": "Channeled Scablands carved",
+      "critical_points": [
+        "Stripped hundreds of feet of soil",
+        "Carved deep coulees",
+        "Created Grand Coulee"
+      ]
+    },
+    "modern_landscape": {
+      "time": "Present day",
+      "description": "Geological legacy visible today",
+      "critical_points": [
+        "Flood deposits preserved",
+        "Scablands visible from space",
+        "Modern river valleys"
+      ]
+    }
+  },
+  "critical_datasets": {
+    "usgs_flood_modeling": "Digital terrain models (185m resolution)",
+    "stratigraphic_evidence": "Dozens of separate flood beds",
+    "paleoclimate_data": "Varve counts and radiocarbon dating",
+    "ice_sheet_modeling": "Cordilleran Ice Sheet reconstruction"
+  },
+  "key_statistics": {
+    "total_floods": "40+ separate events",
+    "time_period": "20,000-15,000 years ago",
+    "peak_discharge": "20+ million cubic meters per second",
+    "flood_speed": "65 miles per hour",
+    "drainage_time": "48 hours complete drainage",
+    "lake_volume": "500 cubic miles (Lake Erie + Ontario combined)"
+  }
+}

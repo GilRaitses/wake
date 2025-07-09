@@ -1,0 +1,38 @@
+{
+  "shore_lodge": {
+    "name": "Shore Lodge",
+    "location": "McCall, Idaho",
+    "dates": "August 7-8, 2025",
+    "phone": "(800) 657-6464",
+    "website": "https://shorelodge.com",
+    "estimated_rate": "$400-600/night",
+    "features": "Luxury lakefront resort, 77 suites, spa, dining"
+  },
+  "jennings_hotel": {
+    "name": "Jennings Hotel",
+    "location": "Joseph, Oregon",
+    "dates": "August 9, 2025",
+    "phone": "Contact needed",
+    "website": "Search needed",
+    "estimated_rate": "$200-300/night",
+    "features": "Historic downtown location, near Wallowa Lake"
+  },
+  "eritage_resort": {
+    "name": "Eritage Resort",
+    "location": "Walla Walla, Washington",
+    "dates": "August 10, 2025",
+    "phone": "Contact needed",
+    "website": "Search needed",
+    "estimated_rate": "$300-500/night",
+    "features": "Wine country resort, vineyard views, spa"
+  },
+  "under_canvas": {
+    "name": "Under Canvas Columbia River",
+    "location": "Columbia River Gorge, Washington",
+    "dates": "August 11, 2025",
+    "phone": "Contact needed",
+    "website": "https://undercanvas.com",
+    "estimated_rate": "$200-400/night",
+    "features": "Luxury glamping, furnished tents, scenic location"
+  }
+}

@@ -1,0 +1,10 @@
+Seattle, Washington Recommendations
+Hotel: The Fairmont Olympic Seattle (Red H)
+
+Recommendations:
+1 - Pike Place Market (attraction)
+2 - Grand Central Bakery (restaurant)
+3 - Seattle Art Museum (attraction)
+4 - Pioneer Square (attraction)
+5 - Waterfront Park (outdoor)
+6 - Space Needle (attraction)

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4a0e75eff24e9c2827c57d46f449b9c4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:12px; padding: 15px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="margin-top: 0; font-size: 16px;">McCall, Idaho Town Center</h3>
+    <p><b>🏨 Shore Lodge</b></p>
+    <p><i>30 minutes walking from Shore Lodge</i></p>
+    <hr style="margin: 10px 0;">
+    <p><i class="fa fa-home" style="color:red"></i> Your Accommodation</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Dining & Food</p>
+    <p><i class="fa fa-cutlery" style="color:orange"></i> Bakeries</p>
+    <p><i class="fa fa-beer" style="color:darkgreen"></i> Breweries</p>
+    <p><i class="fa fa-glass" style="color:purple"></i> Wine & Cocktails</p>
+    <p><i class="fa fa-shopping-cart" style="color:blue"></i> Markets</p>
+    <p><i class="fa fa-university" style="color:darkblue"></i> Museums & Culture</p>
+    <p><i class="fa fa-paint-brush" style="color:cadetblue"></i> Art Galleries</p>
+    <p><i class="fa fa-university" style="color:darkred"></i> Historic Sites</p>
+    <p><i class="fa fa-tree" style="color:lightgreen"></i> Parks & Nature</p>
+    <p><i class="fa fa-shopping-bag" style="color:pink"></i> Shopping</p>
+    <p><i class="fa fa-star" style="color:black"></i> Landmarks</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_4a0e75eff24e9c2827c57d46f449b9c4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4a0e75eff24e9c2827c57d46f449b9c4 = L.map(
+                "map_4a0e75eff24e9c2827c57d46f449b9c4",
+                {
+                    center: [44.912715, -116.1203143],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9dce5af322bd936fe4c4a3d74174c55c = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9dce5af322bd936fe4c4a3d74174c55c.addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var tile_layer_2c5773fd9466f57cf4eeb1241b6a3283 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2c5773fd9466f57cf4eeb1241b6a3283.addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var marker_82fbcbce1a4cf6433fe28fe079ecd7e0 = L.marker(
+                [44.912715, -116.1203143],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_5fa7cb55a5099a7216252b30eb5ff261 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+  "iconSize": [20, 20],
+}
+            );
+        
+    
+        var popup_f039e86810222f27f94a04e52969db6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cbb2d03c7263a55b71510f31fe62505c = $(`<div id="html_cbb2d03c7263a55b71510f31fe62505c" style="width: 100.0%; height: 100.0%;"><b>Shore Lodge</b><br>501 W Lake St, McCall, ID 83638<br><b>Your Hotel</b></div>`)[0];
+                popup_f039e86810222f27f94a04e52969db6f.setContent(html_cbb2d03c7263a55b71510f31fe62505c);
+            
+        
+
+        marker_82fbcbce1a4cf6433fe28fe079ecd7e0.bindPopup(popup_f039e86810222f27f94a04e52969db6f)
+        ;
+
+        
+    
+    
+            marker_82fbcbce1a4cf6433fe28fe079ecd7e0.bindTooltip(
+                `<div>
+                     🏨 Shore Lodge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_82fbcbce1a4cf6433fe28fe079ecd7e0.setIcon(icon_5fa7cb55a5099a7216252b30eb5ff261);
+            
+    
+            var marker_e03dca0fcb03a6cb0e8f470a3c53ddb3 = L.marker(
+                [44.9284863, -116.1074207],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_a26b036449c93b48a3bca7d2e17c6e27 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b9f2a02421ad30b14b47979523d62aa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_971edd99ccb26241174566e02dbca6eb = $(`<div id="html_971edd99ccb26241174566e02dbca6eb" style="width: 100.0%; height: 100.0%;"><b>Payette Lake Beach</b><br>Beautiful mountain lake with beach access<br><i>Payette Lake, McCall, ID</i></div>`)[0];
+                popup_0b9f2a02421ad30b14b47979523d62aa.setContent(html_971edd99ccb26241174566e02dbca6eb);
+            
+        
+
+        marker_e03dca0fcb03a6cb0e8f470a3c53ddb3.bindPopup(popup_0b9f2a02421ad30b14b47979523d62aa)
+        ;
+
+        
+    
+    
+            marker_e03dca0fcb03a6cb0e8f470a3c53ddb3.bindTooltip(
+                `<div>
+                     Payette Lake Beach (nature)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e03dca0fcb03a6cb0e8f470a3c53ddb3.setIcon(icon_a26b036449c93b48a3bca7d2e17c6e27);
+            
+    
+            var marker_a55e87309438b5631da4d47bacdfe89e = L.marker(
+                [44.9137541, -116.0968697],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_2724c7c712bf47a0fb5464d291eecf42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightblue",
+  "iconColor": "white",
+  "icon": "sun-o",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab74c742169387e4156d7542fa81a7a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eaf9407676bf01e3dfd423e0431437f4 = $(`<div id="html_eaf9407676bf01e3dfd423e0431437f4" style="width: 100.0%; height: 100.0%;"><b>McCall City Beach</b><br>Public beach with swimming and activities<br><i>1300 E Lake St, McCall, ID</i></div>`)[0];
+                popup_ab74c742169387e4156d7542fa81a7a0.setContent(html_eaf9407676bf01e3dfd423e0431437f4);
+            
+        
+
+        marker_a55e87309438b5631da4d47bacdfe89e.bindPopup(popup_ab74c742169387e4156d7542fa81a7a0)
+        ;
+
+        
+    
+    
+            marker_a55e87309438b5631da4d47bacdfe89e.bindTooltip(
+                `<div>
+                     McCall City Beach (beach)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a55e87309438b5631da4d47bacdfe89e.setIcon(icon_2724c7c712bf47a0fb5464d291eecf42);
+            
+    
+            var marker_3ca626af0228ce85d87b0a4966ae8ff5 = L.marker(
+                [44.9120979, -116.097522],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_2724fce581a65847adaeb313ed7fea3d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c4630725121c8082849aad1f13a6260 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b792df905f1b3d891ee557f6ed27837c = $(`<div id="html_b792df905f1b3d891ee557f6ed27837c" style="width: 100.0%; height: 100.0%;"><b>Legacy Park</b><br>Lakefront park with walking paths<br><i>Legacy Park, McCall, ID</i></div>`)[0];
+                popup_7c4630725121c8082849aad1f13a6260.setContent(html_b792df905f1b3d891ee557f6ed27837c);
+            
+        
+
+        marker_3ca626af0228ce85d87b0a4966ae8ff5.bindPopup(popup_7c4630725121c8082849aad1f13a6260)
+        ;
+
+        
+    
+    
+            marker_3ca626af0228ce85d87b0a4966ae8ff5.bindTooltip(
+                `<div>
+                     Legacy Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3ca626af0228ce85d87b0a4966ae8ff5.setIcon(icon_2724fce581a65847adaeb313ed7fea3d);
+            
+    
+            var marker_3b27bbcc81bc7c0ab01a53f818aecafb = L.marker(
+                [44.9045738, -116.097966],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_2d80e9cd9f1375e8ccfb82f320bc6a13 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "shopping-bag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1885e9bcf25da68e9ff7d2ba13835da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee32261089412ad7f3edfc4a3744b2aa = $(`<div id="html_ee32261089412ad7f3edfc4a3744b2aa" style="width: 100.0%; height: 100.0%;"><b>Downtown McCall</b><br>Mountain town shops and restaurants<br><i>3rd St, McCall, ID</i></div>`)[0];
+                popup_b1885e9bcf25da68e9ff7d2ba13835da.setContent(html_ee32261089412ad7f3edfc4a3744b2aa);
+            
+        
+
+        marker_3b27bbcc81bc7c0ab01a53f818aecafb.bindPopup(popup_b1885e9bcf25da68e9ff7d2ba13835da)
+        ;
+
+        
+    
+    
+            marker_3b27bbcc81bc7c0ab01a53f818aecafb.bindTooltip(
+                `<div>
+                     Downtown McCall (shopping)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b27bbcc81bc7c0ab01a53f818aecafb.setIcon(icon_2d80e9cd9f1375e8ccfb82f320bc6a13);
+            
+    
+            var marker_f31f007733d2882f70e12d0b2283cf8c = L.marker(
+                [44.9089258, -116.0972502],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_4a561dafb2374d01c0b73cc517e6a9a9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0ad5845042af6e39f809c05ca8042610 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_56a882212474eb654ba13a0a7cdebd81 = $(`<div id="html_56a882212474eb654ba13a0a7cdebd81" style="width: 100.0%; height: 100.0%;"><b>Smoky Mountain Pizzeria</b><br>Wood-fired pizza and smoked meats<br><i>815 N 3rd St, McCall, ID</i></div>`)[0];
+                popup_0ad5845042af6e39f809c05ca8042610.setContent(html_56a882212474eb654ba13a0a7cdebd81);
+            
+        
+
+        marker_f31f007733d2882f70e12d0b2283cf8c.bindPopup(popup_0ad5845042af6e39f809c05ca8042610)
+        ;
+
+        
+    
+    
+            marker_f31f007733d2882f70e12d0b2283cf8c.bindTooltip(
+                `<div>
+                     Smoky Mountain Pizzeria (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f31f007733d2882f70e12d0b2283cf8c.setIcon(icon_4a561dafb2374d01c0b73cc517e6a9a9);
+            
+    
+            var marker_2fa77c955e6ce2f24029c7ba6c5ebc75 = L.marker(
+                [44.9110154, -116.0978853],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_0433af6a47e1a32cf59627bb0b142c32 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a635bfd5d0818063b2096be4bd0c3c9e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_754ef0cf9ee91c2b66fc13e757ba83f5 = $(`<div id="html_754ef0cf9ee91c2b66fc13e757ba83f5" style="width: 100.0%; height: 100.0%;"><b>Alpine Bagel Company</b><br>Fresh bagels and mountain bakery goods<br><i>1101 N 3rd St, McCall, ID</i></div>`)[0];
+                popup_a635bfd5d0818063b2096be4bd0c3c9e.setContent(html_754ef0cf9ee91c2b66fc13e757ba83f5);
+            
+        
+
+        marker_2fa77c955e6ce2f24029c7ba6c5ebc75.bindPopup(popup_a635bfd5d0818063b2096be4bd0c3c9e)
+        ;
+
+        
+    
+    
+            marker_2fa77c955e6ce2f24029c7ba6c5ebc75.bindTooltip(
+                `<div>
+                     Alpine Bagel Company (bakery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2fa77c955e6ce2f24029c7ba6c5ebc75.setIcon(icon_0433af6a47e1a32cf59627bb0b142c32);
+            
+    
+            var marker_e20d4c3110791b7bffbbdd28192a4b78 = L.marker(
+                [44.90750569999999, -116.1118839],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_f5d04878d75f37c591923f044dd3756c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "eye",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6784911322c5863dad355664d1a9c6a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c1162ecc97fc83c5c478155de08065c = $(`<div id="html_5c1162ecc97fc83c5c478155de08065c" style="width: 100.0%; height: 100.0%;"><b>McCall Fish Hatchery</b><br>Educational fish hatchery tours<br><i>204 Mather Rd, McCall, ID</i></div>`)[0];
+                popup_6784911322c5863dad355664d1a9c6a3.setContent(html_5c1162ecc97fc83c5c478155de08065c);
+            
+        
+
+        marker_e20d4c3110791b7bffbbdd28192a4b78.bindPopup(popup_6784911322c5863dad355664d1a9c6a3)
+        ;
+
+        
+    
+    
+            marker_e20d4c3110791b7bffbbdd28192a4b78.bindTooltip(
+                `<div>
+                     McCall Fish Hatchery (attraction)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e20d4c3110791b7bffbbdd28192a4b78.setIcon(icon_f5d04878d75f37c591923f044dd3756c);
+            
+    
+            var marker_b68ede43c77069a570bef84c21438266 = L.marker(
+                [44.92575249999999, -116.0909745],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_75ff63f5c10a4f4cbd7f28e50f6b8cdf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93988ca7605e613703cb3583d2c10062 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_702090e31770219816b4180d5d431565 = $(`<div id="html_702090e31770219816b4180d5d431565" style="width: 100.0%; height: 100.0%;"><b>Ponderosa State Park</b><br>State park with hiking trails (nearby)<br><i>1920 Davis Ave, McCall, ID</i></div>`)[0];
+                popup_93988ca7605e613703cb3583d2c10062.setContent(html_702090e31770219816b4180d5d431565);
+            
+        
+
+        marker_b68ede43c77069a570bef84c21438266.bindPopup(popup_93988ca7605e613703cb3583d2c10062)
+        ;
+
+        
+    
+    
+            marker_b68ede43c77069a570bef84c21438266.bindTooltip(
+                `<div>
+                     Ponderosa State Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b68ede43c77069a570bef84c21438266.setIcon(icon_75ff63f5c10a4f4cbd7f28e50f6b8cdf);
+            
+    
+            var marker_ffc88753ac4570d3a285c5a805ba0e2b = L.marker(
+                [44.9137541, -116.0968697],
+                {
+}
+            ).addTo(map_4a0e75eff24e9c2827c57d46f449b9c4);
+        
+    
+            var icon_b01902a3bea7cfbbb08c42fc2829d258 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "bicycle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7ce8b8082bcf8397383693ef2b8782c4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_322f3b2edd30a030d70a9720bbba8b8c = $(`<div id="html_322f3b2edd30a030d70a9720bbba8b8c" style="width: 100.0%; height: 100.0%;"><b>McCall Activity Barn</b><br>Seasonal activities and equipment rental<br><i>1300 E Lake St, McCall, ID</i></div>`)[0];
+                popup_7ce8b8082bcf8397383693ef2b8782c4.setContent(html_322f3b2edd30a030d70a9720bbba8b8c);
+            
+        
+
+        marker_ffc88753ac4570d3a285c5a805ba0e2b.bindPopup(popup_7ce8b8082bcf8397383693ef2b8782c4)
+        ;
+
+        
+    
+    
+            marker_ffc88753ac4570d3a285c5a805ba0e2b.bindTooltip(
+                `<div>
+                     McCall Activity Barn (activity)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ffc88753ac4570d3a285c5a805ba0e2b.setIcon(icon_b01902a3bea7cfbbb08c42fc2829d258);
+            
+</script>
+</html>

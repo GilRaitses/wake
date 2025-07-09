@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a1bd04a9da32f31850e5ad97c3659285 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:12px; padding: 15px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="margin-top: 0; font-size: 16px;">Downtown Walla Walla, Washington</h3>
+    <p><b>🏨 Eritage Resort</b></p>
+    <p><i>30 minutes walking from Eritage Resort</i></p>
+    <hr style="margin: 10px 0;">
+    <p><i class="fa fa-home" style="color:red"></i> Your Accommodation</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Dining & Food</p>
+    <p><i class="fa fa-cutlery" style="color:orange"></i> Bakeries</p>
+    <p><i class="fa fa-beer" style="color:darkgreen"></i> Breweries</p>
+    <p><i class="fa fa-glass" style="color:purple"></i> Wine & Cocktails</p>
+    <p><i class="fa fa-shopping-cart" style="color:blue"></i> Markets</p>
+    <p><i class="fa fa-university" style="color:darkblue"></i> Museums & Culture</p>
+    <p><i class="fa fa-paint-brush" style="color:cadetblue"></i> Art Galleries</p>
+    <p><i class="fa fa-university" style="color:darkred"></i> Historic Sites</p>
+    <p><i class="fa fa-tree" style="color:lightgreen"></i> Parks & Nature</p>
+    <p><i class="fa fa-shopping-bag" style="color:pink"></i> Shopping</p>
+    <p><i class="fa fa-star" style="color:black"></i> Landmarks</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_a1bd04a9da32f31850e5ad97c3659285" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a1bd04a9da32f31850e5ad97c3659285 = L.map(
+                "map_a1bd04a9da32f31850e5ad97c3659285",
+                {
+                    center: [46.0719558, -118.3437291],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_78519d46b6a4cff1c5512969751d8387 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_78519d46b6a4cff1c5512969751d8387.addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var tile_layer_727d8cdd23ded2f4c60c8a2c4a22ecf0 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_727d8cdd23ded2f4c60c8a2c4a22ecf0.addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var marker_721f6066562266e5e1124882ee3b946b = L.marker(
+                [46.0719558, -118.3437291],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_7d6ab53fe437346fc1638e799bf59728 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+  "iconSize": [20, 20],
+}
+            );
+        
+    
+        var popup_83ac8f84c81b4d96ab5f6f7acb1ba611 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cee769833b9c79afeb9588f4b9e21047 = $(`<div id="html_cee769833b9c79afeb9588f4b9e21047" style="width: 100.0%; height: 100.0%;"><b>Eritage Resort</b><br>1000 N 2nd Ave, Walla Walla, WA 99362<br><b>Your Hotel</b></div>`)[0];
+                popup_83ac8f84c81b4d96ab5f6f7acb1ba611.setContent(html_cee769833b9c79afeb9588f4b9e21047);
+            
+        
+
+        marker_721f6066562266e5e1124882ee3b946b.bindPopup(popup_83ac8f84c81b4d96ab5f6f7acb1ba611)
+        ;
+
+        
+    
+    
+            marker_721f6066562266e5e1124882ee3b946b.bindTooltip(
+                `<div>
+                     🏨 Eritage Resort
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_721f6066562266e5e1124882ee3b946b.setIcon(icon_7d6ab53fe437346fc1638e799bf59728);
+            
+    
+            var marker_cc36c94f1acdde7d1fc573893a7ee574 = L.marker(
+                [46.0696467, -118.3355051],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_aa033ead06ff1d1749c2da6f061fe157 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c8b965449b218ce997d600b583c59a1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82cfd447b53ef647d7199d76a1eb19c0 = $(`<div id="html_82cfd447b53ef647d7199d76a1eb19c0" style="width: 100.0%; height: 100.0%;"><b>Downtown Historic District</b><br>Historic downtown with shops and restaurants<br><i>Main St, Walla Walla, WA</i></div>`)[0];
+                popup_8c8b965449b218ce997d600b583c59a1.setContent(html_82cfd447b53ef647d7199d76a1eb19c0);
+            
+        
+
+        marker_cc36c94f1acdde7d1fc573893a7ee574.bindPopup(popup_8c8b965449b218ce997d600b583c59a1)
+        ;
+
+        
+    
+    
+            marker_cc36c94f1acdde7d1fc573893a7ee574.bindTooltip(
+                `<div>
+                     Downtown Historic District (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc36c94f1acdde7d1fc573893a7ee574.setIcon(icon_aa033ead06ff1d1749c2da6f061fe157);
+            
+    
+            var marker_7ba9b2f0b987dece33b5d1df434c7acf = L.marker(
+                [46.0645809, -118.3430209],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_4cd1ee23d0c8f82dfecee6993a8833a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bc954ce7e2f7da9fccf49b119b40e57 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5151b3499654d224a2cf30c73d5dae5e = $(`<div id="html_5151b3499654d224a2cf30c73d5dae5e" style="width: 100.0%; height: 100.0%;"><b>Walla Walla Farmers Market</b><br>Saturday farmers market<br><i>4th Ave & Main St, Walla Walla, WA</i></div>`)[0];
+                popup_9bc954ce7e2f7da9fccf49b119b40e57.setContent(html_5151b3499654d224a2cf30c73d5dae5e);
+            
+        
+
+        marker_7ba9b2f0b987dece33b5d1df434c7acf.bindPopup(popup_9bc954ce7e2f7da9fccf49b119b40e57)
+        ;
+
+        
+    
+    
+            marker_7ba9b2f0b987dece33b5d1df434c7acf.bindTooltip(
+                `<div>
+                     Walla Walla Farmers Market (market)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7ba9b2f0b987dece33b5d1df434c7acf.setIcon(icon_4cd1ee23d0c8f82dfecee6993a8833a4);
+            
+    
+            var marker_fc11841161561fea793d843284913b3b = L.marker(
+                [46.0501252, -118.345665],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_6a009f8de6dcc66f650ce53faf5dadee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8b3a377c1401a175599732eeaaa9d766 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7a5199c667d00958ec55324603fa9925 = $(`<div id="html_7a5199c667d00958ec55324603fa9925" style="width: 100.0%; height: 100.0%;"><b>Colville Street Patisserie</b><br>French pastries and artisan breads<br><i>1425 Plaza Way, Walla Walla, WA</i></div>`)[0];
+                popup_8b3a377c1401a175599732eeaaa9d766.setContent(html_7a5199c667d00958ec55324603fa9925);
+            
+        
+
+        marker_fc11841161561fea793d843284913b3b.bindPopup(popup_8b3a377c1401a175599732eeaaa9d766)
+        ;
+
+        
+    
+    
+            marker_fc11841161561fea793d843284913b3b.bindTooltip(
+                `<div>
+                     Colville Street Patisserie (bakery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fc11841161561fea793d843284913b3b.setIcon(icon_6a009f8de6dcc66f650ce53faf5dadee);
+            
+    
+            var marker_8958fe5bf97d290fe5a4e03abe245412 = L.marker(
+                [46.0692536, -118.3356495],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_40f15d3a7521a7065b17b6927212d1c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b088de44175582189a1bb157c1c79dc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_168decb49b023f04ee5f5849536ffa2d = $(`<div id="html_168decb49b023f04ee5f5849536ffa2d" style="width: 100.0%; height: 100.0%;"><b>Bright's Candies & Bakery</b><br>Traditional breads and candies<br><i>226 E Main St, Walla Walla, WA</i></div>`)[0];
+                popup_2b088de44175582189a1bb157c1c79dc.setContent(html_168decb49b023f04ee5f5849536ffa2d);
+            
+        
+
+        marker_8958fe5bf97d290fe5a4e03abe245412.bindPopup(popup_2b088de44175582189a1bb157c1c79dc)
+        ;
+
+        
+    
+    
+            marker_8958fe5bf97d290fe5a4e03abe245412.bindTooltip(
+                `<div>
+                     Bright's Candies & Bakery (bakery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8958fe5bf97d290fe5a4e03abe245412.setIcon(icon_40f15d3a7521a7065b17b6927212d1c6);
+            
+    
+            var marker_effde6d9c18ae8f4bd0ccdf3f65415f6 = L.marker(
+                [46.0648235, -118.3408598],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_9d88e17907400eb8bc0a8b96803f2f46 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_09786dca2439475ce002ba165645f454 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_789d1b9223d21da5894d9b6314737196 = $(`<div id="html_789d1b9223d21da5894d9b6314737196" style="width: 100.0%; height: 100.0%;"><b>Saffron Mediterranean Kitchen</b><br>Mediterranean cuisine with lamb specialties<br><i>125 W Alder St, Walla Walla, WA</i></div>`)[0];
+                popup_09786dca2439475ce002ba165645f454.setContent(html_789d1b9223d21da5894d9b6314737196);
+            
+        
+
+        marker_effde6d9c18ae8f4bd0ccdf3f65415f6.bindPopup(popup_09786dca2439475ce002ba165645f454)
+        ;
+
+        
+    
+    
+            marker_effde6d9c18ae8f4bd0ccdf3f65415f6.bindTooltip(
+                `<div>
+                     Saffron Mediterranean Kitchen (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_effde6d9c18ae8f4bd0ccdf3f65415f6.setIcon(icon_9d88e17907400eb8bc0a8b96803f2f46);
+            
+    
+            var marker_df40956ad11d19475b8fc515a5279515 = L.marker(
+                [46.0638356, -118.3501671],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_27b90c282a5b1f34794eca7d0bd61dfd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4a3e93f2d6c12b7585c0c2e7e6617be7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbd3fbbd42f56acf4a9743e818da852f = $(`<div id="html_bbd3fbbd42f56acf4a9743e818da852f" style="width: 100.0%; height: 100.0%;"><b>Pioneer Park</b><br>Large park with walking paths and aviary<br><i>730 Rose St, Walla Walla, WA</i></div>`)[0];
+                popup_4a3e93f2d6c12b7585c0c2e7e6617be7.setContent(html_bbd3fbbd42f56acf4a9743e818da852f);
+            
+        
+
+        marker_df40956ad11d19475b8fc515a5279515.bindPopup(popup_4a3e93f2d6c12b7585c0c2e7e6617be7)
+        ;
+
+        
+    
+    
+            marker_df40956ad11d19475b8fc515a5279515.bindTooltip(
+                `<div>
+                     Pioneer Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_df40956ad11d19475b8fc515a5279515.setIcon(icon_27b90c282a5b1f34794eca7d0bd61dfd);
+            
+    
+            var marker_24a804116bf8bf307cf2c5a79f7d7625 = L.marker(
+                [46.07161790000001, -118.3295861],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_29f7c43a3a89c2f5b21a07748a9b5244 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e672d9c05ea2225426f1f8bf806f110 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df7a59e68b6e2b49cde60d42c84e444c = $(`<div id="html_df7a59e68b6e2b49cde60d42c84e444c" style="width: 100.0%; height: 100.0%;"><b>Whitman College Campus</b><br>Beautiful liberal arts college campus<br><i>345 Boyer Ave, Walla Walla, WA</i></div>`)[0];
+                popup_7e672d9c05ea2225426f1f8bf806f110.setContent(html_df7a59e68b6e2b49cde60d42c84e444c);
+            
+        
+
+        marker_24a804116bf8bf307cf2c5a79f7d7625.bindPopup(popup_7e672d9c05ea2225426f1f8bf806f110)
+        ;
+
+        
+    
+    
+            marker_24a804116bf8bf307cf2c5a79f7d7625.bindTooltip(
+                `<div>
+                     Whitman College Campus (campus)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24a804116bf8bf307cf2c5a79f7d7625.setIcon(icon_29f7c43a3a89c2f5b21a07748a9b5244);
+            
+    
+            var marker_06b948c3336b599d787040c39ba4ce95 = L.marker(
+                [46.0696467, -118.3355051],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_1cb6c62511a4de11b55bbd4c93b60e8e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "glass",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c1a84679199b120d1f036de05dbc3b37 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0cd9f78bf2cce67ec3e1c66c6f71b3bf = $(`<div id="html_0cd9f78bf2cce67ec3e1c66c6f71b3bf" style="width: 100.0%; height: 100.0%;"><b>Walla Walla Wine Tasting Rooms</b><br>Multiple downtown tasting rooms<br><i>Main St, Walla Walla, WA</i></div>`)[0];
+                popup_c1a84679199b120d1f036de05dbc3b37.setContent(html_0cd9f78bf2cce67ec3e1c66c6f71b3bf);
+            
+        
+
+        marker_06b948c3336b599d787040c39ba4ce95.bindPopup(popup_c1a84679199b120d1f036de05dbc3b37)
+        ;
+
+        
+    
+    
+            marker_06b948c3336b599d787040c39ba4ce95.bindTooltip(
+                `<div>
+                     Walla Walla Wine Tasting Rooms (winery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_06b948c3336b599d787040c39ba4ce95.setIcon(icon_1cb6c62511a4de11b55bbd4c93b60e8e);
+            
+    
+            var marker_81133809e6863906702ec579edd4dff3 = L.marker(
+                [46.0645452, -118.3408348],
+                {
+}
+            ).addTo(map_a1bd04a9da32f31850e5ad97c3659285);
+        
+    
+            var icon_aaa57689ea2c035a4792237f7d8e9091 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "paint-brush",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b80e46c1dc862690852be853cc41572c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7369b619f970f344dc47f10cb298ddbb = $(`<div id="html_7369b619f970f344dc47f10cb298ddbb" style="width: 100.0%; height: 100.0%;"><b>Carnegie Art Center</b><br>Community art center in historic building<br><i>109 S 4th Ave, Walla Walla, WA</i></div>`)[0];
+                popup_b80e46c1dc862690852be853cc41572c.setContent(html_7369b619f970f344dc47f10cb298ddbb);
+            
+        
+
+        marker_81133809e6863906702ec579edd4dff3.bindPopup(popup_b80e46c1dc862690852be853cc41572c)
+        ;
+
+        
+    
+    
+            marker_81133809e6863906702ec579edd4dff3.bindTooltip(
+                `<div>
+                     Carnegie Art Center (art)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81133809e6863906702ec579edd4dff3.setIcon(icon_aaa57689ea2c035a4792237f7d8e9091);
+            
+</script>
+</html>

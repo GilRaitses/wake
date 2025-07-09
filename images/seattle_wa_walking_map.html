@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2d9351a5274f629a6703dc0581a03f78 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; 
+                 top: 50px; left: 50px; width: 280px; height: auto; 
+                 background-color: white; border:2px solid grey; z-index:9999; 
+                 font-size:12px; padding: 15px; max-height: 80vh; overflow-y: auto;">
+    <h3 style="margin-top: 0; font-size: 16px;">Downtown Seattle, Washington</h3>
+    <p><b>🏨 The Fairmont Olympic Seattle</b></p>
+    <p><i>30 minutes walking from Fairmont Olympic</i></p>
+    <hr style="margin: 10px 0;">
+    <p><i class="fa fa-home" style="color:red"></i> Your Accommodation</p>
+    <p><i class="fa fa-cutlery" style="color:green"></i> Dining & Food</p>
+    <p><i class="fa fa-cutlery" style="color:orange"></i> Bakeries</p>
+    <p><i class="fa fa-beer" style="color:darkgreen"></i> Breweries</p>
+    <p><i class="fa fa-glass" style="color:purple"></i> Wine & Cocktails</p>
+    <p><i class="fa fa-shopping-cart" style="color:blue"></i> Markets</p>
+    <p><i class="fa fa-university" style="color:darkblue"></i> Museums & Culture</p>
+    <p><i class="fa fa-paint-brush" style="color:cadetblue"></i> Art Galleries</p>
+    <p><i class="fa fa-university" style="color:darkred"></i> Historic Sites</p>
+    <p><i class="fa fa-tree" style="color:lightgreen"></i> Parks & Nature</p>
+    <p><i class="fa fa-shopping-bag" style="color:pink"></i> Shopping</p>
+    <p><i class="fa fa-star" style="color:black"></i> Landmarks</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_2d9351a5274f629a6703dc0581a03f78" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2d9351a5274f629a6703dc0581a03f78 = L.map(
+                "map_2d9351a5274f629a6703dc0581a03f78",
+                {
+                    center: [47.6081736, -122.3340484],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_edcf009fc99f73fda861d96eebb4382e = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=s\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_edcf009fc99f73fda861d96eebb4382e.addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var tile_layer_5068344d22e71385c0710572db0fb4fa = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5068344d22e71385c0710572db0fb4fa.addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var marker_3508c526e04b914d5de062116ed21973 = L.marker(
+                [47.6081736, -122.3340484],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_116127e07c1b87ce3b713b547f937da3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+  "iconSize": [20, 20],
+}
+            );
+        
+    
+        var popup_b036e36106e4b892263284f798849cfe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6259ef58dba61ad1276fad06e8601f1 = $(`<div id="html_b6259ef58dba61ad1276fad06e8601f1" style="width: 100.0%; height: 100.0%;"><b>The Fairmont Olympic Seattle</b><br>411 University St, Seattle, WA 98101<br><b>Your Hotel</b></div>`)[0];
+                popup_b036e36106e4b892263284f798849cfe.setContent(html_b6259ef58dba61ad1276fad06e8601f1);
+            
+        
+
+        marker_3508c526e04b914d5de062116ed21973.bindPopup(popup_b036e36106e4b892263284f798849cfe)
+        ;
+
+        
+    
+    
+            marker_3508c526e04b914d5de062116ed21973.bindTooltip(
+                `<div>
+                     🏨 The Fairmont Olympic Seattle
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3508c526e04b914d5de062116ed21973.setIcon(icon_116127e07c1b87ce3b713b547f937da3);
+            
+    
+            var marker_0e358f287cf4aac33ee412a5b5551153 = L.marker(
+                [47.61000749999999, -122.3423255],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_eb041e172eb216ac8c3dd3626bd09a10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e84a61cc4fe2afec7cf6127684682df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_857aaf1ff558850f783193f43abdb179 = $(`<div id="html_857aaf1ff558850f783193f43abdb179" style="width: 100.0%; height: 100.0%;"><b>Pike Place Market</b><br>Iconic public market with vendors and food<br><i>85 Pike St, Seattle, WA</i></div>`)[0];
+                popup_4e84a61cc4fe2afec7cf6127684682df.setContent(html_857aaf1ff558850f783193f43abdb179);
+            
+        
+
+        marker_0e358f287cf4aac33ee412a5b5551153.bindPopup(popup_4e84a61cc4fe2afec7cf6127684682df)
+        ;
+
+        
+    
+    
+            marker_0e358f287cf4aac33ee412a5b5551153.bindTooltip(
+                `<div>
+                     Pike Place Market (market)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e358f287cf4aac33ee412a5b5551153.setIcon(icon_eb041e172eb216ac8c3dd3626bd09a10);
+            
+    
+            var marker_0c04b2880ebdd80d2bd384fb5a618875 = L.marker(
+                [47.6074425, -122.3384464],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_3c090788bdb4967c5e6875f6a883c5b5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3a03e55f43e7386f4796280e8f7c5c5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_212352afd45481942230e76339178c95 = $(`<div id="html_212352afd45481942230e76339178c95" style="width: 100.0%; height: 100.0%;"><b>Seattle Art Museum</b><br>Premier art museum downtown<br><i>1300 1st Ave, Seattle, WA</i></div>`)[0];
+                popup_b3a03e55f43e7386f4796280e8f7c5c5.setContent(html_212352afd45481942230e76339178c95);
+            
+        
+
+        marker_0c04b2880ebdd80d2bd384fb5a618875.bindPopup(popup_b3a03e55f43e7386f4796280e8f7c5c5)
+        ;
+
+        
+    
+    
+            marker_0c04b2880ebdd80d2bd384fb5a618875.bindTooltip(
+                `<div>
+                     Seattle Art Museum (museum)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c04b2880ebdd80d2bd384fb5a618875.setIcon(icon_3c090788bdb4967c5e6875f6a883c5b5);
+            
+    
+            var marker_3ebb6d45ef644df56e0fee16f9353c7e = L.marker(
+                [47.6120381, -122.3376528],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_5216b75ffc526dd7dcc087af559773f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "shopping-bag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6e33d6ffe356c5ab0a4a14390f15644 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_013ac6f927fc5c5c72f698ecf7461ca0 = $(`<div id="html_013ac6f927fc5c5c72f698ecf7461ca0" style="width: 100.0%; height: 100.0%;"><b>Westlake Center</b><br>Shopping center and transit hub<br><i>400 Pine St, Seattle, WA</i></div>`)[0];
+                popup_f6e33d6ffe356c5ab0a4a14390f15644.setContent(html_013ac6f927fc5c5c72f698ecf7461ca0);
+            
+        
+
+        marker_3ebb6d45ef644df56e0fee16f9353c7e.bindPopup(popup_f6e33d6ffe356c5ab0a4a14390f15644)
+        ;
+
+        
+    
+    
+            marker_3ebb6d45ef644df56e0fee16f9353c7e.bindTooltip(
+                `<div>
+                     Westlake Center (shopping)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3ebb6d45ef644df56e0fee16f9353c7e.setIcon(icon_5216b75ffc526dd7dcc087af559773f5);
+            
+    
+            var marker_367e6936edb4885798517cd28634b853 = L.marker(
+                [47.6067659, -122.3326439],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_2021d515a36ce373f7bae6ae5f7216d5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4281605cd14baa225ad6798eac77a6e6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d870761b87ce0c881769e5c3f6c37ad = $(`<div id="html_3d870761b87ce0c881769e5c3f6c37ad" style="width: 100.0%; height: 100.0%;"><b>Seattle Central Library</b><br>Stunning modern architecture<br><i>1000 4th Ave, Seattle, WA</i></div>`)[0];
+                popup_4281605cd14baa225ad6798eac77a6e6.setContent(html_3d870761b87ce0c881769e5c3f6c37ad);
+            
+        
+
+        marker_367e6936edb4885798517cd28634b853.bindPopup(popup_4281605cd14baa225ad6798eac77a6e6)
+        ;
+
+        
+    
+    
+            marker_367e6936edb4885798517cd28634b853.bindTooltip(
+                `<div>
+                     Seattle Central Library (culture)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_367e6936edb4885798517cd28634b853.setIcon(icon_2021d515a36ce373f7bae6ae5f7216d5);
+            
+    
+            var marker_9c60e7f8edf3442d96de3a4b9ddf5f4a = L.marker(
+                [47.6021884, -122.3334969],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_96bfb4585e6878c641d71ce41b38d3b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9fe875dcf1659b4c8854462b4939d01d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_daefc81df8b54360f3491b6dced0959d = $(`<div id="html_daefc81df8b54360f3491b6dced0959d" style="width: 100.0%; height: 100.0%;"><b>Pioneer Square</b><br>Historic district with underground tours<br><i>600 1st Ave, Seattle, WA</i></div>`)[0];
+                popup_9fe875dcf1659b4c8854462b4939d01d.setContent(html_daefc81df8b54360f3491b6dced0959d);
+            
+        
+
+        marker_9c60e7f8edf3442d96de3a4b9ddf5f4a.bindPopup(popup_9fe875dcf1659b4c8854462b4939d01d)
+        ;
+
+        
+    
+    
+            marker_9c60e7f8edf3442d96de3a4b9ddf5f4a.bindTooltip(
+                `<div>
+                     Pioneer Square (historic)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9c60e7f8edf3442d96de3a4b9ddf5f4a.setIcon(icon_96bfb4585e6878c641d71ce41b38d3b8);
+            
+    
+            var marker_f8f1ffb5a0a77dc0e0c4aa9b11f75585 = L.marker(
+                [47.60704, -122.3418276],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_afd1d454779188925fa4867a7b7228c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e16d6fe7597f0f70738fdcddb2041600 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf00119b4cc0b131fef82b458e9155e2 = $(`<div id="html_cf00119b4cc0b131fef82b458e9155e2" style="width: 100.0%; height: 100.0%;"><b>Waterfront Park</b><br>Waterfront with pier and Puget Sound views<br><i>1401 Alaskan Way, Seattle, WA</i></div>`)[0];
+                popup_e16d6fe7597f0f70738fdcddb2041600.setContent(html_cf00119b4cc0b131fef82b458e9155e2);
+            
+        
+
+        marker_f8f1ffb5a0a77dc0e0c4aa9b11f75585.bindPopup(popup_e16d6fe7597f0f70738fdcddb2041600)
+        ;
+
+        
+    
+    
+            marker_f8f1ffb5a0a77dc0e0c4aa9b11f75585.bindTooltip(
+                `<div>
+                     Waterfront Park (park)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f8f1ffb5a0a77dc0e0c4aa9b11f75585.setIcon(icon_afd1d454779188925fa4867a7b7228c2);
+            
+    
+            var marker_730292bbc8df7e1f0e0c33aa798d4f5d = L.marker(
+                [47.6002815, -122.3339379],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_bf405173127852ad92cc259863295b57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27fab5b8a13fd2a860204c3e6f27f551 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ce8019a2aa15f3968a7097f20fa7a30 = $(`<div id="html_4ce8019a2aa15f3968a7097f20fa7a30" style="width: 100.0%; height: 100.0%;"><b>Grand Central Bakery</b><br>Artisan sourdough and breads<br><i>214 1st Ave S, Seattle, WA</i></div>`)[0];
+                popup_27fab5b8a13fd2a860204c3e6f27f551.setContent(html_4ce8019a2aa15f3968a7097f20fa7a30);
+            
+        
+
+        marker_730292bbc8df7e1f0e0c33aa798d4f5d.bindPopup(popup_27fab5b8a13fd2a860204c3e6f27f551)
+        ;
+
+        
+    
+    
+            marker_730292bbc8df7e1f0e0c33aa798d4f5d.bindTooltip(
+                `<div>
+                     Grand Central Bakery (bakery)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_730292bbc8df7e1f0e0c33aa798d4f5d.setIcon(icon_bf405173127852ad92cc259863295b57);
+            
+    
+            var marker_a85fb8d796b6380a39ca7b4827bb8e6c = L.marker(
+                [47.6088844, -122.3404024],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_08f8c171299bbfdfbc5a0e2a45a6de64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5f9524610f1d648643ccf7924e86840f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5cf00e65df91b1727bdc7379672dca5c = $(`<div id="html_5cf00e65df91b1727bdc7379672dca5c" style="width: 100.0%; height: 100.0%;"><b>Matt's in the Market</b><br>Seafood restaurant overlooking market<br><i>94 Pike St, Seattle, WA</i></div>`)[0];
+                popup_5f9524610f1d648643ccf7924e86840f.setContent(html_5cf00e65df91b1727bdc7379672dca5c);
+            
+        
+
+        marker_a85fb8d796b6380a39ca7b4827bb8e6c.bindPopup(popup_5f9524610f1d648643ccf7924e86840f)
+        ;
+
+        
+    
+    
+            marker_a85fb8d796b6380a39ca7b4827bb8e6c.bindTooltip(
+                `<div>
+                     Matt's in the Market (restaurant)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a85fb8d796b6380a39ca7b4827bb8e6c.setIcon(icon_08f8c171299bbfdfbc5a0e2a45a6de64);
+            
+    
+            var marker_9e4820ea1a2c7c7af448ef03754fc71c = L.marker(
+                [47.6090804, -122.3447429],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_ba2a8c7d7944d8a4f09f6a614327a4a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tree",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae0b6bc563c0935a0884881c08477ca7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_25b3e76613ad4af9878ea6c0bfea84e3 = $(`<div id="html_25b3e76613ad4af9878ea6c0bfea84e3" style="width: 100.0%; height: 100.0%;"><b>Elliott Bay Waterfront</b><br>Scenic waterfront walking area<br><i>Alaskan Way, Seattle, WA</i></div>`)[0];
+                popup_ae0b6bc563c0935a0884881c08477ca7.setContent(html_25b3e76613ad4af9878ea6c0bfea84e3);
+            
+        
+
+        marker_9e4820ea1a2c7c7af448ef03754fc71c.bindPopup(popup_ae0b6bc563c0935a0884881c08477ca7)
+        ;
+
+        
+    
+    
+            marker_9e4820ea1a2c7c7af448ef03754fc71c.bindTooltip(
+                `<div>
+                     Elliott Bay Waterfront (nature)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e4820ea1a2c7c7af448ef03754fc71c.setIcon(icon_ba2a8c7d7944d8a4f09f6a614327a4a6);
+            
+    
+            var marker_04420abe3880756a1b9ea8b18ebb7bf4 = L.marker(
+                [47.607989, -122.336763],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_140bd266da7a9e41ad2578dbeb50b8c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0375d302ecb8a6bd6d511b6c3391e785 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df1169f19cbbe1079054788c6d4b2e36 = $(`<div id="html_df1169f19cbbe1079054788c6d4b2e36" style="width: 100.0%; height: 100.0%;"><b>Benaroya Hall</b><br>Seattle Symphony concert hall<br><i>200 University St, Seattle, WA</i></div>`)[0];
+                popup_0375d302ecb8a6bd6d511b6c3391e785.setContent(html_df1169f19cbbe1079054788c6d4b2e36);
+            
+        
+
+        marker_04420abe3880756a1b9ea8b18ebb7bf4.bindPopup(popup_0375d302ecb8a6bd6d511b6c3391e785)
+        ;
+
+        
+    
+    
+            marker_04420abe3880756a1b9ea8b18ebb7bf4.bindTooltip(
+                `<div>
+                     Benaroya Hall (culture)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_04420abe3880756a1b9ea8b18ebb7bf4.setIcon(icon_140bd266da7a9e41ad2578dbeb50b8c7);
+            
+    
+            var marker_e305a5a28dea32811f18f1b10a839f26 = L.marker(
+                [47.6164137, -122.3541816],
+                {
+}
+            ).addTo(map_2d9351a5274f629a6703dc0581a03f78);
+        
+    
+            var icon_a7aa57620d334b3d68f20fa97edcc9dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "cadetblue",
+  "iconColor": "white",
+  "icon": "paint-brush",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_939626ab99faba2d6c03277e2493a84f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac5d32a341726df278a3301f3cd349d1 = $(`<div id="html_ac5d32a341726df278a3301f3cd349d1" style="width: 100.0%; height: 100.0%;"><b>Olympic Sculpture Park</b><br>Outdoor sculpture park by water<br><i>2901 Western Ave, Seattle, WA</i></div>`)[0];
+                popup_939626ab99faba2d6c03277e2493a84f.setContent(html_ac5d32a341726df278a3301f3cd349d1);
+            
+        
+
+        marker_e305a5a28dea32811f18f1b10a839f26.bindPopup(popup_939626ab99faba2d6c03277e2493a84f)
+        ;
+
+        
+    
+    
+            marker_e305a5a28dea32811f18f1b10a839f26.bindTooltip(
+                `<div>
+                     Olympic Sculpture Park (art)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e305a5a28dea32811f18f1b10a839f26.setIcon(icon_a7aa57620d334b3d68f20fa97edcc9dd);
+            
+</script>
+</html>

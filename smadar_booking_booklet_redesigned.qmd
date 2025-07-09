@@ -1,0 +1,455 @@
+---
+title: "Smadar's Booking Booklet"
+subtitle: "Pacific Northwest Adventure 2025"
+author: "Complete Booking Guide with Maps & Details"
+date: "August 3, 2025"
+format:
+  html:
+    toc: true
+    embed-resources: true
+    css: 
+      - |
+        .primary { color: #000080 !important; font-weight: bold !important; opacity: 1 !important; }
+        .secondary { color: #8B0000 !important; font-weight: bold !important; opacity: 1 !important; }
+        .mapred { color: #DC143C !important; font-weight: bold !important; }
+        .maporange { color: #FF8C00 !important; font-weight: bold !important; }
+        .mapgreen { color: #006400 !important; font-weight: bold !important; }
+        .mapblue { color: #0000CD !important; font-weight: bold !important; }
+        .mappurple { color: #4B0082 !important; font-weight: bold !important; }
+        .urgent { background-color: #FFE4E1; padding: 0.5em; border-left: 4px solid #B22222; }
+        img { 
+          max-width: 100% !important; 
+          height: auto !important; 
+          object-fit: contain !important;
+          display: block !important;
+          margin: 0 auto !important;
+        }
+        .figure { 
+          text-align: center !important; 
+          margin: 1em 0 !important; 
+          max-width: 100% !important;
+        }
+        .figure img {
+          width: auto !important;
+          max-width: 800px !important;
+          height: auto !important;
+          object-fit: contain !important;
+        }
+        body { color: #333 !important; }
+        strong { color: inherit !important; opacity: 1 !important; }
+  pdf:
+    documentclass: article
+    geometry: margin=0.4in
+    fontsize: 10pt
+    include-in-header:
+      text: |
+        \usepackage{fancyhdr}
+        \usepackage{graphicx}
+        \usepackage{xcolor}
+        \usepackage{booktabs}
+        \usepackage{multicol}
+        \definecolor{primary}{RGB}{25,25,112}
+        \definecolor{secondary}{RGB}{178,34,34}
+        \definecolor{mapred}{RGB}{255,0,0}
+        \definecolor{maporange}{RGB}{255,165,0}
+        \definecolor{mapgreen}{RGB}{0,128,0}
+        \definecolor{mapblue}{RGB}{0,0,255}
+        \definecolor{mappurple}{RGB}{128,0,128}
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[L]{\textcolor{primary}{\textbf{Smadar's Booking Guide}}}
+        \fancyhead[R]{\textcolor{secondary}{\textbf{PNW Adventure 2025}}}
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0.4pt}
+---
+
+# <span class="primary">Trip Overview & Emergency Contacts</span>
+
+**<span class="secondary">Travelers:</span>** Aviv & Smadar  
+**<span class="secondary">Duration:</span>** August 3-12, 2025 (departing Seattle Aug 12)  
+**<span class="secondary">Total Distance:</span>** 1,049 miles | **<span class="secondary">Total Driving Time:</span>** 20.4 hours  
+
+**<span class="primary">Emergency Contact:</span>** Gil & Camila (traveling companions)  
+
+## <span class="primary">UPDATED BOOKING PRIORITIES</span>
+
+✅ **<span class="primary">COMPLETED:</span>** Kimpton Bozeman (Aug 3-5) - Two King Rooms  
+✅ **<span class="primary">COMPLETED:</span>** Under Canvas Columbia River Gorge (Aug 11) - Stargazers Tent
+
+**<span class="secondary">REMAINING URGENT PRIORITIES:</span>**
+
+1. **<span class="primary">FLIGHTS</span>** - August 3rd to Bozeman (~$109/person vs $349 Aug 4th)
+
+2. **<span class="primary">LA CASA ITALIANA McCall</span>** - Book the condo for Aug 6-8
+
+3. **<span class="primary">The Jennings Hotel Joseph</span>** - Little Brick Building + Room #11 for Aug 8-9
+
+---
+
+# <span class="primary">LEG 1: Bozeman, Montana</span>
+## <span class="secondary">August 3-4, 2025 | 2 Nights</span>
+
+**<span class="secondary">Arrival Route:</span>** Flight to Bozeman-Yellowstone International (BZN)
+
+### <span class="primary">BOOKING STATUS: ✅ BOOKED!</span>
+
+**<span class="secondary">Hotel:</span>** Kimpton Armory Hotel Bozeman  
+**<span class="secondary">Address:</span>** 24 W Mendenhall St, Bozeman, MT 59715  
+**<span class="secondary">Phone:</span>** (406) 551-7700 | **<span class="secondary">Website:</span>** kimptonarmoryhotel.com  
+**<span class="primary">CONFIRMED:</span>** Two King Rooms for August 3-5, 2025  
+**<span class="primary">Status:</span>** ✅ SUCCESSFULLY BOOKED BY SMADAR  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">Arrival:</span>** Fly into Bozeman-Yellowstone International (BZN)  
+**<span class="secondary">Departure:</span>** Drive to Missoula (202 mi, 2h 58m)  
+
+### <span class="primary">FLIGHT BOOKING (STILL NEEDED)</span>
+**<span class="secondary">To Bozeman (August 3rd):</span>**  
+- Morning flight JFK→BZN  
+- **Cost:** $109/person (SAVE $240 vs Aug 4th)  
+- **Flight Time:** 5h 5m direct Delta  
+- **<span class="secondary">URGENT:</span>** Book immediately for savings  
+
+### <span class="primary">DINING RESERVATIONS NEEDED</span>
+- **<span class="secondary">Blackbird Kitchen</span>** - Wood-fired Argentine lamb
+- **<span class="secondary">Montana Ale Works</span>** - Local brewery in historic railroad building
+- **<span class="secondary">Wild Crumb Bakery</span>** - European-style breakfast breads
+
+### <span class="primary">ACTIVITIES TO BOOK</span>
+- **<span class="secondary">Museum of the Rockies</span>** - Dinosaur exhibits (no reservation needed)
+- **<span class="secondary">Montana State University Campus</span>** - Self-guided tour available
+- **<span class="secondary">Downtown Bozeman Walking Tour</span>** - Check with hotel concierge
+
+---
+
+# <span class="primary">LEG 1: Bozeman Walking Map</span>
+
+<div class="figure">
+<img src="images/bozeman_mt_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Hotel:</span></strong> <span class="mapred">■</span> Kimpton Armory Hotel (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapred">■</span> <span class="mapred">Main Street Historic District</span> (shaded red area)<br>
+<span class="maporange">●</span> <span class="maporange">Wild Crumb Bakery</span> (orange circle)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Blackbird Kitchen</span> (green circle)<br>
+<span class="mapblue">●</span> <span class="mapblue">Montana Ale Works</span> (blue circle)<br>
+<span class="mappurple">●</span> <span class="mappurple">Bogert Park</span> (purple circle)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 2: Missoula, Montana</span>
+## <span class="secondary">August 5, 2025 | 1 Night</span>
+
+**<span class="secondary">Driving Route:</span>** Bozeman → Missoula (202 mi, 2h 58m)
+
+### <span class="primary">BOOKING DETAILS</span>
+
+**<span class="secondary">Hotel:</span>** AC Hotel Missoula Downtown  
+**<span class="secondary">Address:</span>** 200 S Pattee St, Missoula, MT 59802  
+**<span class="secondary">Phone:</span>** (406) 541-8000  
+**<span class="secondary">Website:</span>** marriott.com/en-us/hotels/msoac-ac-hotel-missoula-downtown  
+**<span class="secondary">Rate:</span>** $455/night per room (need 2 rooms) | **<span class="secondary">Total:</span>** $910  
+**<span class="secondary">Room Request:</span>** "High floor, west-facing corner room with panoramic city views"  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">From:</span>** Bozeman, MT | **<span class="secondary">Distance:</span>** 202 miles | **<span class="secondary">Drive Time:</span>** 2h 58m  
+**<span class="secondary">Next Day:</span>** Drive to Jerry Johnson Hot Springs (66 mi, 1h 20m)  
+
+### <span class="primary">DINING RESERVATIONS NEEDED</span>
+- **<span class="secondary">Le Petit Outre</span>** - French bistro
+- **<span class="secondary">Plonk Wine Bar</span>** - Montana wine selection
+- **<span class="secondary">Ask hotel concierge</span>** for local brewery recommendations
+
+### <span class="primary">ACTIVITIES</span>
+- **<span class="secondary">Clark Fork Riverfront Trail</span>** - Riverside walking path
+- **<span class="secondary">University of Montana</span>** - Historic campus exploration
+- **<span class="secondary">Rocky Mountain Elk Foundation</span>** - Wildlife education center
+
+---
+
+# <span class="primary">LEG 2: Missoula Walking Map</span>
+
+<div class="figure">
+<img src="images/missoula_mt_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Hotel:</span></strong> <span class="mapred">■</span> AC Hotel Missoula Downtown (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapblue">●</span> <span class="mapblue">Clark Fork Riverfront Trail</span> (blue circle)<br>
+<span class="maporange">●</span> <span class="maporange">Le Petit Outre</span> (orange circle)<br>
+<span class="mappurple">●</span> <span class="mappurple">Plonk Wine Bar</span> (purple circle)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">University of Montana</span> (green circle)<br>
+<span class="mapred">●</span> <span class="mapred">Missoula Art Museum</span> (red circle)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 3: McCall, Idaho</span>
+## <span class="secondary">August 6-8, 2025 | 2 Nights</span>
+
+**<span class="secondary">Driving Route:</span>** Missoula → Jerry Johnson → McCall (256 mi total, 5h 9m with hot springs stop)
+
+### <span class="primary">BOOKING DETAILS</span>
+
+**<span class="secondary">Property:</span>** LA CASA ITALIANA - Charming Tri-Level Condo  
+**<span class="secondary">Location:</span>** Downtown McCall, ID  
+**<span class="secondary">Rate:</span>** $360/night - **<span class="primary">TOTAL $1,080</span>** for 3 nights (Aug 6-8)  
+**<span class="secondary">Type:</span>** Condominium - 6 guests, 3 bedrooms, 2 bathrooms  
+**<span class="secondary">Booking:</span>** Vacation rental platforms - Search "La Casa Italiana McCall"  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">August 6:</span>** Missoula → Jerry Johnson Hot Springs (66 mi, 1h 20m)  
+**<span class="secondary">Stop:</span>** Jerry Johnson Hot Springs (day visit - FREE, 6 AM-8 PM)  
+**<span class="secondary">Continue:</span>** Jerry Johnson → McCall (190 mi, 3h 49m)  
+
+### <span class="primary">CONDO ADVANTAGES</span>
+- **<span class="secondary">Full kitchen</span>** for meal preparation | **<span class="secondary">Fireplace</span>** for cozy evenings  
+- **<span class="secondary">Downtown location</span>** - walk to shops, restaurants, Payette Lake  
+- **<span class="secondary">Much more space</span>** than hotel rooms | **<span class="secondary">Cost savings</span>** vs Shore Lodge  
+
+### <span class="primary">HOT SPRINGS DAY TRIPS</span>
+- **<span class="secondary">Jerry Johnson Hot Springs</span>** - Rock pools, 60-foot walk from parking
+- **<span class="secondary">Burgdorf Hot Springs</span>** - Historic resort ($20/adult, reservations required)
+- **<span class="secondary">Gold Fork Hot Springs</span>** - Six tiered pools ($10/adult)
+
+---
+
+# <span class="primary">LEG 3: McCall Walking Map</span>
+
+<div class="figure">
+<img src="images/mccall_id_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Accommodation:</span></strong> <span class="mapred">■</span> LA CASA ITALIANA Condo (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapblue">●</span> <span class="mapblue">Payette Lake Beach</span> (blue circle)<br>
+<span class="mapred">■</span> <span class="mapred">Downtown McCall</span> (shaded red area)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Smoky Mountain Pizzeria</span> (green circle)<br>
+<span class="mappurple">●</span> <span class="mappurple">Legacy Park</span> (purple circle)<br>
+<span class="maporange">●</span> <span class="maporange">McCall Activity Barn</span> (orange circle)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 4: Joseph, Oregon</span>
+## <span class="secondary">August 8-9, 2025 | 2 Nights</span>
+
+**<span class="secondary">Driving Route:</span>** McCall → Joseph (166 mi, 4h 19m through mountain roads)
+
+### <span class="primary">BOOKING DETAILS - TWO ROOMS</span>
+
+**<span class="secondary">Hotel:</span>** The Jennings Hotel  
+**<span class="secondary">Address:</span>** 100 Main St, Joseph, OR 97846  
+
+**<span class="primary">ROOM 1:</span>** **The Little Brick Building** - $754 for 2 nights  
+**<span class="secondary">Features:</span>** Historic brick cottage with full kitchen, private bath  
+
+**<span class="primary">ROOM 2:</span>** **Room #11 - Private Bath, Self Check-in** - $580 for 2 nights  
+**<span class="secondary">Features:</span>** Private bathroom, self check-in convenience  
+
+**<span class="primary">TOTAL FOR BOTH ROOMS:</span>** $1,334 for 2 nights  
+
+  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">From:</span>** McCall, ID | **<span class="secondary">Distance:</span>** 166 miles | **<span class="secondary">Drive Time:</span>** 4h 19m  
+**<span class="secondary">Stop En Route:</span>** Lostine, OR (M. Crow & Co. Store)  
+
+### <span class="primary">BOOKING LANGUAGE</span>
+*"We would like to book TWO rooms for August 8-10, 2025: The Little Brick Building ($754) and Room #11 ($580). Total booking $1,334 for both rooms, 2 nights."*
+
+---
+
+# <span class="primary">LEG 4: Joseph Walking Map</span>
+
+<div class="figure">
+<img src="images/joseph_or_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Hotel:</span></strong> <span class="mapred">■</span> The Jennings Hotel (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapred">●</span> <span class="mapred">Valley Bronze of Oregon</span> (working foundry)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Embers Brewhouse</span> (local brewery)<br>
+<span class="mappurple">■</span> <span class="mappurple">Main Street Historic District</span> <br>
+<span class="maporange">●</span> <span class="maporange">Lear's Main Street Grill</span> (local dining)<br>
+<span class="mapblue">●</span> <span class="mapblue">Town Park</span> (community space)</p>
+</div>
+
+### <span class="primary">LOSTINE DAY TRIP (8 miles from Joseph)</span>
+
+<div class="figure">
+<img src="images/lostine_oregon_town_walking_map.png">
+<p><strong><span class="primary">LOSTINE WALKING DESTINATIONS</span></strong><br>
+<span class="mapred">●</span> <span class="mapred">M. Crow & Co. General Store</span> (internationally renowned design)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Lostine Tavern</span> (authentic Western atmosphere)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 5: Walla Walla, Washington</span>
+## <span class="secondary">August 10, 2025 | 1 Night</span>
+
+**<span class="secondary">Driving Route:</span>** Joseph → Walla Walla (109 mi, 2h 11m to wine country)
+
+### <span class="primary">BOOKING DETAILS</span>
+
+**<span class="secondary">Resort:</span>** Eritage Resort  
+**<span class="secondary">Address:</span>** 1000 N 2nd Ave, Walla Walla, WA 99362  
+**<span class="secondary">Phone:</span>** (509) 394-4700  
+**<span class="secondary">Contact:</span>** **Susan** - Ask for Susan when calling  
+**<span class="secondary">Rate:</span>** $400-600/night  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">From:</span>** Joseph, OR | **<span class="secondary">Distance:</span>** 109 miles | **<span class="secondary">Drive Time:</span>** 2h 11m  
+**<span class="secondary">Next Day:</span>** Drive to Columbia River Gorge (205 mi, 3h 37m)  
+
+### <span class="primary">WINE RESERVATIONS NEEDED</span>
+- **<span class="secondary">Vineyard tours</span>** - Multiple wineries available
+- **<span class="secondary">Wine tastings</span>** - Resort provides complimentary 4 PM daily tastings  
+- **<span class="secondary">Champagne brunch</span>** - Sunday late checkout special  
+
+### <span class="primary">SPECIAL RESORT SERVICES</span>
+- **<span class="secondary">Late checkout Sunday</span>** for champagne brunch
+- **<span class="secondary">Sommelier service</span>** - Private wine consultations  
+- **<span class="secondary">Vineyard transportation</span>** - Arrange through concierge  
+
+---
+
+# <span class="primary">LEG 5: Walla Walla Walking Map</span>
+
+<div class="figure">
+<img src="images/walla_walla_wa_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Hotel:</span></strong> <span class="mapred">■</span> Eritage Resort (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapred">■</span> <span class="mapred">Downtown Historic District</span> (wine country charm)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Farmers Market</span> (Saturday market)<br>
+<span class="maporange">●</span> <span class="maporange">Colville Street Patisserie</span> (French pastries)<br>
+<span class="mapblue">●</span> <span class="mapblue">Pioneer Park</span> (historic recreation)<br>
+<span class="mappurple">●</span> <span class="mappurple">Wine Tasting Rooms</span> (multiple downtown locations)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 6: Columbia River Gorge</span>
+## <span class="secondary">August 11, 2025 | 1 Night</span>
+
+**<span class="secondary">Driving Route:</span>** Walla Walla → Columbia River Gorge (205 mi, 3h 37m scenic drive)
+
+### <span class="primary">BOOKING STATUS: ✅ BOOKED!</span>
+
+**<span class="secondary">Glamping:</span>** Under Canvas Columbia River  
+**<span class="secondary">Address:</span>** 1681 Little White Salmon Rd, Cook, WA 98605  
+**<span class="secondary">Website:</span>** undercanvas.com  
+**<span class="primary">CONFIRMED:</span>** King bed with bathroom, Stargazers tent for August 11, 2025  
+**<span class="primary">Status:</span>** ✅ SUCCESSFULLY BOOKED BY SMADAR  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">From:</span>** Walla Walla, WA | **<span class="secondary">Distance:</span>** 205 miles | **<span class="secondary">Drive Time:</span>** 3h 37m  
+**<span class="secondary">Next Day:</span>** Drive to Seattle (110 mi, 2h 10m)  
+
+### <span class="primary">SPECIAL EXPERIENCES</span>
+- **<span class="secondary">Stargazer Experience</span>** - Private astronomer on clear nights
+- **<span class="secondary">Waterfall tours</span>** - Multiple Columbia River Gorge waterfalls  
+- **<span class="secondary">Scenic gorge drives</span>** - Historic Columbia River Highway  
+
+### <span class="primary">DINING & ACTIVITIES</span>
+- **<span class="secondary">Thunder Island Brewing</span>** - Local brewery with river views
+- **<span class="secondary">Camp dining</span>** - Under Canvas provides campfire cooking  
+- **<span class="secondary">Morning coffee</span>** - Served at fire pit starting 6 AM  
+
+---
+
+# <span class="primary">LEG 6: Columbia River Gorge Walking Map</span>
+
+<div class="figure">
+<img src="images/cascade_locks_or_walking_map.png">
+<p><strong><span class="primary">COLUMBIA RIVER GORGE WALKING AREA</span></strong><br>
+<strong><span class="secondary">Glamping:</span></strong> <span class="mapred">■</span> Under Canvas Columbia River (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapred">●</span> <span class="mapred">Bridge of the Gods</span> (iconic Columbia River bridge)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Thunder Island Brewing</span> (local brewery, river views)<br>
+<span class="mapblue">●</span> <span class="mapblue">Bonneville Lock and Dam</span> (engineering marvel)<br>
+<span class="mappurple">●</span> <span class="mappurple">Columbia River Trail</span> (riverside trails)<br>
+<span class="maporange">●</span> <span class="maporange">Gorge Waterfront Park</span> (scenic walking/biking)</p>
+</div>
+
+---
+
+# <span class="primary">LEG 7: Seattle, Washington</span>
+## <span class="secondary">August 12, 2025 (Departure Day)</span>
+
+**<span class="secondary">Driving Route:</span>** Columbia River Gorge → Seattle (110 mi, 2h 10m to departure)
+
+### <span class="primary">BOOKING DETAILS</span>
+
+**<span class="secondary">FLIGHT BOOKING (PRIORITY):</span>**  
+- **<span class="secondary">From Seattle (August 12th):</span>** Afternoon/evening flight SEA→JFK  
+- **<span class="secondary">Cost:</span>** $249/person | **<span class="secondary">Flight Time:</span>** 5h 28m direct Delta  
+- **<span class="secondary">Book Through:</span>** Delta.com or travel agent  
+
+**<span class="secondary">OPTIONAL OVERNIGHT (if late flight):</span>**  
+**<span class="secondary">Hotel:</span>** The Fairmont Olympic Seattle  
+**<span class="secondary">Address:</span>** 411 University St, Seattle, WA 98101  
+**<span class="secondary">Phone:</span>** (206) 621-1700 | **<span class="secondary">Rate:</span>** $400-600/night  
+
+### <span class="primary">ROUTE INFORMATION</span>
+**<span class="secondary">From:</span>** Columbia River Gorge | **<span class="secondary">Distance:</span>** 110 miles | **<span class="secondary">Drive Time:</span>** 2h 10m  
+
+### <span class="primary">PRE-DEPARTURE ACTIVITIES</span>
+- **<span class="secondary">Pike Place Market</span>** - Morning visit before flight
+- **<span class="secondary">Seattle waterfront</span>** - Final Pacific Northwest views  
+- **<span class="secondary">Coffee culture</span>** - Starbucks Reserve or local roasters  
+
+### <span class="primary">AIRPORT LOGISTICS</span>
+- **<span class="secondary">Car Return</span>** - Allow 2+ hours before flight
+- **<span class="secondary">Seattle-Tacoma International (SEA)</span>** - Large airport, arrive early  
+
+---
+
+# <span class="primary">LEG 7: Seattle Walking Map</span>
+
+<div class="figure">
+<img src="images/seattle_wa_walking_map.png">
+<p><strong><span class="primary">WALKING DESTINATIONS (Color-Coded)</span></strong><br>
+<strong><span class="secondary">Hotel:</span></strong> <span class="mapred">■</span> The Fairmont Olympic Seattle (Red Square)<br>
+<strong><span class="secondary">Within Walking Distance:</span></strong><br>
+<span class="mapred">●</span> <span class="mapred">Pike Place Market</span> (iconic market)<br>
+<span class="mappurple">●</span> <span class="mappurple">Seattle Art Museum</span> (Pacific Northwest art)<br>
+<span class="maporange">■</span> <span class="maporange">Pioneer Square</span> (historic district)<br>
+<span class="mapblue">●</span> <span class="mapblue">Waterfront Park</span> (Elliott Bay access)<br>
+<span class="mapgreen">●</span> <span class="mapgreen">Grand Central Bakery</span> (artisan breads)</p>
+</div>
+
+---
+
+# <span class="primary">Quick Reference: All Booking Contacts</span>
+
+## <span class="secondary">COMPLETED BOOKINGS ✅</span>
+- **<span class="primary">Kimpton Armory Hotel Bozeman</span>** (Aug 3-5) - Two King Rooms
+- **<span class="primary">Under Canvas Columbia River Gorge</span>** (Aug 11) - Stargazers Tent
+
+## <span class="secondary">REMAINING TO BOOK</span>
+
+| **<span class="secondary">Location</span>** | **<span class="secondary">Hotel</span>** | **<span class="secondary">Phone</span>** | **<span class="secondary">Rate/Night</span>** |
+|----------|-------|-------|------------|
+| **<span class="primary">Missoula</span>** | AC Hotel Downtown | (406) 541-8000 | $455 |
+| **<span class="primary">McCall</span>** | LA CASA ITALIANA Condo | Vacation rental platform | $360/night |
+| **<span class="primary">Joseph</span>** | Little Brick Building + Room #11 | Book direct | $667/night (both) |
+| **<span class="primary">Walla Walla</span>** | Eritage Resort | Contact needed | $400-600 |
+| **<span class="primary">Seattle</span>** | Fairmont Olympic | (206) 621-1700 | $400-600 |
+
+## <span class="secondary">ESTIMATED TOTAL COSTS</span>
+
+**<span class="primary">Flights:</span>** $716 per couple ($109 + $249 × 2)  
+**<span class="primary">Hotels:</span>** $2,890 for 8 nights total  
+**<span class="primary">Meals/Activities:</span>** $1,000-1,500  
+**<span class="primary">TOTAL ESTIMATE:</span>** $4,606-5,106 per couple  
+
+## <span class="secondary">BOOKING STRATEGY</span>
+
+1. **<span class="primary">Book flights IMMEDIATELY</span>** (save $280+ per couple) - HIGHEST PRIORITY
+2. **<span class="primary">LA CASA ITALIANA McCall</span>** (Aug 6-8) - Book the downtown condo  
+3. **<span class="primary">The Jennings Hotel Joseph</span>** (Aug 8-9) - Both rooms  
+4. **<span class="primary">Remaining accommodations</span>** - Missoula, Walla Walla, Seattle  
+---
+
+**<span class="primary">Created for Smadar's Pacific Northwest Adventure</span>** 

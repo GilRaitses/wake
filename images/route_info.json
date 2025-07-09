@@ -1,0 +1,65 @@
+[
+  {
+    "from": "Bozeman, MT",
+    "to": "Missoula, MT",
+    "distance_km": 325.648,
+    "distance_miles": 202.34822340800002,
+    "distance_text": "202 mi",
+    "driving_time_hours": 2.965,
+    "driving_time_text": "2 hours 58 mins"
+  },
+  {
+    "from": "Missoula, MT",
+    "to": "Jerry Johnson Hot Springs, ID",
+    "distance_km": 105.747,
+    "distance_miles": 65.708119137,
+    "distance_text": "65.7 mi",
+    "driving_time_hours": 1.3305555555555555,
+    "driving_time_text": "1 hour 20 mins"
+  },
+  {
+    "from": "Jerry Johnson Hot Springs, ID",
+    "to": "McCall, ID",
+    "distance_km": 306.035,
+    "distance_miles": 190.161273985,
+    "distance_text": "190 mi",
+    "driving_time_hours": 3.808611111111111,
+    "driving_time_text": "3 hours 49 mins"
+  },
+  {
+    "from": "McCall, ID",
+    "to": "Joseph, OR",
+    "distance_km": 267.268,
+    "distance_miles": 166.07258442799997,
+    "distance_text": "166 mi",
+    "driving_time_hours": 4.318611111111111,
+    "driving_time_text": "4 hours 19 mins"
+  },
+  {
+    "from": "Joseph, OR",
+    "to": "Walla Walla, WA",
+    "distance_km": 175.328,
+    "distance_miles": 108.943734688,
+    "distance_text": "109 mi",
+    "driving_time_hours": 2.1894444444444443,
+    "driving_time_text": "2 hours 11 mins"
+  },
+  {
+    "from": "Walla Walla, WA",
+    "to": "Columbia River Gorge, WA",
+    "distance_km": 330.547,
+    "distance_miles": 205.39231993700002,
+    "distance_text": "205 mi",
+    "driving_time_hours": 3.6166666666666667,
+    "driving_time_text": "3 hours 37 mins"
+  },
+  {
+    "from": "Columbia River Gorge, WA",
+    "to": "Seattle, WA",
+    "distance_km": 177.5,
+    "distance_miles": 110.2933525,
+    "distance_text": "110 mi",
+    "driving_time_hours": 2.163611111111111,
+    "driving_time_text": "2 hours 10 mins"
+  }
+]

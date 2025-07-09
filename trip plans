@@ -1,0 +1,66 @@
+Here is the revised YAML with **8/6** now dedicated to visiting **Jerry Johnson Hot Springs** en route from Missoula to McCall:
+
+```yaml
+trip_itinerary_august_2025:
+  travelers:
+    - gil
+    - camila
+    - gil_parents (depart_seattle_8_12)
+  start_date: 2025-08-03
+  end_date: 2025-08-14
+  route:
+    - date: 2025-08-03
+      location: bozeman_mt
+      nights: 1
+      notes: optional early arrival; adjust to 8/4 if needed
+
+    - date: 2025-08-04
+      location: bozeman_mt
+      nights: 1
+      notes: overnight stay; explore local area
+
+    - date: 2025-08-05
+      location: missoula_mt
+      nights: 1
+      notes: walk the riverfront trail, check out local food spots, explore town on foot
+
+    - date: 2025-08-06
+      location: route_missoula_to_mccall
+      stop: jerry_johnson_hot_springs
+      notes: visit Jerry Johnson Hot Springs via Highway 12; soak and hike before continuing south toward McCall
+
+    - date: 2025-08-07
+      location: mccall_id
+      nights: 2
+      lodging: luxury_resort
+      notes: hot spring day trips to Trail Creek, Burgdorf, Gold Fork
+
+    - date: 2025-08-09
+      location: joseph_or
+      lodging: jennings_hotel
+      nights: 1
+      notes: visit M. Crow Store in Lostine en route; enjoy Wallowa Lake and alpine views
+
+    - date: 2025-08-10
+      location: walla_walla_wa
+      lodging: eritage_resort
+      nights: 1
+      notes: wine tasting, poolside dinner, vineyard views
+
+    - date: 2025-08-11
+      location: undercanvas_columbia_river
+      nights: 1
+      notes: glamping night with Gorge views, trails, and fireside evening
+
+    - date: 2025-08-12
+      location: seattle_wa
+      notes: gil_parents_departure
+      nights: 2
+      notes_camila_gil: extra couple nights in Seattle for rest, food, museums, or friends
+
+    - date: 2025-08-14
+      location: seattle_wa
+      departure: flexible
+```
+
+Let me know if you want additional notes for the trail or parking at Jerry Johnson, or if you'd like this rendered as a visual route guide.

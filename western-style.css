@@ -1,0 +1,276 @@
+/* 
+  Font Strategy:
+  - Headers: Playfair Display (elegant serif) with Times New Roman/Georgia fallbacks
+  - Body/Subheadings: Avenir Next/Avenir (clean sans-serif) with Helvetica Neue/Arial fallbacks
+  - No external font imports needed - uses system fonts for reliability
+*/
+
+/* Western-style headers like The Jennings Hotel */
+h1, h2, h3, .title {
+  font-family: 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+  color: #8B4513;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3.5rem;
+  text-align: center;
+  border-bottom: 4px solid #8B4513;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  color: #654321;
+}
+
+h2 {
+  font-size: 2.5rem;
+  border-bottom: 3px solid #8B4513;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #A0522D;
+  border-bottom: 2px solid #A0522D;
+  padding-bottom: 0.5rem;
+}
+
+/* All-caps Avenir for subheadings like site menu */
+h4, h5, h6, .subtitle {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #2C3E50;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: #8B4513;
+  border-left: 4px solid #8B4513;
+  padding-left: 1rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  color: #A0522D;
+  border-left: 3px solid #A0522D;
+  padding-left: 0.8rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: #654321;
+  border-left: 2px solid #654321;
+  padding-left: 0.6rem;
+}
+
+/* Body text styling */
+body {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  line-height: 1.7;
+  color: #2C3E50;
+  background: linear-gradient(135deg, #FFF8F0 0%, #F5E6D3 100%);
+  font-size: 1.1rem;
+}
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* List styling */
+ul, ol {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.8rem;
+}
+
+/* Bold text in lists (like locations, specialties) - all caps Avenir */
+li strong, strong {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #8B4513;
+}
+
+/* Paragraph styling */
+p {
+  margin-bottom: 1.3rem;
+  font-size: 1.1rem;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+  margin: 3rem 0;
+  border-radius: 2px;
+}
+
+/* Link styling */
+a {
+  color: #8B4513;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #A0522D;
+  border-bottom: 2px solid #A0522D;
+}
+
+/* Table styling */
+table {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  color: white;
+  padding: 1.2rem;
+  text-align: left;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+  background: white;
+}
+
+tr:hover td {
+  background: #F8F8F8;
+}
+
+/* Blockquote styling */
+blockquote {
+  font-family: 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #8B4513;
+  border-left: 5px solid #8B4513;
+  padding-left: 2rem;
+  margin: 2rem 0;
+  background: rgba(139, 69, 19, 0.05);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+}
+
+/* TOC styling */
+.toc-title {
+  font-family: 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8B4513;
+  font-size: 2rem;
+  border-bottom: 3px solid #8B4513;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc li {
+  margin-bottom: 0.5rem;
+}
+
+.toc a {
+  font-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  color: #2C3E50;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.toc a:hover {
+  color: #8B4513;
+  border-bottom: 1px solid #8B4513;
+}
+
+/* Add some western texture */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.03) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Section numbers styling */
+.header-section-number {
+  font-family: 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+  color: #8B4513;
+  margin-right: 1rem;
+  font-weight: 700;
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 1.5rem 0;
+}
+
+/* Code styling */
+code {
+  font-family: 'Courier New', monospace;
+  background: rgba(139, 69, 19, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #8B4513;
+}
+
+pre {
+  background: rgba(139, 69, 19, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #8B4513;
+  overflow-x: auto;
+} 
