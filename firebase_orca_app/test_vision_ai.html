@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vision AI Test - Orca Tracker</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #1e3c72; color: white; }
+        .test-container { max-width: 600px; margin: 0 auto; }
+        .upload-area { 
+            border: 2px dashed #fff; 
+            padding: 20px; 
+            text-align: center; 
+            margin: 20px 0; 
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .upload-area:hover { background: rgba(255,255,255,0.1); }
+        .result { 
+            background: rgba(255,255,255,0.1); 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 8px; 
+            border-left: 4px solid #4CAF50;
+        }
+        .error { border-left-color: #f44336; }
+        img { max-width: 100%; height: auto; border-radius: 8px; margin: 10px 0; }
+        button { 
+            background: #4CAF50; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            margin: 10px;
+        }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🤖 Vision AI Test for Orca Tracker</h1>
+        
+        <p>This page tests if Google Vision AI is working with your API key.</p>
+        
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="analyzeImage(event)">
+            <p>📷 Click to upload an image for Vision AI analysis</p>
+            <p style="font-size: 0.8em; opacity: 0.8;">Try uploading a photo of a whale, ocean, or any marine life</p>
+        </div>
+        
+        <div id="imagePreview"></div>
+        
+        <button onclick="testWithSampleImage()">🐋 Test with Sample Orca Image URL</button>
+        
+        <div id="results"></div>
+        
+        <div id="status" style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+            Ready to test Vision AI...
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = 'AIzaSyCrhPkj63w23hfULL8SQQ80k8k9QRYMaFI';
+        
+        async function analyzeWithVisionAI(imageBase64) {
+            const status = document.getElementById('status');
+            status.textContent = '🔍 Analyzing image with Vision AI...';
+            
+            try {
+                const response = await fetch(`https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        requests: [{
+                            image: { content: imageBase64.split(',')[1] },
+                            features: [
+                                { type: 'LABEL_DETECTION', maxResults: 10 },
+                                { type: 'OBJECT_LOCALIZATION', maxResults: 5 },
+                                { type: 'SAFE_SEARCH_DETECTION' }
+                            ]
+                        }]
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status} - ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                status.textContent = '✅ Vision AI analysis complete!';
+                return result.responses[0];
+                
+            } catch (error) {
+                status.textContent = `❌ Error: ${error.message}`;
+                throw error;
+            }
+        }
+        
+        function displayResults(visionResult) {
+            const resultsDiv = document.getElementById('results');
+            
+            if (!visionResult) {
+                resultsDiv.innerHTML = '<div class="result error">No results from Vision AI</div>';
+                return;
+            }
+            
+            let html = '<h3>🤖 Vision AI Results:</h3>';
+            
+            // Labels
+            if (visionResult.labelAnnotations) {
+                html += '<div class="result"><h4>🏷️ Labels Detected:</h4>';
+                visionResult.labelAnnotations.forEach(label => {
+                    const confidence = (label.score * 100).toFixed(1);
+                    const isOrcaRelated = label.description.toLowerCase().includes('whale') || 
+                                         label.description.toLowerCase().includes('orca') ||
+                                         label.description.toLowerCase().includes('marine') ||
+                                         label.description.toLowerCase().includes('ocean');
+                    const emoji = isOrcaRelated ? '🐋' : '📋';
+                    html += `<div>${emoji} ${label.description} (${confidence}% confidence)</div>`;
+                });
+                html += '</div>';
+            }
+            
+            // Objects
+            if (visionResult.localizedObjectAnnotations && visionResult.localizedObjectAnnotations.length > 0) {
+                html += '<div class="result"><h4>🎯 Objects Found:</h4>';
+                visionResult.localizedObjectAnnotations.forEach(obj => {
+                    const confidence = (obj.score * 100).toFixed(1);
+                    html += `<div>📍 ${obj.name} (${confidence}% confidence)</div>`;
+                });
+                html += '</div>';
+            }
+            
+            // Safe search
+            if (visionResult.safeSearchAnnotation) {
+                const safe = visionResult.safeSearchAnnotation;
+                html += '<div class="result"><h4>🔍 Image Quality Check:</h4>';
+                html += `<div>✅ Adult: ${safe.adult}, Violence: ${safe.violence}, Racy: ${safe.racy}</div>`;
+                html += '<div>📷 This image is suitable for research use</div>';
+                html += '</div>';
+            }
+            
+            // Marine life assessment
+            const labels = visionResult.labelAnnotations || [];
+            const marineLabels = labels.filter(label => 
+                label.description.toLowerCase().includes('whale') ||
+                label.description.toLowerCase().includes('orca') ||
+                label.description.toLowerCase().includes('marine') ||
+                label.description.toLowerCase().includes('ocean') ||
+                label.description.toLowerCase().includes('water')
+            );
+            
+            if (marineLabels.length > 0) {
+                html += '<div class="result" style="border-left-color: #2196F3;"><h4>🌊 Marine Life Assessment:</h4>';
+                const topMarine = marineLabels[0];
+                if (topMarine.score > 0.8) {
+                    html += `<div>🐋 <strong>High confidence marine content detected!</strong></div>`;
+                    html += `<div>Best match: ${topMarine.description} (${(topMarine.score * 100).toFixed(1)}%)</div>`;
+                } else if (topMarine.score > 0.5) {
+                    html += `<div>🌊 Possible marine content detected</div>`;
+                    html += `<div>Match: ${topMarine.description} (${(topMarine.score * 100).toFixed(1)}%)</div>`;
+                } else {
+                    html += `<div>📋 General aquatic scene detected</div>`;
+                }
+                html += '</div>';
+            } else {
+                html += '<div class="result" style="border-left-color: #FF9800;"><h4>⚠️ Marine Life Assessment:</h4>';
+                html += '<div>No clear marine mammals detected in this image</div>';
+                html += '<div>This might not be an orca sighting photo</div>';
+                html += '</div>';
+            }
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        async function analyzeImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                document.getElementById('imagePreview').innerHTML = 
+                    `<img src="${e.target.result}" alt="Uploaded image">`;
+                
+                try {
+                    const visionResult = await analyzeWithVisionAI(e.target.result);
+                    displayResults(visionResult);
+                } catch (error) {
+                    document.getElementById('results').innerHTML = 
+                        `<div class="result error">❌ Error: ${error.message}</div>`;
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        async function testWithSampleImage() {
+            const status = document.getElementById('status');
+            status.textContent = '📥 Loading sample orca image...';
+            
+            // Use a sample marine image URL (converting to base64)
+            try {
+                // Create a test canvas with sample content
+                const canvas = document.createElement('canvas');
+                canvas.width = 400;
+                canvas.height = 300;
+                const ctx = canvas.getContext('2d');
+                
+                // Draw a simple test image
+                ctx.fillStyle = '#1e40af';
+                ctx.fillRect(0, 0, 400, 300);
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '48px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('🐋', 200, 150);
+                ctx.font = '24px Arial';
+                ctx.fillText('Test Orca Image', 200, 200);
+                
+                const testImageBase64 = canvas.toDataURL('image/png');
+                
+                document.getElementById('imagePreview').innerHTML = 
+                    `<img src="${testImageBase64}" alt="Test image">`;
+                
+                const visionResult = await analyzeWithVisionAI(testImageBase64);
+                displayResults(visionResult);
+                
+            } catch (error) {
+                document.getElementById('results').innerHTML = 
+                    `<div class="result error">❌ Test failed: ${error.message}</div>`;
+            }
+        }
+        
+        // Test API access on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const status = document.getElementById('status');
+            status.innerHTML = `
+                <div>🔑 API Key configured: ${API_KEY.substring(0, 20)}...</div>
+                <div>📡 Ready to test Vision AI integration</div>
+                <div style="margin-top: 10px;">
+                    <strong>Next:</strong> Upload a photo or click the test button to verify Vision AI is working!
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html> 
