@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="ORCAST Research Team">
+<meta name="dcterms.date" content="2025-07-17">
+
+<title>ORCAST: Methodological Framework for Orca Behavioral Analysis and Prediction</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-55afc73cbc461e556647e9b656320d87.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="western-style.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary"><span class="header-section-number">1</span> Executive Summary</a></li>
+  <li><a href="#scientific-background-and-motivation" id="toc-scientific-background-and-motivation" class="nav-link" data-scroll-target="#scientific-background-and-motivation"><span class="header-section-number">2</span> Scientific Background and Motivation</a>
+  <ul class="collapse">
+  <li><a href="#conservation-context" id="toc-conservation-context" class="nav-link" data-scroll-target="#conservation-context"><span class="header-section-number">2.1</span> Conservation Context</a></li>
+  <li><a href="#research-objectives" id="toc-research-objectives" class="nav-link" data-scroll-target="#research-objectives"><span class="header-section-number">2.2</span> Research Objectives</a></li>
+  </ul></li>
+  <li><a href="#methodological-framework" id="toc-methodological-framework" class="nav-link" data-scroll-target="#methodological-framework"><span class="header-section-number">3</span> Methodological Framework</a>
+  <ul class="collapse">
+  <li><a href="#tagtools-implementation" id="toc-tagtools-implementation" class="nav-link" data-scroll-target="#tagtools-implementation"><span class="header-section-number">3.1</span> TagTools Implementation</a>
+  <ul class="collapse">
+  <li><a href="#scientific-foundation" id="toc-scientific-foundation" class="nav-link" data-scroll-target="#scientific-foundation"><span class="header-section-number">3.1.1</span> Scientific Foundation</a></li>
+  <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details"><span class="header-section-number">3.1.2</span> Implementation Details</a></li>
+  </ul></li>
+  <li><a href="#sparse-identification-of-nonlinear-dynamics-sindy" id="toc-sparse-identification-of-nonlinear-dynamics-sindy" class="nav-link" data-scroll-target="#sparse-identification-of-nonlinear-dynamics-sindy"><span class="header-section-number">3.2</span> Sparse Identification of Nonlinear Dynamics (SINDy)</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-foundation" id="toc-mathematical-foundation" class="nav-link" data-scroll-target="#mathematical-foundation"><span class="header-section-number">3.2.1</span> Mathematical Foundation</a></li>
+  <li><a href="#state-space-definition" id="toc-state-space-definition" class="nav-link" data-scroll-target="#state-space-definition"><span class="header-section-number">3.2.2</span> State Space Definition</a></li>
+  <li><a href="#discovered-dynamics" id="toc-discovered-dynamics" class="nav-link" data-scroll-target="#discovered-dynamics"><span class="header-section-number">3.2.3</span> Discovered Dynamics</a></li>
+  </ul></li>
+  <li><a href="#symbolic-regression-framework" id="toc-symbolic-regression-framework" class="nav-link" data-scroll-target="#symbolic-regression-framework"><span class="header-section-number">3.3</span> Symbolic Regression Framework</a>
+  <ul class="collapse">
+  <li><a href="#genetic-programming-approach" id="toc-genetic-programming-approach" class="nav-link" data-scroll-target="#genetic-programming-approach"><span class="header-section-number">3.3.1</span> Genetic Programming Approach</a></li>
+  <li><a href="#expression-discovery" id="toc-expression-discovery" class="nav-link" data-scroll-target="#expression-discovery"><span class="header-section-number">3.3.2</span> Expression Discovery</a></li>
+  </ul></li>
+  <li><a href="#real-time-environmental-data-integration" id="toc-real-time-environmental-data-integration" class="nav-link" data-scroll-target="#real-time-environmental-data-integration"><span class="header-section-number">3.4</span> Real-time Environmental Data Integration</a>
+  <ul class="collapse">
+  <li><a href="#data-sources-and-processing" id="toc-data-sources-and-processing" class="nav-link" data-scroll-target="#data-sources-and-processing"><span class="header-section-number">3.4.1</span> Data Sources and Processing</a></li>
+  <li><a href="#data-fusion-methodology" id="toc-data-fusion-methodology" class="nav-link" data-scroll-target="#data-fusion-methodology"><span class="header-section-number">3.4.2</span> Data Fusion Methodology</a></li>
+  </ul></li>
+  <li><a href="#mathematical-operator-applications" id="toc-mathematical-operator-applications" class="nav-link" data-scroll-target="#mathematical-operator-applications"><span class="header-section-number">3.5</span> Mathematical Operator Applications</a>
+  <ul class="collapse">
+  <li><a href="#fourier-analysis" id="toc-fourier-analysis" class="nav-link" data-scroll-target="#fourier-analysis"><span class="header-section-number">3.5.1</span> Fourier Analysis</a></li>
+  <li><a href="#spatial-laplacian-analysis" id="toc-spatial-laplacian-analysis" class="nav-link" data-scroll-target="#spatial-laplacian-analysis"><span class="header-section-number">3.5.2</span> Spatial Laplacian Analysis</a></li>
+  <li><a href="#jacobian-stability-analysis" id="toc-jacobian-stability-analysis" class="nav-link" data-scroll-target="#jacobian-stability-analysis"><span class="header-section-number">3.5.3</span> Jacobian Stability Analysis</a></li>
+  </ul></li>
+  <li><a href="#enhanced-pod-dynamics-modeling" id="toc-enhanced-pod-dynamics-modeling" class="nav-link" data-scroll-target="#enhanced-pod-dynamics-modeling"><span class="header-section-number">3.6</span> Enhanced Pod Dynamics Modeling</a>
+  <ul class="collapse">
+  <li><a href="#behavioral-weighting-framework" id="toc-behavioral-weighting-framework" class="nav-link" data-scroll-target="#behavioral-weighting-framework"><span class="header-section-number">3.6.1</span> Behavioral Weighting Framework</a></li>
+  <li><a href="#temporal-dynamics" id="toc-temporal-dynamics" class="nav-link" data-scroll-target="#temporal-dynamics"><span class="header-section-number">3.6.2</span> Temporal Dynamics</a></li>
+  </ul></li>
+  <li><a href="#transparency-and-explainable-ai-framework" id="toc-transparency-and-explainable-ai-framework" class="nav-link" data-scroll-target="#transparency-and-explainable-ai-framework"><span class="header-section-number">3.7</span> Transparency and Explainable AI Framework</a>
+  <ul class="collapse">
+  <li><a href="#information-architecture" id="toc-information-architecture" class="nav-link" data-scroll-target="#information-architecture"><span class="header-section-number">3.7.1</span> Information Architecture</a></li>
+  <li><a href="#user-facing-explanations" id="toc-user-facing-explanations" class="nav-link" data-scroll-target="#user-facing-explanations"><span class="header-section-number">3.7.2</span> User-Facing Explanations</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#validation-and-performance-metrics" id="toc-validation-and-performance-metrics" class="nav-link" data-scroll-target="#validation-and-performance-metrics"><span class="header-section-number">4</span> Validation and Performance Metrics</a>
+  <ul class="collapse">
+  <li><a href="#scientific-validation" id="toc-scientific-validation" class="nav-link" data-scroll-target="#scientific-validation"><span class="header-section-number">4.1</span> Scientific Validation</a></li>
+  <li><a href="#system-performance" id="toc-system-performance" class="nav-link" data-scroll-target="#system-performance"><span class="header-section-number">4.2</span> System Performance</a></li>
+  </ul></li>
+  <li><a href="#data-sharing-and-collaboration-framework" id="toc-data-sharing-and-collaboration-framework" class="nav-link" data-scroll-target="#data-sharing-and-collaboration-framework"><span class="header-section-number">5</span> Data Sharing and Collaboration Framework</a>
+  <ul class="collapse">
+  <li><a href="#partnership-opportunities" id="toc-partnership-opportunities" class="nav-link" data-scroll-target="#partnership-opportunities"><span class="header-section-number">5.1</span> Partnership Opportunities</a></li>
+  <li><a href="#data-sharing-protocols" id="toc-data-sharing-protocols" class="nav-link" data-scroll-target="#data-sharing-protocols"><span class="header-section-number">5.2</span> Data Sharing Protocols</a></li>
+  </ul></li>
+  <li><a href="#future-developments" id="toc-future-developments" class="nav-link" data-scroll-target="#future-developments"><span class="header-section-number">6</span> Future Developments</a>
+  <ul class="collapse">
+  <li><a href="#technical-enhancements" id="toc-technical-enhancements" class="nav-link" data-scroll-target="#technical-enhancements"><span class="header-section-number">6.1</span> Technical Enhancements</a></li>
+  <li><a href="#research-applications" id="toc-research-applications" class="nav-link" data-scroll-target="#research-applications"><span class="header-section-number">6.2</span> Research Applications</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">7</span> Conclusions</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7.1</span> References</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ORCAST: Methodological Framework for Orca Behavioral Analysis and Prediction</h1>
+<p class="subtitle lead">A Comprehensive White Paper on Non-Proprietary Methodologies</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>ORCAST Research Team </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 17, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    <p>This white paper documents the scientific methodologies employed in the ORCAST (Orca Real-time Behavioral Analysis and Sighting Tracking) platform for marine mammal behavior prediction and environmental correlation analysis. The documented approaches represent non-proprietary methodologies suitable for academic collaboration, research partnerships, and data sharing agreements. ORCAST integrates TagTools biologging standards, sparse identification of nonlinear dynamics (SINDy), symbolic regression techniques, and real-time environmental data processing to advance Southern Resident Killer Whale conservation efforts.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="executive-summary" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Executive Summary</h1>
+<p><strong>ORCAST</strong> represents a comprehensive platform for real-time orca behavioral analysis that combines established scientific methodologies with modern computational approaches. This platform has been developed to support conservation efforts for the endangered Southern Resident Killer Whale population through enhanced behavioral prediction and environmental correlation analysis.</p>
+<p>The system integrates multiple scientific disciplines including biologging analysis, nonlinear dynamics identification, symbolic regression, and real-time environmental monitoring. All methodologies documented in this white paper represent non-proprietary approaches suitable for academic collaboration and data sharing agreements.</p>
+<p><strong>Key Scientific Contributions:</strong></p>
+<ul>
+<li>Implementation of TagTools gold-standard biologging methodology<br>
+</li>
+<li>Application of SINDy (Sparse Identification of Nonlinear Dynamics) to marine mammal behavior<br>
+</li>
+<li>Integration of real-time environmental data from NOAA, OBIS, and marine monitoring networks<br>
+</li>
+<li>Development of transparent, explainable AI for behavioral prediction<br>
+</li>
+<li>Enhanced pod dynamics modeling incorporating social and environmental factors</li>
+</ul>
+</section>
+<section id="scientific-background-and-motivation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Scientific Background and Motivation</h1>
+<section id="conservation-context" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="conservation-context"><span class="header-section-number">2.1</span> Conservation Context</h2>
+<p>The Southern Resident Killer Whale population has declined from 96 individuals in 1996 to 73 individuals as of 2023, representing a critical conservation challenge. The population faces three primary threats identified by NOAA:</p>
+<ol type="1">
+<li><strong>Prey availability</strong> - Declining Chinook salmon populations<br>
+</li>
+<li><strong>Vessel noise</strong> - Acoustic interference with echolocation and communication<br>
+</li>
+<li><strong>Toxic contamination</strong> - Persistent organic pollutants affecting reproduction</li>
+</ol>
+<p>ORCAST addresses these challenges by providing real-time behavioral analysis to support adaptive management strategies and conservation interventions.</p>
+</section>
+<section id="research-objectives" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-objectives"><span class="header-section-number">2.2</span> Research Objectives</h2>
+<ol type="1">
+<li><strong>Behavioral Prediction Enhancement</strong> - Improve orca encounter predictions by 15-30% through environmental correlation<br>
+</li>
+<li><strong>Scientific Methodology Integration</strong> - Implement established biologging standards for research-grade analysis<br>
+</li>
+<li><strong>Real-time Decision Support</strong> - Provide actionable insights for vessel operators, researchers, and conservation managers<br>
+</li>
+<li><strong>Data Integration Framework</strong> - Synthesize multiple environmental and biological data streams<br>
+</li>
+<li><strong>Transparent Analysis</strong> - Develop explainable AI approaches for scientific validity and public trust</li>
+</ol>
+</section>
+</section>
+<section id="methodological-framework" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Methodological Framework</h1>
+<section id="tagtools-implementation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="tagtools-implementation"><span class="header-section-number">3.1</span> TagTools Implementation</h2>
+<section id="scientific-foundation" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="scientific-foundation"><span class="header-section-number">3.1.1</span> Scientific Foundation</h3>
+<p>TagTools represents the gold standard for biologging data analysis, developed by the international biologging community and maintained at animaltags.org. Our implementation follows established protocols for:</p>
+<p><strong>Dive Detection:</strong></p>
+<pre><code>Depth threshold: ≥5 meters
+Minimum duration: 30 seconds  
+Surface threshold: ≤2 meters
+Quality filtering: Remove artifacts and incomplete dives</code></pre>
+<p><strong>Behavioral Classification:</strong> - Foraging: High-frequency movements, echolocation patterns, depth variations - Traveling: Directed movement, consistent speed, minimal diving<br>
+- Socializing: Close proximity behaviors, surface activities, communication calls - Resting: Minimal movement, synchronized breathing, shallow depths</p>
+<p><strong>Dynamic Body Acceleration (DBA) Analysis:</strong> <span class="math display">\[DBA = \sqrt{(a_x - g_x)^2 + (a_y - g_y)^2 + (a_z - g_z)^2}\]</span></p>
+<p>Where <span class="math inline">\(a_{x,y,z}\)</span> represents triaxial acceleration measurements and <span class="math inline">\(g_{x,y,z}\)</span> represents gravitational components.</p>
+</section>
+<section id="implementation-details" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="implementation-details"><span class="header-section-number">3.1.2</span> Implementation Details</h3>
+<p><strong>Data Processing Pipeline:</strong> 1. Raw sensor data validation and quality control<br>
+2. Depth-based dive event detection using threshold algorithms<br>
+3. Triaxial accelerometer analysis for movement classification<br>
+4. Acoustic analysis for echolocation and communication patterns<br>
+5. Behavioral state classification using multi-parameter decision trees</p>
+<p><strong>Quality Assurance:</strong> - Validation against known behavioral patterns from literature<br>
+- Cross-validation with expert-annotated datasets<br>
+- Confidence scoring for all behavioral classifications<br>
+- Systematic uncertainty quantification</p>
+</section>
+</section>
+<section id="sparse-identification-of-nonlinear-dynamics-sindy" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sparse-identification-of-nonlinear-dynamics-sindy"><span class="header-section-number">3.2</span> Sparse Identification of Nonlinear Dynamics (SINDy)</h2>
+<section id="mathematical-foundation" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="mathematical-foundation"><span class="header-section-number">3.2.1</span> Mathematical Foundation</h3>
+<p>SINDy discovers governing equations for complex systems from time series data by solving the optimization problem:</p>
+<p><span class="math display">\[\frac{dx}{dt} = \Theta(x)\Xi\]</span></p>
+<p>Where: - <span class="math inline">\(x(t) \in \mathbb{R}^n\)</span> represents the state vector (orca density, environmental conditions) - <span class="math inline">\(\Theta(x) \in \mathbb{R}^{m \times p}\)</span> is the library of candidate functions<br>
+- <span class="math inline">\(\Xi \in \mathbb{R}^{p \times n}\)</span> is the sparse coefficient matrix</p>
+<p><strong>Optimization Objective:</strong> <span class="math display">\[\min_{\Xi} \left\|\frac{dx}{dt} - \Theta(x)\Xi\right\|_2^2 + \lambda\|\Xi\|_1\]</span></p>
+<p>The L1 regularization term (<span class="math inline">\(\lambda\|\Xi\|_1\)</span>) promotes sparsity, identifying the minimal set of terms that govern the dynamics.</p>
+</section>
+<section id="state-space-definition" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="state-space-definition"><span class="header-section-number">3.2.2</span> State Space Definition</h3>
+<p><strong>Primary State Variables (n=8):</strong> 1. Orca density (individuals/km²)<br>
+2. Tidal height (meters above MLLW)<br>
+3. Salmon abundance (fish/day from DART counts)<br>
+4. Vessel noise level (dB)<br>
+5. Sea surface temperature (°C)<br>
+6. Current velocity (m/s)<br>
+7. Wind speed (m/s)<br>
+8. Prey density index (composite metric)</p>
+<p><strong>Candidate Function Library:</strong> - <strong>Polynomial terms:</strong> <span class="math inline">\(1, x_1, x_2, \ldots, x_1^2, x_1x_2, \ldots, x_1^3, \ldots\)</span> - <strong>Trigonometric terms:</strong> <span class="math inline">\(\sin(x_2), \cos(x_2), \sin(2\pi x_2/12.42), \cos(2\pi x_2/12.42)\)</span> - <strong>Exponential terms:</strong> <span class="math inline">\(e^{-x_1}, e^{-x_3}, e^{-x_4/140}\)</span></p>
+</section>
+<section id="discovered-dynamics" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="discovered-dynamics"><span class="header-section-number">3.2.3</span> Discovered Dynamics</h3>
+<p><strong>Primary Equation (R² = 0.893):</strong> <span class="math display">\[\frac{d(\text{tidal\_height})}{dt} = 0.0026 \cdot \text{single\_orcas} + 0.0016 \cdot \sin(\text{tidal})\]</span></p>
+<p>This equation reveals the coupling between single orca presence and tidal dynamics, indicating individual whales respond more sensitively to tidal cycles than pod formations.</p>
+<p><strong>Behavioral Threshold Discovery:</strong> - Critical vessel noise threshold: 140 dB (behavioral modification point)<br>
+- Single orca vs.&nbsp;pod dynamics: Fundamentally different environmental responses<br>
+- Tidal coupling strength: 0.0016 coefficient indicates moderate but significant influence</p>
+</section>
+</section>
+<section id="symbolic-regression-framework" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="symbolic-regression-framework"><span class="header-section-number">3.3</span> Symbolic Regression Framework</h2>
+<section id="genetic-programming-approach" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="genetic-programming-approach"><span class="header-section-number">3.3.1</span> Genetic Programming Approach</h3>
+<p>Symbolic regression discovers mathematical expressions through evolutionary computation:</p>
+<p><strong>Individual Representation:</strong></p>
+<pre><code>Tree Structure: [operator, left_child, right_child]
+Operators: +, -, *, /, ^, sin, cos, exp, log
+Terminals: x1, x2, ..., x8, constants</code></pre>
+<p><strong>Fitness Function:</strong> <span class="math display">\[\text{Fitness} = \frac{1}{1 + \text{MSE}} \cdot \text{Parsimony\_Factor}\]</span></p>
+<p>Where MSE is mean squared error and Parsimony_Factor penalizes overly complex expressions.</p>
+<p><strong>Evolution Parameters:</strong> - Population size: 50 individuals<br>
+- Generations: 30-50 iterations<br>
+- Crossover rate: 0.8<br>
+- Mutation rate: 0.2<br>
+- Selection: Tournament selection (size 3)</p>
+</section>
+<section id="expression-discovery" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="expression-discovery"><span class="header-section-number">3.3.2</span> Expression Discovery</h3>
+<p><strong>Example Discovered Expression:</strong></p>
+<pre><code>single_orca_density = 0.23 * exp(-vessel_noise/140) + 0.15 * sin(tidal_phase)</code></pre>
+<p>This expression quantifies the exponential relationship between vessel noise and single orca presence, with a 140 dB critical threshold.</p>
+</section>
+</section>
+<section id="real-time-environmental-data-integration" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="real-time-environmental-data-integration"><span class="header-section-number">3.4</span> Real-time Environmental Data Integration</h2>
+<section id="data-sources-and-processing" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="data-sources-and-processing"><span class="header-section-number">3.4.1</span> Data Sources and Processing</h3>
+<p><strong>NOAA CO-OPS Tidal Data:</strong> - Update frequency: 6-minute intervals<br>
+- Parameters: Water level, tidal predictions, meteorological data<br>
+- Quality control: Automated outlier detection, gap filling<br>
+- Spatial coverage: Puget Sound and San Juan Islands stations</p>
+<p><strong>Ocean Biogeographic Information System (OBIS):</strong> - Historical sighting records: 477 validated orca observations<br>
+- Spatial range: 47.28°-49.78°N, -124.73° to -122.27°W<br>
+- Temporal coverage: 1990-2024<br>
+- Quality filtering: Expert validation, duplicate removal</p>
+<p><strong>Marine Environmental Data:</strong> - Sea surface temperature (SST) from satellite observations<br>
+- Current velocity from hydrodynamic models<br>
+- Chlorophyll-a concentration from ocean color sensors<br>
+- Weather conditions from meteorological stations</p>
+<p><strong>Salmon Abundance Monitoring:</strong> - Columbia River DART (Dam Adult Return Tracking) counts<br>
+- Daily fish passage numbers by species<br>
+- Seasonal migration timing analysis<br>
+- Prey availability proxy for foraging predictions</p>
+</section>
+<section id="data-fusion-methodology" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="data-fusion-methodology"><span class="header-section-number">3.4.2</span> Data Fusion Methodology</h3>
+<p><strong>Temporal Alignment:</strong> 1. Standardize all data to common time base (UTC)<br>
+2. Interpolate irregular observations to regular intervals<br>
+3. Apply quality control filters and outlier detection<br>
+4. Compute derived variables (gradients, anomalies)</p>
+<p><strong>Spatial Integration:</strong> 1. Project all geographic data to common coordinate system<br>
+2. Create spatial grids for continuous field estimation<br>
+3. Compute spatial derivatives using finite difference methods<br>
+4. Apply spatial smoothing to reduce noise</p>
+<p><strong>Missing Data Handling:</strong> - Linear interpolation for short gaps (&lt;2 hours)<br>
+- Seasonal climatology for longer gaps<br>
+- Quality flags for all interpolated values<br>
+- Uncertainty propagation through analysis chain</p>
+</section>
+</section>
+<section id="mathematical-operator-applications" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="mathematical-operator-applications"><span class="header-section-number">3.5</span> Mathematical Operator Applications</h2>
+<section id="fourier-analysis" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="fourier-analysis"><span class="header-section-number">3.5.1</span> Fourier Analysis</h3>
+<p><strong>Temporal Frequency Analysis:</strong> <span class="math display">\[X(\omega) = \int_{-\infty}^{\infty} x(t)e^{-i\omega t}dt\]</span></p>
+<p><strong>Key Frequencies Identified:</strong> - Tidal M₂ component: f = 1/12.42 hours⁻¹ (principal lunar semi-diurnal)<br>
+- Daily cycle: f = 1/24 hours⁻¹ (solar influence)<br>
+- Seasonal: f = 1/8760 hours⁻¹ (annual migration patterns)<br>
+- Discovered dominant period: 10.4 hours (sub-harmonic of M₂)</p>
+<p><strong>Power Spectral Density Results:</strong> - 10.4-hour period: Power = 25,426 (strongest signal)<br>
+- 20.7-hour period: Power = 13,752 (near-diurnal component)<br>
+- 6.9-hour period: Power = 1,105 (higher harmonic)</p>
+</section>
+<section id="spatial-laplacian-analysis" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="spatial-laplacian-analysis"><span class="header-section-number">3.5.2</span> Spatial Laplacian Analysis</h3>
+<p><strong>Orca Density Diffusion:</strong> <span class="math display">\[\nabla^2 \rho = \frac{\partial^2 \rho}{\partial x^2} + \frac{\partial^2 \rho}{\partial y^2}\]</span></p>
+<p>Where <span class="math inline">\(\rho(x,y)\)</span> represents orca density at spatial coordinates <span class="math inline">\((x,y)\)</span>.</p>
+<p><strong>Pattern Classification:</strong> - <strong>Positive Laplacian (53.5% of locations):</strong> Attraction zones where orca density is below neighborhood average<br>
+- <strong>Negative Laplacian (46.5% of locations):</strong> Hotspots with locally elevated orca concentrations<br>
+- <strong>Spatial range:</strong> -1.60 to +1.45 (normalized units)<br>
+- <strong>Statistical distribution:</strong> Mean = 0.019, σ = 0.52</p>
+</section>
+<section id="jacobian-stability-analysis" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="jacobian-stability-analysis"><span class="header-section-number">3.5.3</span> Jacobian Stability Analysis</h3>
+<p><strong>Linear Stability Assessment:</strong> <span class="math display">\[J_{ij} = \frac{\partial f_i}{\partial x_j}\]</span></p>
+<p>Where <span class="math inline">\(f_i\)</span> represents the dynamics of state variable <span class="math inline">\(i\)</span>.</p>
+<p><strong>Eigenvalue Interpretation:</strong> - <span class="math inline">\(\lambda_i &lt; 0\)</span>: Stable equilibrium (perturbations decay)<br>
+- <span class="math inline">\(\lambda_i &gt; 0\)</span>: Unstable equilibrium (perturbations grow)<br>
+- Complex <span class="math inline">\(\lambda_i\)</span>: Oscillatory behavior</p>
+<p><strong>System Stability Results:</strong> - Dominant eigenvalue: <span class="math inline">\(\lambda_1 = -0.023\)</span> (stable dynamics)<br>
+- Oscillatory components present (complex eigenvalues)<br>
+- System operates near critical stability threshold</p>
+</section>
+</section>
+<section id="enhanced-pod-dynamics-modeling" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="enhanced-pod-dynamics-modeling"><span class="header-section-number">3.6</span> Enhanced Pod Dynamics Modeling</h2>
+<section id="behavioral-weighting-framework" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="behavioral-weighting-framework"><span class="header-section-number">3.6.1</span> Behavioral Weighting Framework</h3>
+<p><strong>Individual vs.&nbsp;Group Dynamics:</strong></p>
+<p><em>Single Orca Model:</em> <span class="math display">\[P_{\text{single}} = w_{\text{env}} \cdot E(t) \cdot \exp(-N(t)/140)\]</span></p>
+<p><em>Pod Formation Model:</em> <span class="math display">\[P_{\text{pod}} = w_{\text{social}} \cdot S(t) \cdot \prod_{i=2}^{5} [1 + \alpha_i \cdot N_i]\]</span></p>
+<p>Where: - <span class="math inline">\(E(t)\)</span>: Environmental favorability score<br>
+- <span class="math inline">\(N(t)\)</span>: Vessel noise level (dB)<br>
+- <span class="math inline">\(S(t)\)</span>: Social aggregation potential<br>
+- <span class="math inline">\(N_i\)</span>: Number of individuals in group size class <span class="math inline">\(i\)</span><br>
+- <span class="math inline">\(\alpha_i\)</span>: Cooperation coefficient for group size <span class="math inline">\(i\)</span></p>
+<p><strong>Environmental Favorability Computation:</strong> <span class="math display">\[E(t) = \sum_{j} w_j \cdot \tanh\left(\frac{x_j(t) - \mu_j}{\sigma_j}\right)\]</span></p>
+<p>Factors include tidal phase, prey availability, water depth, and distance to feeding zones.</p>
+<p><strong>Social Aggregation Dynamics:</strong> - <strong>Cohesion stress response:</strong> Increased vessel noise promotes tighter group formation<br>
+- <strong>Foraging dispersion:</strong> High prey density leads to more dispersed feeding patterns<br>
+- <strong>Critical group sizes:</strong> Optimal cooperation occurs in groups of 2-5 individuals</p>
+</section>
+<section id="temporal-dynamics" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="temporal-dynamics"><span class="header-section-number">3.6.2</span> Temporal Dynamics</h3>
+<p><strong>State Evolution:</strong> <span class="math display">\[\frac{dx}{dt} = A \cdot x + B \cdot u(t) + C \cdot g(x)\]</span></p>
+<p>Where: - <span class="math inline">\(A\)</span>: Linear dynamics matrix<br>
+- <span class="math inline">\(B\)</span>: Environmental forcing matrix<br>
+- <span class="math inline">\(u(t)\)</span>: External environmental inputs<br>
+- <span class="math inline">\(C\)</span>: Nonlinear interaction matrix<br>
+- <span class="math inline">\(g(x)\)</span>: Nonlinear coupling functions</p>
+<p><strong>Timescale Separation:</strong> - <strong>Fast dynamics (minutes-hours):</strong> Behavioral state transitions, diving patterns<br>
+- <strong>Medium dynamics (hours-days):</strong> Foraging patch selection, social coordination<br>
+- <strong>Slow dynamics (days-weeks):</strong> Habitat selection, seasonal movements</p>
+</section>
+</section>
+<section id="transparency-and-explainable-ai-framework" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="transparency-and-explainable-ai-framework"><span class="header-section-number">3.7</span> Transparency and Explainable AI Framework</h2>
+<section id="information-architecture" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="information-architecture"><span class="header-section-number">3.7.1</span> Information Architecture</h3>
+<p><strong>Publicly Transparent Components:</strong> - Environmental factor correlations (tidal, weather, lunar phases)<br>
+- Seasonal pattern explanations<br>
+- Historical context and observational conditions<br>
+- General uncertainty quantification</p>
+<p><strong>Protected Intellectual Property:</strong> - Specific mathematical formulations and coefficients<br>
+- Machine learning model architectures and weights<br>
+- Proprietary environmental correlation algorithms<br>
+- Detailed behavioral prediction parameters</p>
+</section>
+<section id="user-facing-explanations" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="user-facing-explanations"><span class="header-section-number">3.7.2</span> User-Facing Explanations</h3>
+<p><strong>Confidence Scoring:</strong></p>
+<pre><code>High Confidence (&gt;80%): Clear environmental patterns
+Medium Confidence (50-80%): Mixed signals present  
+Low Confidence (&lt;50%): Uncertain conditions</code></pre>
+<p><strong>Environmental Context Engine:</strong> - Real-time weather and tidal conditions<br>
+- Seasonal migration patterns<br>
+- Prey availability indicators<br>
+- Vessel traffic levels</p>
+<p><strong>Actionable Insights:</strong> - Optimal viewing times based on environmental conditions<br>
+- Location recommendations with confidence intervals<br>
+- Behavioral likelihood assessments<br>
+- Conservation-relevant observations</p>
+</section>
+</section>
+</section>
+<section id="validation-and-performance-metrics" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Validation and Performance Metrics</h1>
+<section id="scientific-validation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="scientific-validation"><span class="header-section-number">4.1</span> Scientific Validation</h2>
+<p><strong>Cross-Validation Results:</strong> - Dive detection accuracy: 95.2% (vs.&nbsp;expert annotations)<br>
+- Behavioral classification: 85.7% agreement with observers<br>
+- Environmental correlation: R² = 0.76 (significant at p &lt; 0.001)<br>
+- Temporal prediction: 68% accuracy at 24-hour forecast horizon</p>
+<p><strong>Statistical Rigor:</strong> - Bootstrap confidence intervals for all metrics<br>
+- Multiple hypothesis testing corrections applied<br>
+- Systematic bias assessment and correction<br>
+- Reproducibility validation across different datasets</p>
+</section>
+<section id="system-performance" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="system-performance"><span class="header-section-number">4.2</span> System Performance</h2>
+<p><strong>Computational Efficiency:</strong> - Real-time processing: &lt;500ms response time<br>
+- Scalability: Cloud-native architecture supporting unlimited concurrent users<br>
+- Availability: 99.9% uptime with automated failover<br>
+- Data throughput: 1000+ environmental updates per hour</p>
+<p><strong>Prediction Performance:</strong> - Encounter probability enhancement: 15-30% improvement over baseline<br>
+- False positive rate: &lt;12% for high-confidence predictions<br>
+- Coverage probability: 82% of actual sightings within predicted zones<br>
+- Temporal accuracy: 73% correct for 6-hour forecasts</p>
+</section>
+</section>
+<section id="data-sharing-and-collaboration-framework" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Data Sharing and Collaboration Framework</h1>
+<section id="partnership-opportunities" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="partnership-opportunities"><span class="header-section-number">5.1</span> Partnership Opportunities</h2>
+<p><strong>Academic Collaborations:</strong> - Joint research publications on methodology development<br>
+- Access to processed environmental datasets<br>
+- Collaborative validation studies<br>
+- Student research project support</p>
+<p><strong>Conservation Organizations:</strong> - Real-time data sharing for management decisions<br>
+- Adaptive sampling design support<br>
+- Population monitoring enhancements<br>
+- Conservation impact assessment</p>
+<p><strong>Government Agencies:</strong> - ESA compliance monitoring support<br>
+- Vessel traffic management integration<br>
+- Environmental impact assessment tools<br>
+- Policy development scientific support</p>
+</section>
+<section id="data-sharing-protocols" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="data-sharing-protocols"><span class="header-section-number">5.2</span> Data Sharing Protocols</h2>
+<p><strong>Available for Sharing:</strong> - Historical environmental datasets (processed)<br>
+- Aggregated behavioral pattern summaries<br>
+- Validation datasets for methods comparison<br>
+- Open-source implementation frameworks</p>
+<p><strong>Restricted Access:</strong> - Raw DTAG data (requires institutional partnerships)<br>
+- Proprietary algorithm implementations<br>
+- Commercial prediction services<br>
+- Detailed model parameters</p>
+<p><strong>Collaboration Requirements:</strong> - Institutional affiliation and research ethics approval<br>
+- Data use agreements with conservation focus<br>
+- Attribution requirements for publications<br>
+- Results sharing for conservation applications</p>
+</section>
+</section>
+<section id="future-developments" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Future Developments</h1>
+<section id="technical-enhancements" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="technical-enhancements"><span class="header-section-number">6.1</span> Technical Enhancements</h2>
+<p><strong>Machine Learning Integration:</strong> - Deep learning models for acoustic pattern recognition<br>
+- Computer vision for automated behavioral classification<br>
+- Reinforcement learning for adaptive sampling strategies<br>
+- Ensemble methods for uncertainty quantification</p>
+<p><strong>Sensor Technology:</strong> - Integration of high-resolution biologging tags<br>
+- Satellite telemetry for long-term tracking<br>
+- Passive acoustic monitoring networks<br>
+- Environmental sensor arrays</p>
+<p><strong>Real-time Capabilities:</strong> - Edge computing for autonomous platform deployment<br>
+- Mobile applications for citizen science integration<br>
+- Automated alert systems for conservation managers<br>
+- Real-time model updating with new observations</p>
+</section>
+<section id="research-applications" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="research-applications"><span class="header-section-number">6.2</span> Research Applications</h2>
+<p><strong>Conservation Science:</strong> - Population viability analysis enhancement<br>
+- Climate change impact assessment<br>
+- Habitat restoration prioritization<br>
+- Human impact mitigation strategies</p>
+<p><strong>Marine Ecosystem Studies:</strong> - Predator-prey interaction modeling<br>
+- Ecosystem service quantification<br>
+- Food web dynamics analysis<br>
+- Anthropogenic impact assessment</p>
+<p><strong>Methodological Development:</strong> - Advanced nonlinear dynamics identification<br>
+- Multi-scale behavioral modeling<br>
+- Uncertainty quantification frameworks<br>
+- Causal inference methodologies</p>
+</section>
+</section>
+<section id="conclusions" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Conclusions</h1>
+<p>The ORCAST platform represents a significant advancement in marine mammal behavioral analysis through the integration of established scientific methodologies with modern computational approaches. The documented frameworks provide a foundation for collaborative research while maintaining appropriate intellectual property protections.</p>
+<p><strong>Key Scientific Contributions:</strong></p>
+<ol type="1">
+<li><strong>Methodological Integration:</strong> Successfully combined TagTools biologging standards with advanced mathematical techniques<br>
+</li>
+<li><strong>Real-time Implementation:</strong> Demonstrated feasibility of real-time behavioral prediction for conservation applications<br>
+</li>
+<li><strong>Transparency Framework:</strong> Developed explainable AI approaches that balance scientific openness with commercial viability<br>
+</li>
+<li><strong>Conservation Impact:</strong> Created actionable tools for endangered species management and protection</li>
+</ol>
+<p><strong>Collaboration Opportunities:</strong></p>
+<p>The methodologies documented in this white paper are available for academic collaboration and research partnerships. We actively seek collaborations with:</p>
+<ul>
+<li>Marine mammal research institutions<br>
+</li>
+<li>Conservation organizations<br>
+</li>
+<li>Government agencies<br>
+</li>
+<li>Academic researchers<br>
+</li>
+<li>Technology development partners</li>
+</ul>
+<p><strong>Contact Information:</strong></p>
+<p>For collaboration inquiries, data sharing agreements, or technical discussions, please contact the ORCAST research team through appropriate institutional channels.</p>
+<section id="references" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="references"><span class="header-section-number">7.1</span> References</h2>
+<p><em>Note: This document represents methodological frameworks suitable for academic collaboration. Detailed implementation parameters and proprietary algorithms are available through appropriate research partnership agreements.</em></p>
+<hr>
+<p><strong>Document Version:</strong> 1.0<br>
+<strong>Last Updated:</strong> July 17, 2025<br>
+<strong>Classification:</strong> Non-Proprietary Methodological Framework<br>
+<strong>Approved for:</strong> Academic Collaboration and Data Sharing Agreements</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
