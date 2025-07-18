@@ -1,7 +1,7 @@
 // OrCast Configuration
 window.ORCA_CONFIG = {
     apiKeys: {
-        GOOGLE_MAPS: 'YOUR_GOOGLE_MAPS_API_KEY_HERE', // Replace with your actual API key
+        GOOGLE_MAPS: 'AIzaSyD9aM6oj1wpVG-VungMtIpyNWeHp3Q7XjU',
         OPENWEATHER: 'YOUR_OPENWEATHER_API_KEY_HERE',
         GOOGLE_TRANSLATE: 'YOUR_GOOGLE_TRANSLATE_API_KEY_HERE',
         GOOGLE_PLACES: 'YOUR_GOOGLE_PLACES_API_KEY_HERE',
