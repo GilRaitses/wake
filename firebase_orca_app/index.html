@@ -489,11 +489,39 @@
             setupEventListeners();
             
             // Hide loading screen
+            hideLoadingScreen();
+        }
+
+        function hideLoadingScreen() {
             setTimeout(() => {
                 document.getElementById('loading').classList.add('hidden');
                 console.log('ORCAST map loaded successfully!');
-            }, 2000);
+            }, 1000);
         }
+
+        // Fallback to hide loading screen if Maps API fails
+        setTimeout(() => {
+            const loading = document.getElementById('loading');
+            if (loading && !loading.classList.contains('hidden')) {
+                console.log('Hiding loading screen - fallback after 5 seconds');
+                loading.classList.add('hidden');
+                
+                // Show simple message if Maps API failed
+                const mapContainer = document.getElementById('map');
+                mapContainer.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; 
+                                background: rgba(0,0,0,0.8); color: white; text-align: center; padding: 2rem;">
+                        <div>
+                            <h2 style="margin-bottom: 1rem;">ORCAST - Orca Probability Mapping</h2>
+                            <p style="margin-bottom: 1rem;">Loading map data...</p>
+                            <div style="font-size: 0.9rem; opacity: 0.8;">
+                                San Juan Islands Orca Tracking & Behavioral Analysis
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }, 3000); // Reduced to 3 seconds
 
         // Generate heatmap data based on time period and threshold
         function updateHeatmapData() {
