@@ -1,432 +1,450 @@
 ---
-title: "ORCAST: AI-Powered Orca Watching Trip Optimization Platform"
-subtitle: "Complete System Architecture & Integration Overview"
+title: "ORCAST"
+subtitle: "AI-Powered Orca Watching Trip Optimization"
 author: "ORCAST Development Team"
 date: "`r Sys.Date()`"
 format:
-  html:
-    theme: [default, custom.css]
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    embed-resources: true
-    fig-width: 12
-    fig-height: 8
+  revealjs:
+    theme: dark
+    transition: slide
+    background-transition: fade
+    highlight-style: github
+    code-line-numbers: false
+    slide-number: true
+    preview-links: auto
+    chalkboard: true
+    controls: true
     css: |
-      .hero-section {
+      .reveal h1, .reveal h2, .reveal h3 {
+        color: #64b5f6;
+        font-weight: 600;
+      }
+      .hero-slide {
         background: linear-gradient(135deg, #1e3c72, #2a5298);
-        color: white;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        border-radius: 10px;
+        color: white !important;
       }
-      .feature-box {
-        background: #f8f9fa;
-        border-left: 4px solid #007bff;
-        padding: 1rem;
-        margin: 1rem 0;
-        border-radius: 5px;
+      .hero-slide h1, .hero-slide h2 {
+        color: white !important;
       }
-      .tech-stack {
+      .tech-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin: 1rem 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
       }
       .tech-item {
-        background: #e9ecef;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-      }
-      .data-flow {
-        background: #fff3cd;
-        border: 1px solid #ffeaa7;
+        background: rgba(255,255,255,0.1);
         padding: 1.5rem;
-        border-radius: 8px;
+        border-radius: 10px;
+        text-align: center;
+        border: 2px solid rgba(255,255,255,0.2);
+      }
+      .highlight-box {
+        background: rgba(100,181,246,0.2);
+        border-left: 5px solid #64b5f6;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        border-radius: 5px;
+      }
+      .big-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #64b5f6;
+      }
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
         margin: 1rem 0;
       }
-      .code-section {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
+      .metric-item {
+        text-align: center;
         padding: 1rem;
       }
 ---
 
-::: {.hero-section}
-# ORCAST Platform Overview
+## {.hero-slide}
 
-**Intelligent Orca Watching Trip Optimization using AI, Real-Time Data, and Statistical Modeling**
+::: {style="text-align: center; padding: 3rem 0;"}
+# ORCAST
 
-Advanced multi-agent system combining natural language processing, environmental data analysis, and predictive modeling for optimal orca encounter experiences in the San Juan Islands.
+### AI-Powered Orca Watching Trip Optimization
+
+**Intelligent Wildlife Viewing Platform**  
+*San Juan Islands, Washington*
 :::
 
-## System Architecture Overview
+---
 
-### Core Components
+## The Challenge
 
-::: {.tech-stack}
+::: {.highlight-box}
+**Traditional orca watching is unpredictable**
+
+- Random timing with low success rates
+- No scientific basis for planning
+- Poor environmental awareness
+- Limited personalization
+:::
+
+::: {style="margin-top: 2rem;"}
+**Our Solution: AI + Real-Time Data + Statistical Modeling**
+:::
+
+---
+
+## System Overview
+
+::: {.tech-grid}
 ::: {.tech-item}
 **🤖 AI Trip Planner**  
-Gemma 3 LLM  
-Voice & Text Input  
-Natural Language Processing
+Natural Language Processing  
+Voice & Text Input
 :::
 
 ::: {.tech-item}
 **🔥 Firebase Platform**  
 Real-Time Database  
-User Authentication  
-Hosting & Functions
+Live Environmental Data
 :::
 
 ::: {.tech-item}
 **🗄️ BigQuery Analytics**  
 Statistical Modeling  
-ML Predictions  
-Data Warehousing
+ML Predictions
 :::
 
 ::: {.tech-item}
 **🗺️ Interactive Maps**  
 Live Probability Zones  
-Environmental Overlays  
 Route Optimization
 :::
 :::
 
-## AI Trip Planner Integration
+---
+
+## AI Trip Planner
 
 ### Natural Language Interface
 
-::: {.feature-box}
-**Voice Input Capabilities**
+::: {.highlight-box}
+**Users speak naturally to the system:**
 
-Users can speak naturally to the system:
-- *"I want to see orcas tomorrow morning from my suite at Round House..."*
-- *"Best kayaking times for August 13th with calm seas"*
-- *"Show me high-probability zones near Lime Kiln Point"*
+*"I want to see orcas tomorrow morning from my suite at Round House..."*
+
+*"Best kayaking times for August 13th with calm seas"*
+
+*"Show me high-probability zones near Lime Kiln Point"*
 :::
 
-### Implementation Details
+**🎤 Voice Recognition • ⌨️ Text Input • ✨ Smart Prompts**
 
-**Deployment Location:**
-```html
-<!-- Integrated in main Firebase app navbar -->
-<div id="ai-planner-container"></div>
-<!-- Positioned above interactive map -->
-```
+---
 
-**Core Features:**
-- **🎤 Voice Recognition**: Real-time speech-to-text processing
-- **⌨️ Text Input**: Natural language constraint extraction  
-- **✨ Quick Prompts**: Pre-built scenarios for common requests
-- **📅 Event Generation**: Time-optimized activity scheduling
-- **🗺️ Map Integration**: Visual zone preview and marker placement
+## How It Works
 
-## Data Pipeline Architecture
+### 5-Step Process
 
-::: {.data-flow}
-### Complete Data Flow Process
-
-**1. Data Collection** → **2. Processing & Analysis** → **3. Prediction Generation** → **4. User Interface Updates**
-
-```
-Firebase (Source Data) 
-    ↓ Extract every 4 hours
-BigQuery (Statistical Processing)
-    ↓ ML model predictions  
-Enhanced Probability Data
-    ↓ Real-time updates
-Interactive Map & AI Planner
-```
+::: {style="font-size: 1.2rem; line-height: 2;"}
+**1.** Natural Language Input  
+**2.** AI Constraint Extraction  
+**3.** Real-Time Data Integration  
+**4.** Statistical Prediction  
+**5.** Personalized Recommendations
 :::
 
-### Data Sources Integration
+---
 
-**Real-Time Environmental Data:**
-- **NOAA Tidal Data**: Tide levels and current predictions
-- **Marine Weather**: Sea conditions, wind speed, visibility
-- **Open-Meteo APIs**: Atmospheric conditions
-- **Vessel Traffic**: Noise pollution indicators
+## Data Pipeline
 
-**Historical Behavioral Data:**
-- **477+ User Sightings**: Verified orca encounters with timestamps
-- **DTAG Research**: Detailed behavioral pattern analysis
-- **Environmental Correlations**: Multi-factor relationship mapping
-- **Prediction Accuracy Tracking**: Model performance metrics
+```mermaid
+graph TD
+    A[Firebase<br/>Source Data] --> B[BigQuery<br/>Processing]
+    B --> C[ML Models<br/>Predictions]
+    C --> D[User Interface<br/>Updates]
+    
+    style A fill:#ff9999
+    style B fill:#99ccff
+    style C fill:#99ff99
+    style D fill:#ffcc99
+```
 
-## BigQuery Statistical Modeling
+**Real-time updates every 6 minutes**
 
-### Machine Learning Pipeline
+---
 
-::: {.code-section}
-**Primary Prediction Model:**
+## Data Sources
+
+### Environmental Data
+- **NOAA Tidal Data** - Tide levels & currents
+- **Marine Weather** - Sea conditions & visibility  
+- **Open-Meteo APIs** - Atmospheric conditions
+- **Vessel Traffic** - Noise pollution indicators
+
+### Behavioral Data
+- **477+ User Sightings** - Verified encounters
+- **DTAG Research** - Academic behavioral patterns
+- **Environmental Correlations** - Multi-factor analysis
+
+---
+
+## Machine Learning
+
+::: {style="text-align: center;"}
+### BigQuery ML Model
+
 ```sql
 CREATE MODEL orca_probability_model
-OPTIONS(
-  model_type='LOGISTIC_REG',
-  auto_class_weights=TRUE,
-  input_label_cols=['sighting_probability']
-)
-AS
-SELECT 
-  time_of_day,
-  tide_level,
-  sea_temperature,
-  salmon_count,
-  vessel_density,
-  weather_conditions,
-  historical_activity,
-  season_factor,
-  location_zone,
-  environmental_score,
-  behavioral_pattern,
+OPTIONS(model_type='LOGISTIC_REG')
+AS SELECT 
+  time_of_day, tide_level, sea_temperature,
+  salmon_count, vessel_density, weather_conditions,
   sighting_probability
 FROM orca_environmental_features;
 ```
 :::
 
-### Statistical Analysis Components
+**11 Environmental Features • 477+ Training Samples**
 
-**Correlation Analysis:**
-- **Environmental Factor Weights**: Which conditions most influence orca presence
-- **Temporal Pattern Recognition**: Optimal viewing times by season/day
-- **Spatial Hotspot Identification**: High-probability zone clustering
-- **Behavioral Trigger Events**: Feeding, socializing, traveling patterns
+---
 
-**Model Performance:**
-- **Accuracy Rate**: 78-85% prediction accuracy for high-probability events
-- **Confidence Intervals**: Statistical uncertainty quantification
-- **Real-Time Calibration**: Continuous model improvement with new data
+## User Experience
 
-## User Experience Workflow
+### Example Trip Planning
 
-### Complete Trip Planning Process
-
-**Step 1: Natural Language Input**
-```
-User Input: "I'm staying at Round House Suite on August 13th 
-            and want the best orca viewing times"
-```
-
-**Step 2: AI Constraint Extraction**
-- **Date**: August 13th, 2025
-- **Location**: Round House Suite (coordinates extracted)
-- **Activity**: Orca viewing (categorized)
-- **Preferences**: "Best times" (optimization criteria)
-
-**Step 3: Real-Time Data Integration**
-- Current environmental conditions from Firebase
-- NOAA tidal predictions for target date
-- Weather forecast and marine conditions
-- Historical patterns for location and season
-
-**Step 4: BigQuery Prediction Generation**
-- Statistical model calculates zone probabilities
-- Temporal optimization identifies peak times
-- Environmental factor analysis provides reasoning
-- Confidence scores assigned to each recommendation
-
-**Step 5: Personalized Output Generation**
-
-::: {.feature-box}
-**Example AI-Generated Recommendations:**
-
-**🌅 Morning Kayaking Session**  
-**Time**: 7:30 AM - 12:00 PM  
-**Probability**: 85%  
-**Zone**: Lime Kiln Point viewing area  
-**AI Reasoning**: Rising tide + high salmon count + calm seas + historical morning feeding patterns
-
-**🌅 Evening Suite Viewing**  
-**Time**: 6:00 PM - 8:00 PM  
-**Probability**: 78%  
-**Zone**: Direct view from Round House Suite  
-**AI Reasoning**: Evening feeding activity + reduced vessel noise + optimal lighting conditions
+::: {.highlight-box}
+**User Input:**  
+*"I'm staying at Round House Suite on August 13th and want the best orca viewing times"*
 :::
 
-## Technical Implementation
+**AI Output:**
+- **Morning Kayaking** (7:30 AM - 12:00 PM) - **85% probability**
+- **Evening Suite Viewing** (6:00 PM - 8:00 PM) - **78% probability**
 
-### Multi-Agent System Architecture
+*With detailed reasoning for each recommendation*
 
-**Primary Agent: Trip Planning & Optimization**
-- Natural language processing with Gemma 3
-- Constraint extraction and interpretation
-- Real-time data integration
-- Personalized recommendation generation
+---
 
-**Secondary Agent: Analytics & Visualization**
-- Dashboard generation for probability trends
-- Map preview with highlighted zones
-- Statistical analysis presentations
-- Performance metrics tracking
+## Performance Metrics
 
-**BigQuery Pipeline Agent: Statistical Processing**
-- Automated data extraction from Firebase
-- Machine learning model training and updates
-- Prediction generation and validation
-- Model performance monitoring
+::: {.metric-grid}
+::: {.metric-item}
+::: {.big-number}
+85%
+:::
+**Prediction Accuracy**
+:::
 
-### Deployment Infrastructure
+::: {.metric-item}
+::: {.big-number}
+477+
+:::
+**Verified Sightings**
+:::
 
-**Google Cloud Platform Services:**
+::: {.metric-item}
+::: {.big-number}
+6min
+:::
+**Update Frequency**
+:::
 
-::: {.tech-stack}
+::: {.metric-item}
+::: {.big-number}
+50+
+:::
+**Probability Zones**
+:::
+:::
+
+---
+
+## Technical Stack
+
+### Google Cloud Platform
+
+::: {.tech-grid}
 ::: {.tech-item}
-**Cloud Run Service**  
-`orcast-gemma3-gpu`  
-Europe-West4 Region  
-GPU-Optimized Instance
+**Cloud Run**  
+Gemma 3 LLM Service  
+GPU-Optimized
 :::
 
 ::: {.tech-item}
-**Firebase Hosting**  
-`localhost:3000`  
+**Firebase**  
 Real-Time Database  
-Authentication Server
+Authentication
 :::
 
 ::: {.tech-item}
-**BigQuery Warehouse**  
+**BigQuery**  
 ML Model Storage  
-Statistical Processing  
-Data Pipeline Automation
+Data Processing
 :::
 
 ::: {.tech-item}
 **Admin SDK**  
-Direct Database Access  
-Internal API Integration  
-Cost-Effective Scaling
+Direct Access  
+Cost-Effective
 :::
 :::
 
-## Key System Advantages
+---
 
-### No External API Dependencies
-- **Internal Google Cloud Ecosystem**: Firebase ↔ BigQuery direct integration
-- **Admin SDK Access**: Direct database operations without API limits
-- **Cost-Effective Scaling**: Pay-per-use model with automatic optimization
-- **Reduced Latency**: Internal network communication
+## Key Advantages
 
-### Real-Time + Historical Intelligence
-- **Live Environmental Updates**: Map updates every 6 minutes with current conditions
-- **Statistical Pattern Recognition**: Historical data trains predictive models
-- **Hybrid Optimization**: AI combines real-time data with statistical insights
-- **Continuous Learning**: Model accuracy improves with each new sighting
+### ✅ No External APIs
+- Internal Google Cloud ecosystem
+- Direct database access
+- Cost-effective scaling
 
-### Natural Language Integration
-- **Voice-First Interface**: Hands-free trip planning capability
-- **Context-Aware Processing**: AI understands implicit preferences and constraints
-- **Personalized Optimization**: Recommendations adapted to user location and schedule
-- **Intelligent Reasoning**: Explanations provided for each recommendation
+### ✅ Real-Time Intelligence  
+- Live environmental updates
+- Historical pattern recognition
+- Continuous learning
 
-## Performance Metrics & Results
+### ✅ Natural Language
+- Voice-first interface
+- Context-aware processing
+- Personalized optimization
 
-### System Capabilities
+---
 
-**Data Processing Scale:**
-- **477+ Verified Sightings**: High-quality training data with ground truth
-- **50+ Probability Zones**: Granular spatial prediction coverage
-- **24-Hour Forecasting**: Temporal predictions with hourly resolution
-- **11 Environmental Features**: Multi-factor analysis for comprehensive modeling
+## Multi-Agent Architecture
 
-**Real-Time Performance:**
-- **6-Minute Updates**: Environmental data refresh rate
-- **4-Hour Model Refresh**: Statistical model recalibration frequency
-- **Instant AI Response**: Natural language processing under 2 seconds
-- **85% Accuracy**: High-probability event prediction success rate
+::: {style="font-size: 1.1rem;"}
+**Primary Agent:** Trip Planning & Optimization  
+- Natural language processing
+- Real-time data integration
+- Personalized recommendations
 
-### User Impact
+**Secondary Agent:** Analytics & Visualization  
+- Dashboard generation
+- Map previews
+- Performance tracking
 
-**Enhanced Trip Planning:**
-- **Personalized Schedules**: AI-optimized timing based on individual constraints
-- **Probability-Based Decisions**: Statistical confidence for activity planning
-- **Environmental Awareness**: Real-time condition monitoring and alerts
-- **Educational Value**: Scientific reasoning behind each recommendation
+**BigQuery Pipeline:** Statistical Processing  
+- Model training & updates
+- Prediction validation
+- Performance monitoring
+:::
 
-**Research Integration:**
-- **DTAG Behavioral Data**: Academic research directly informs predictions
-- **Citizen Science**: User sightings contribute to model improvement
-- **Conservation Impact**: Reduced vessel disturbance through optimal timing
-- **Scientific Validation**: Predictions backed by peer-reviewed research
+---
 
-## Future Development Roadmap
+## Conservation Impact
+
+::: {.highlight-box}
+**Scientific Approach to Wildlife Viewing**
+
+- Reduced vessel disturbance through optimal timing
+- Educational value with reasoning explanations
+- Citizen science data contribution
+- Research-backed predictions
+:::
+
+**Enhancing experiences while protecting orcas**
+
+---
+
+## Live Demo
+
+### System Components in Action
+
+::: {style="text-align: center; margin: 2rem 0;"}
+**🎤 Voice Input Interface**
+
+**🗺️ Real-Time Probability Map**
+
+**📊 Statistical Predictions**
+
+**📱 Mobile-Optimized Experience**
+:::
+
+---
+
+## Future Roadmap
 
 ### Planned Enhancements
 
-**Advanced AI Capabilities:**
-- **Multi-Modal Input**: Integration of photos, weather preferences, activity history
-- **Predictive Analytics**: Long-term trend analysis and seasonal forecasting
-- **Social Integration**: Group trip coordination and shared experiences
-- **Mobile App**: Native iOS/Android applications with offline capabilities
+**Advanced AI:**
+- Multi-modal input (photos, preferences)
+- Long-term trend analysis
+- Social integration features
 
 **Data Expansion:**
-- **Hydrophone Integration**: Real-time acoustic monitoring for orca presence
-- **Satellite Imagery**: Advanced environmental condition detection
-- **Vessel Tracking**: Enhanced noise pollution modeling
-- **Climate Integration**: Long-term environmental change adaptation
+- Hydrophone acoustic monitoring
+- Satellite imagery integration
+- Climate change adaptation
 
-## Technical Documentation
+**Platform Growth:**
+- Mobile applications
+- Additional wildlife species
+- Global deployment
+
+---
+
+## Summary
+
+::: {.highlight-box}
+**ORCAST successfully bridges scientific research and practical trip planning**
+
+- **85% prediction accuracy** for high-probability encounters
+- **Natural language interface** with voice capabilities  
+- **Real-time environmental integration** with 6-minute updates
+- **Statistical modeling** using verified research data
+- **Scalable cloud infrastructure** on Google Cloud Platform
+:::
+
+### Ready for broader deployment and continued development
+
+---
+
+## Questions?
+
+::: {style="text-align: center; padding: 3rem 0;"}
+# Thank You
+
+**ORCAST Development Team**
+
+*Intelligent Wildlife Viewing Platform*  
+*San Juan Islands, Washington*
+:::
+
+---
+
+## Technical Details
 
 ### API Endpoints
 
 **Gemma 3 Service:**
 ```
 POST https://orcast-gemma3-gpu-126424997157.europe-west4.run.app/chat
-Content-Type: application/json
-
-{
-  "message": "I want to see orcas tomorrow morning from my suite",
-  "context": "trip_planning",
-  "user_location": "Round House Suite",
-  "date_constraints": "August 13th, 2025"
-}
 ```
 
-**Firebase Real-Time Database:**
+**Firebase Database:**
 ```javascript
-// Environmental data structure
 {
   "environmental_data": {
-    "timestamp": "2025-01-19T00:00:00Z",
     "tidal_data": { "level": 2.3, "direction": "rising" },
-    "marine_conditions": { "temperature": 18.5, "visibility": "excellent" },
-    "weather": { "wind_speed": 5, "conditions": "clear" }
+    "marine_conditions": { "temperature": 18.5 }
   }
 }
 ```
 
-**BigQuery Model Query:**
+---
+
+## Statistical Model
+
+### BigQuery Prediction Query
+
 ```sql
 SELECT 
   zone_id,
   predicted_probability,
   confidence_score,
-  environmental_factors,
   optimal_time_window
 FROM ML.PREDICT(MODEL `orcast.orca_probability_model`,
   (SELECT * FROM `orcast.current_conditions`))
 WHERE predicted_probability > 0.6
 ORDER BY predicted_probability DESC;
-```
-
----
-
-## Summary
-
-The ORCAST platform represents a breakthrough in wildlife viewing optimization, combining cutting-edge AI technology with real-time environmental monitoring and statistical modeling. By integrating natural language processing, multi-agent systems, and predictive analytics, we've created a comprehensive solution that enhances both user experiences and conservation outcomes.
-
-**Key Achievements:**
-- **85% prediction accuracy** for high-probability orca encounters
-- **Natural language interface** with voice and text input capabilities
-- **Real-time environmental integration** with 6-minute update cycles
-- **Statistical modeling** using 477+ verified sightings and environmental correlations
-- **Scalable cloud infrastructure** using Google Cloud Platform services
-
-The system successfully bridges the gap between scientific research and practical trip planning, providing users with intelligent, data-driven recommendations while contributing to orca conservation through optimized viewing practices.
-
-**Next Steps:**
-Tomorrow's presentation will demonstrate the live system in action, showcasing the AI trip planner interface, real-time probability mapping, and statistical prediction capabilities. The platform is ready for broader deployment and continued development based on user feedback and expanding research data. 
+``` 
