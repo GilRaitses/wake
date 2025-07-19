@@ -13,7 +13,7 @@ from urllib.parse import quote
 os.makedirs('images', exist_ok=True)
 
 # Google Maps API key
-GOOGLE_MAPS_API_KEY = "AIzaSyD0tZfpi0PQPBbYh6iwMrkQKda9n1XPQnI"
+GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 
 # Initialize Google Maps client
 gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
@@ -60,16 +60,55 @@ towns_data = {
         ]
     },
     
-    "mccall_id": {
-        "name": "McCall, Idaho Town Center",
-        "accommodation": "Shore Lodge", 
-        "accommodation_address": "501 W Lake St, McCall, ID 83638",
+    "lucile_id": {
+        "name": "Lucile, Idaho - Steelhead Lodge Area",
+        "accommodation": "Steelhead Lodge",
+        "accommodation_address": "Lucile, ID 83542",
         "points_of_interest": [
-            {"name": "Payette Lake Beach", "address": "Payette Lake, McCall, ID", "color": "blue"},
-            {"name": "Downtown McCall", "address": "3rd St, McCall, ID", "color": "red"},
-            {"name": "Smoky Mountain Pizzeria", "address": "815 N 3rd St, McCall, ID", "color": "green"},
-            {"name": "Legacy Park", "address": "Legacy Park, McCall, ID", "color": "purple"},
-            {"name": "McCall Activity Barn", "address": "1300 E Lake St, McCall, ID", "color": "orange"}
+            {"name": "Salmon River Access", "address": "Salmon River, Lucile, ID", "color": "blue"},
+            {"name": "Steelhead Lodge Marina", "address": "Lucile, ID", "color": "red"},
+            {"name": "River Canyon Overlook", "address": "Salmon River Canyon, Lucile, ID", "color": "green"},
+            {"name": "Fishing Guide Services", "address": "Lucile, ID", "color": "purple"},
+            {"name": "Historic Mining Sites", "address": "Salmon River Canyon, ID", "color": "orange"}
+        ]
+    },
+    
+    "orcas_island_wa": {
+        "name": "Orcas Island - Eastsound Area",
+        "accommodation": "Round House Suite, Rosario Village",
+        "accommodation_address": "1400 Rosario Rd, Eastsound, WA 98245",
+        "points_of_interest": [
+            {"name": "Rosario Village Marina", "address": "Rosario Village, Eastsound, WA", "color": "blue"},
+            {"name": "Eastsound Village Center", "address": "Eastsound, WA", "color": "red"},
+            {"name": "Kayak Launch Point", "address": "Rosario Village, WA", "color": "green"},
+            {"name": "Orcas Island Winery", "address": "Eastsound, WA", "color": "purple"},
+            {"name": "Olga Orca Viewing", "address": "Olga, Orcas Island, WA", "color": "orange"}
+        ]
+    },
+    
+    "san_juan_island_wa": {
+        "name": "San Juan Island - Friday Harbor",
+        "accommodation": "Friday Harbor area",
+        "accommodation_address": "Friday Harbor, WA 98250",
+        "points_of_interest": [
+            {"name": "Friday Harbor Downtown", "address": "Friday Harbor, WA", "color": "red"},
+            {"name": "The Whale Museum", "address": "62 1st St N, Friday Harbor, WA", "color": "purple"},
+            {"name": "Ferry Terminal", "address": "Friday Harbor, WA", "color": "blue"},
+            {"name": "Roche Harbor", "address": "Roche Harbor, WA", "color": "green"},
+            {"name": "Lime Kiln Point Park", "address": "Westside Rd, Friday Harbor, WA", "color": "orange"}
+        ]
+    },
+    
+    "lopez_island_wa": {
+        "name": "Lopez Island Village",
+        "accommodation": "Lopez Village area",
+        "accommodation_address": "Lopez Village, WA 98261",
+        "points_of_interest": [
+            {"name": "Chimera Gallery", "address": "Lopez Village, WA", "color": "purple"},
+            {"name": "Lopez Island Pottery", "address": "Lopez Village, WA", "color": "red"},
+            {"name": "Islands' Sounder Building", "address": "Lopez Village, WA", "color": "orange"},
+            {"name": "Textile Arts Studios", "address": "Lopez Village, WA", "color": "green"},
+            {"name": "Ferry Terminal", "address": "Lopez Island, WA", "color": "blue"}
         ]
     },
     

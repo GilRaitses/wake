@@ -13,7 +13,7 @@ from urllib.parse import quote
 os.makedirs('images', exist_ok=True)
 
 # Google Maps API key
-GOOGLE_MAPS_API_KEY = "AIzaSyD0tZfpi0PQPBbYh6iwMrkQKda9n1XPQnI"
+GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 
 # Initialize Google Maps client
 gmaps = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
@@ -62,17 +62,87 @@ locations_data = {
         ]
     },
     
-    "mccall_id": {
-        "name": "McCall, Idaho Recommendations",
-        "accommodation": "Shore Lodge",
-        "accommodation_address": "501 W Lake St, McCall, ID 83638",
+    "lucile_id": {
+        "name": "Lucile, Idaho - Steelhead Lodge Area",
+        "accommodation": "Steelhead Lodge",
+        "accommodation_address": "Lucile, ID 83542",
         "recommendations": [
-            {"name": "Smoky Mountain Pizzeria", "address": "815 N 3rd St, McCall, ID", "type": "restaurant", "color": "orange"},
-            {"name": "Sushi Time", "address": "307 E Lake St, McCall, ID", "type": "restaurant", "color": "red"},
-            {"name": "Payette Lake Activities", "address": "Payette Lake, McCall, ID", "type": "outdoor", "color": "blue"},
-            {"name": "Central Idaho Historical Museum", "address": "1001 State St, McCall, ID", "type": "attraction", "color": "purple"},
-            {"name": "Ponderosa State Park", "address": "1920 Davis Ave, McCall, ID", "type": "outdoor", "color": "green"},
-            {"name": "Downtown Shopping", "address": "3rd St, McCall, ID", "type": "shopping", "color": "yellow"}
+            {"name": "Salmon River Fishing Access", "address": "Salmon River, Lucile, ID", "type": "outdoor", "color": "blue"},
+            {"name": "Salmon River Jet Boat Tours", "address": "Lucile, ID", "type": "outdoor", "color": "green"},
+            {"name": "Canyon Rim Overlook", "address": "Salmon River Canyon, Lucile, ID", "type": "outdoor", "color": "purple"},
+            {"name": "Historic Mining Sites", "address": "Salmon River Canyon, ID", "type": "attraction", "color": "yellow"},
+            {"name": "River Swimming Holes", "address": "Salmon River, Lucile, ID", "type": "outdoor", "color": "red"},
+            {"name": "Wildlife Viewing Areas", "address": "Salmon River Canyon, ID", "type": "outdoor", "color": "orange"}
+        ]
+    },
+    
+    "twin_peaks_wa": {
+        "name": "Twin Peaks Filming Locations",
+        "accommodation": "North Bend area",
+        "accommodation_address": "North Bend, WA 98045",
+        "recommendations": [
+            {"name": "Twede's Cafe (Double R Diner)", "address": "137 W North Bend Way, North Bend, WA", "type": "attraction", "color": "red"},
+            {"name": "Salish Lodge (Great Northern)", "address": "6501 Railroad Ave SE, Snoqualmie, WA", "type": "attraction", "color": "orange"},
+            {"name": "Snoqualmie Falls", "address": "Snoqualmie Falls, WA", "type": "outdoor", "color": "blue"},
+            {"name": "North Bend Theatre", "address": "145 W North Bend Way, North Bend, WA", "type": "attraction", "color": "purple"},
+            {"name": "Snoqualmie Depot", "address": "38625 SE King St, Snoqualmie, WA", "type": "attraction", "color": "green"},
+            {"name": "Reinig Bridge", "address": "North Bend, WA", "type": "attraction", "color": "yellow"}
+        ]
+    },
+    
+    "orcas_island_wa": {
+        "name": "Orcas Island - Rosario Village Area",
+        "accommodation": "Round House Suite, Rosario Village",
+        "accommodation_address": "1400 Rosario Rd, Eastsound, WA 98245",
+        "recommendations": [
+            {"name": "Kayak Rental Outfitters", "address": "Rosario Village, Eastsound, WA", "type": "outdoor", "color": "blue"},
+            {"name": "Buck Bay Shellfish Farm", "address": "Eastsound, WA", "type": "restaurant", "color": "orange"},
+            {"name": "Orcas Island Winery", "address": "Eastsound, WA", "type": "winery", "color": "purple"},
+            {"name": "Island Hoppin' Brewery", "address": "Eastsound, WA", "type": "restaurant", "color": "green"},
+            {"name": "Olga Orca Lookouts", "address": "Olga, Orcas Island, WA", "type": "outdoor", "color": "red"},
+            {"name": "Eastsound Village", "address": "Eastsound, WA", "type": "attraction", "color": "yellow"}
+        ]
+    },
+    
+    "san_juan_island_wa": {
+        "name": "San Juan Island Highlights",
+        "accommodation": "Friday Harbor area",
+        "accommodation_address": "Friday Harbor, WA 98250",
+        "recommendations": [
+            {"name": "The Whale Museum", "address": "62 1st St N, Friday Harbor, WA", "type": "attraction", "color": "purple"},
+            {"name": "Roche Harbor", "address": "4950 Tarte Rd, Roche Harbor, WA", "type": "attraction", "color": "orange"},
+            {"name": "Lime Kiln Point State Park", "address": "1567 Westside Rd, Friday Harbor, WA", "type": "outdoor", "color": "blue"},
+            {"name": "Friday Harbor Downtown", "address": "Friday Harbor, WA", "type": "attraction", "color": "red"},
+            {"name": "Madrona Bar & Grill", "address": "Roche Harbor, WA", "type": "restaurant", "color": "green"},
+            {"name": "San Juan Island Ferry Terminal", "address": "Friday Harbor, WA", "type": "transportation", "color": "yellow"}
+        ]
+    },
+    
+    "lopez_island_wa": {
+        "name": "Lopez Island Art Studios",
+        "accommodation": "Ferry route stop",
+        "accommodation_address": "Lopez Village, WA 98261",
+        "recommendations": [
+            {"name": "Chimera Gallery", "address": "Lopez Village, WA", "type": "attraction", "color": "purple"},
+            {"name": "Islands' Sounder Building", "address": "Lopez Village, WA", "type": "attraction", "color": "orange"},
+            {"name": "Lopez Island Pottery", "address": "Lopez Village, WA", "type": "attraction", "color": "red"},
+            {"name": "Textile & Fiber Arts Studios", "address": "Lopez Village, WA", "type": "attraction", "color": "green"},
+            {"name": "Lopez Village Center", "address": "Lopez Village, WA", "type": "attraction", "color": "blue"},
+            {"name": "Ferry Terminal", "address": "Lopez Island, WA", "type": "transportation", "color": "yellow"}
+        ]
+    },
+    
+    "hells_canyon": {
+        "name": "Hells Canyon Scenic Route",
+        "accommodation": "Scenic overlook route",
+        "accommodation_address": "Hells Canyon National Recreation Area, ID",
+        "recommendations": [
+            {"name": "Hells Canyon Overlook", "address": "Hells Canyon National Recreation Area, ID", "type": "outdoor", "color": "blue"},
+            {"name": "Snake River Viewpoints", "address": "Hells Canyon, ID", "type": "outdoor", "color": "green"},
+            {"name": "Archaeological Sites", "address": "Hells Canyon, ID", "type": "attraction", "color": "purple"},
+            {"name": "Wildlife Viewing Areas", "address": "Hells Canyon, ID", "type": "outdoor", "color": "orange"},
+            {"name": "Historic Petroglyphs", "address": "Hells Canyon, ID", "type": "attraction", "color": "red"},
+            {"name": "Scenic Drive Route", "address": "Hells Canyon Scenic Byway, ID", "type": "outdoor", "color": "yellow"}
         ]
     },
     

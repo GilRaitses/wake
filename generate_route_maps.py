@@ -14,8 +14,13 @@ import requests
 from urllib.parse import urlencode
 import base64
 
-# Google Maps API key
-GOOGLE_MAPS_API_KEY = "AIzaSyD0tZfpi0PQPBbYh6iwMrkQKda9n1XPQnI"
+# Google Maps API key - load from environment variable for security
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
+
+if not GOOGLE_MAPS_API_KEY:
+    print("Error: GOOGLE_MAPS_API_KEY environment variable not set")
+    print("Please set your API key: export GOOGLE_MAPS_API_KEY='your_api_key_here'")
+    exit(1)
 
 # Create images directory if it doesn't exist
 os.makedirs('images', exist_ok=True)
@@ -28,11 +33,31 @@ waypoints = [
     {"name": "Bozeman, MT", "date": "Aug 3-4", "coords": None},
     {"name": "Missoula, MT", "date": "Aug 5", "coords": None},
     {"name": "Jerry Johnson Hot Springs, ID", "date": "Aug 6", "coords": None},
-    {"name": "McCall, ID", "date": "Aug 7-8", "coords": None},
+    {"name": "Lucile, ID", "date": "Aug 7-8", "coords": None},
     {"name": "Joseph, OR", "date": "Aug 9", "coords": None},
     {"name": "Walla Walla, WA", "date": "Aug 10", "coords": None},
     {"name": "Columbia River Gorge, WA", "date": "Aug 11", "coords": None},
-    {"name": "Seattle, WA", "date": "Aug 12-14", "coords": None}
+    {"name": "Mount Rainier National Park, WA", "date": "Aug 12", "coords": None},
+    {"name": "North Bend, WA", "date": "Aug 12", "coords": None},
+    {"name": "San Juan Islands, WA", "date": "Aug 12-14", "coords": None}
+]
+
+# Special route segments
+special_routes = [
+    {
+        "name": "Mount Rainier Scenic Route",
+        "origin": "Under Canvas White Salmon, WA",
+        "destination": "North Bend, WA",
+        "waypoints": ["Mount Rainier National Park, WA"],
+        "description": "Scenic mountain route via Mount Rainier National Park"
+    },
+    {
+        "name": "Hells Canyon Scenic Route", 
+        "origin": "Lucile, ID",
+        "destination": "Joseph, OR",
+        "waypoints": ["Hells Canyon National Recreation Area, ID"],
+        "description": "Scenic canyon route via Hells Canyon overlooks"
+    }
 ]
 
 def get_coordinates_google(location):
@@ -279,11 +304,13 @@ def create_elevation_profile():
         "Bozeman, MT": 4820,
         "Missoula, MT": 3209,
         "Jerry Johnson Hot Springs, ID": 3200,
-        "McCall, ID": 5021,
+        "Lucile, ID": 5021,
         "Joseph, OR": 4372,
         "Walla Walla, WA": 1200,
         "Columbia River Gorge, WA": 200,
-        "Seattle, WA": 175
+        "Mount Rainier National Park, WA": 175,
+        "North Bend, WA": 175,
+        "San Juan Islands, WA": 175
     }
     
     locations = list(elevations.keys())

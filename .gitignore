@@ -1,1 +1,15 @@
-.venv/
+# API Keys and Secrets - Security
+*secret*.json
+*api_key*
+.env
+*.key
+credentials.json
+config.json
+
+# Google Cloud credentials
+client_secret_*.json
+
+# Environment files
+.env.local
+.env.development
+.env.production
