@@ -96,51 +96,93 @@
     code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="ORCAST_System_Architecture_Presentation_files/libs/revealjs/dist/theme/quarto-091ebfb71d12db7fc524ec91495e1509.css">
-  <link rel="stylesheet" href=".reveal h1, .reveal h2, .reveal h3 {
+  <link rel="stylesheet" href=".reveal .slides section .fragment {
+  font-size: 0.9em;
+}
+.reveal h1 {
+  font-size: 2.2em;
   color: #64b5f6;
   font-weight: 600;
+  margin-bottom: 0.5em;
+}
+.reveal h2 {
+  font-size: 1.6em;
+  color: #64b5f6;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+.reveal h3 {
+  font-size: 1.3em;
+  color: #64b5f6;
+  font-weight: 500;
+  margin-bottom: 0.3em;
+}
+.reveal p, .reveal li {
+  font-size: 0.9em;
+  line-height: 1.4;
 }
 .hero-slide {
   background: linear-gradient(135deg, #1e3c72, #2a5298);
   color: white !important;
 }
-.hero-slide h1, .hero-slide h2 {
+.hero-slide h1, .hero-slide h2, .hero-slide h3 {
   color: white !important;
 }
 .tech-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 1.2rem;
+  margin: 1rem 0;
 }
 .tech-item {
   background: rgba(255,255,255,0.1);
-  padding: 1.5rem;
-  border-radius: 10px;
+  padding: 1rem;
+  border-radius: 8px;
   text-align: center;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  font-size: 0.85em;
+}
+.tech-item h4 {
+  font-size: 1em;
+  margin-bottom: 0.3em;
+  color: #64b5f6;
 }
 .highlight-box {
-  background: rgba(100,181,246,0.2);
-  border-left: 5px solid #64b5f6;
-  padding: 1.5rem;
-  margin: 1rem 0;
-  border-radius: 5px;
+  background: rgba(100,181,246,0.15);
+  border-left: 4px solid #64b5f6;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  border-radius: 4px;
+  font-size: 0.85em;
 }
 .big-number {
-  font-size: 3rem;
+  font-size: 2.2em;
   font-weight: bold;
   color: #64b5f6;
+  margin-bottom: 0.2em;
 }
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin: 1rem 0;
+  gap: 1rem;
+  margin: 0.8rem 0;
 }
 .metric-item {
   text-align: center;
-  padding: 1rem;
+  padding: 0.8rem;
+  font-size: 0.8em;
+}
+.code-block {
+  font-size: 0.7em;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.smaller-text {
+  font-size: 0.75em;
+}
+.compact-list li {
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
 }">
   <link href="ORCAST_System_Architecture_Presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="ORCAST_System_Architecture_Presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -258,68 +300,86 @@ ORCAST Development Team
 <h2></h2>
 </section>
 <section>
-<section id="orcast" class="title-slide slide level1 center" style="text-align: center; padding: 3rem 0;">
+<section id="orcast" class="title-slide slide level1 center" style="text-align: center; padding: 2rem 0;">
 <h1>ORCAST</h1>
 
 </section>
-<h3 id="ai-powered-orca-watching-trip-optimization">AI-Powered Orca Watching Trip Optimization</h3>
+<section id="ai-powered-orca-watching-trip-optimization" class="slide level2">
+<h2>AI-Powered Orca Watching Trip Optimization</h2>
 <p><strong>Intelligent Wildlife Viewing Platform</strong><br>
-<em>San Juan Islands, Washington</em></p></section>
+<em>San Juan Islands, Washington</em></p>
+</section></section>
 <section id="the-challenge" class="slide level2">
 <h2>The Challenge</h2>
 <div class="highlight-box">
 <p><strong>Traditional orca watching is unpredictable</strong></p>
 <ul>
 <li>Random timing with low success rates</li>
-<li>No scientific basis for planning</li>
+<li>No scientific basis for planning<br>
+</li>
 <li>Poor environmental awareness</li>
 <li>Limited personalization</li>
 </ul>
 </div>
-<div style="margin-top: 2rem;">
 <p><strong>Our Solution: AI + Real-Time Data + Statistical Modeling</strong></p>
-</div>
 </section>
 <section id="system-overview" class="slide level2">
 <h2>System Overview</h2>
 <div class="tech-grid">
-<div class="tech-item">
-<p><strong>🤖 AI Trip Planner</strong><br>
-Natural Language Processing<br>
+<section id="ai-trip-planner" class="tech-item">
+<h4>🤖 AI Trip Planner</h4>
+<p>Natural Language Processing<br>
 Voice &amp; Text Input</p>
-</div>
-<div class="tech-item">
-<p><strong>🔥 Firebase Platform</strong><br>
-Real-Time Database<br>
+</section>
+<section id="firebase-platform" class="tech-item">
+<h4>🔥 Firebase Platform</h4>
+<p>Real-Time Database<br>
 Live Environmental Data</p>
-</div>
-<div class="tech-item">
-<p><strong>🗄️ BigQuery Analytics</strong><br>
-Statistical Modeling<br>
+</section>
+<section id="bigquery-analytics" class="tech-item">
+<h4>🗄️ BigQuery Analytics</h4>
+<p>Statistical Modeling<br>
 ML Predictions</p>
-</div>
-<div class="tech-item">
-<p><strong>🗺️ Interactive Maps</strong><br>
-Live Probability Zones<br>
+</section>
+<section id="interactive-maps" class="tech-item">
+<h4>🗺️ Interactive Maps</h4>
+<p>Live Probability Zones<br>
 Route Optimization</p>
-</div>
+</section>
 </div>
 </section>
-<section id="ai-trip-planner" class="slide level2">
-<h2>AI Trip Planner</h2>
+<section id="ai-trip-planner-integration" class="slide level2">
+<h2>AI Trip Planner Integration</h2>
 <h3 id="natural-language-interface">Natural Language Interface</h3>
 <div class="highlight-box">
 <p><strong>Users speak naturally to the system:</strong></p>
-<p><em>“I want to see orcas tomorrow morning from my suite at Round House…”</em></p>
-<p><em>“Best kayaking times for August 13th with calm seas”</em></p>
-<p><em>“Show me high-probability zones near Lime Kiln Point”</em></p>
+<ul>
+<li><em>“I want to see orcas tomorrow morning from my suite…”</em></li>
+<li><em>“Best kayaking times for August 13th with calm seas”</em></li>
+<li><em>“Show me high-probability zones near Lime Kiln Point”</em></li>
+</ul>
 </div>
 <p><strong>🎤 Voice Recognition • ⌨️ Text Input • ✨ Smart Prompts</strong></p>
+</section>
+<section id="recent-integration-updates" class="slide level2">
+<h2>Recent Integration Updates</h2>
+<h3 id="agent-driven-spatial-planning">Agent-Driven Spatial Planning ✅</h3>
+<div class="compact-list">
+<ul>
+<li><strong>Schema-compliant JSON output</strong> with structured responses</li>
+<li><strong>Interactive timeline</strong> with 24-hour probability windows<br>
+</li>
+<li><strong>Map configuration preview</strong> with coordinates and overlays</li>
+<li><strong>Action buttons</strong> for saving, alerting, exporting</li>
+<li><strong>Real-time data fetching</strong> from live endpoints</li>
+</ul>
+</div>
+<p><strong>API Endpoints</strong>: <code>/api/predictions</code>, <code>/api/real-time-data</code>, <code>/health</code></p>
 </section>
 <section id="how-it-works" class="slide level2">
 <h2>How It Works</h2>
 <h3 id="step-process">5-Step Process</h3>
-<div style="font-size: 1.2rem; line-height: 2;">
+<div style="font-size: 0.9em; line-height: 1.6;">
 <p><strong>1.</strong> Natural Language Input<br>
 <strong>2.</strong> AI Constraint Extraction<br>
 <strong>3.</strong> Real-Time Data Integration<br>
@@ -329,38 +389,40 @@ Route Optimization</p>
 </section>
 <section id="data-pipeline" class="slide level2">
 <h2>Data Pipeline</h2>
-<pre class="mermaid"><code>graph TD
-    A[Firebase&lt;br/&gt;Source Data] --&gt; B[BigQuery&lt;br/&gt;Processing]
-    B --&gt; C[ML Models&lt;br/&gt;Predictions]
-    C --&gt; D[User Interface&lt;br/&gt;Updates]
-    
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ff99
-    style D fill:#ffcc99</code></pre>
-<p><strong>Real-time updates every 6 minutes</strong></p>
+<div class="smaller-text">
+<pre><code>Firebase (Source Data) 
+    ↓ Extract every 4 hours
+BigQuery (Statistical Processing)
+    ↓ ML model predictions  
+Enhanced Probability Data
+    ↓ Real-time updates every 6 minutes
+Interactive Map &amp; AI Planner</code></pre>
+</div>
+<p><strong>Real-time environmental updates • Historical pattern analysis</strong></p>
 </section>
 <section id="data-sources" class="slide level2">
 <h2>Data Sources</h2>
-<h3 id="environmental-data">Environmental Data</h3>
-<ul>
-<li><strong>NOAA Tidal Data</strong> - Tide levels &amp; currents</li>
-<li><strong>Marine Weather</strong> - Sea conditions &amp; visibility<br>
-</li>
-<li><strong>Open-Meteo APIs</strong> - Atmospheric conditions</li>
-<li><strong>Vessel Traffic</strong> - Noise pollution indicators</li>
-</ul>
-<h3 id="behavioral-data">Behavioral Data</h3>
-<ul>
-<li><strong>477+ User Sightings</strong> - Verified encounters</li>
-<li><strong>DTAG Research</strong> - Academic behavioral patterns</li>
-<li><strong>Environmental Correlations</strong> - Multi-factor analysis</li>
-</ul>
+<div class="tech-grid">
+<section id="environmental-data" class="tech-item">
+<h4>Environmental Data</h4>
+<p>NOAA Tidal Data<br>
+Marine Weather<br>
+Open-Meteo APIs<br>
+Vessel Traffic</p>
+</section>
+<section id="behavioral-data" class="tech-item">
+<h4>Behavioral Data</h4>
+<p>477+ User Sightings<br>
+DTAG Research<br>
+Environmental Correlations<br>
+Model Performance</p>
+</section>
+</div>
 </section>
 <section id="machine-learning" class="slide level2">
 <h2>Machine Learning</h2>
-<section id="bigquery-ml-model" style="text-align: center;">
-<h3>BigQuery ML Model</h3>
+<h3 id="bigquery-ml-model">BigQuery ML Model</h3>
+<div class="code-block">
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> MODEL orca_probability_model</span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>OPTIONS(model_type<span class="op">=</span><span class="st">'LOGISTIC_REG'</span>)</span>
 <span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> <span class="kw">SELECT</span> </span>
@@ -368,17 +430,16 @@ Route Optimization</p>
 <span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a>  salmon_count, vessel_density, weather_conditions,</span>
 <span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a>  sighting_probability</span>
 <span id="cb2-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> orca_environmental_features;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+</div>
 <p><strong>11 Environmental Features • 477+ Training Samples</strong></p>
 </section>
 <section id="user-experience" class="slide level2">
 <h2>User Experience</h2>
 <h3 id="example-trip-planning">Example Trip Planning</h3>
 <div class="highlight-box">
-<p><strong>User Input:</strong><br>
-<em>“I’m staying at Round House Suite on August 13th and want the best orca viewing times”</em></p>
-</div>
+<p><strong>Input:</strong> <em>“Round House Suite on August 13th, best orca viewing times”</em></p>
 <p><strong>AI Output:</strong> - <strong>Morning Kayaking</strong> (7:30 AM - 12:00 PM) - <strong>85% probability</strong> - <strong>Evening Suite Viewing</strong> (6:00 PM - 8:00 PM) - <strong>78% probability</strong></p>
+</div>
 <p><em>With detailed reasoning for each recommendation</em></p>
 </section>
 <section id="performance-metrics" class="slide level2">
@@ -388,84 +449,106 @@ Route Optimization</p>
 <div class="big-number">
 <p>85%</p>
 </div>
-<p><strong>Prediction Accuracy</strong></p>
+<p>Prediction Accuracy</p>
 </div>
 <div class="metric-item">
 <div class="big-number">
 <p>477+</p>
 </div>
-<p><strong>Verified Sightings</strong></p>
+<p>Verified Sightings</p>
 </div>
 <div class="metric-item">
 <div class="big-number">
 <p>6min</p>
 </div>
-<p><strong>Update Frequency</strong></p>
+<p>Update Frequency</p>
 </div>
 <div class="metric-item">
 <div class="big-number">
 <p>50+</p>
 </div>
-<p><strong>Probability Zones</strong></p>
+<p>Probability Zones</p>
 </div>
 </div>
 </section>
 <section id="technical-stack" class="slide level2">
 <h2>Technical Stack</h2>
-<h3 id="google-cloud-platform">Google Cloud Platform</h3>
 <div class="tech-grid">
-<div class="tech-item">
-<p><strong>Cloud Run</strong><br>
-Gemma 3 LLM Service<br>
+<section id="cloud-run" class="tech-item">
+<h4>Cloud Run</h4>
+<p>Gemma 3 LLM Service<br>
 GPU-Optimized</p>
-</div>
-<div class="tech-item">
-<p><strong>Firebase</strong><br>
-Real-Time Database<br>
+</section>
+<section id="firebase" class="tech-item">
+<h4>Firebase</h4>
+<p>Real-Time Database<br>
 Authentication</p>
-</div>
-<div class="tech-item">
-<p><strong>BigQuery</strong><br>
-ML Model Storage<br>
+</section>
+<section id="bigquery" class="tech-item">
+<h4>BigQuery</h4>
+<p>ML Model Storage<br>
 Data Processing</p>
-</div>
-<div class="tech-item">
-<p><strong>Admin SDK</strong><br>
-Direct Access<br>
+</section>
+<section id="admin-sdk" class="tech-item">
+<h4>Admin SDK</h4>
+<p>Direct Access<br>
 Cost-Effective</p>
-</div>
+</section>
 </div>
 </section>
 <section id="key-advantages" class="slide level2">
 <h2>Key Advantages</h2>
-<h3 id="no-external-apis">✅ No External APIs</h3>
-<ul>
-<li>Internal Google Cloud ecosystem</li>
-<li>Direct database access</li>
-<li>Cost-effective scaling</li>
-</ul>
-<h3 id="real-time-intelligence">✅ Real-Time Intelligence</h3>
-<ul>
-<li>Live environmental updates</li>
-<li>Historical pattern recognition</li>
-<li>Continuous learning</li>
-</ul>
-<h3 id="natural-language">✅ Natural Language</h3>
-<ul>
-<li>Voice-first interface</li>
-<li>Context-aware processing</li>
-<li>Personalized optimization</li>
-</ul>
+<div class="compact-list">
+<p><strong>✅ No External APIs</strong> - Internal Google Cloud ecosystem - Direct database access<br>
+- Cost-effective scaling</p>
+<p><strong>✅ Real-Time Intelligence</strong><br>
+- Live environmental updates - Historical pattern recognition - Continuous learning</p>
+<p><strong>✅ Natural Language</strong> - Voice-first interface - Context-aware processing<br>
+- Personalized optimization</p>
+</div>
 </section>
 <section id="multi-agent-architecture" class="slide level2">
 <h2>Multi-Agent Architecture</h2>
-<div style="font-size: 1.1rem;">
+<div class="smaller-text">
 <p><strong>Primary Agent:</strong> Trip Planning &amp; Optimization<br>
-- Natural language processing - Real-time data integration - Personalized recommendations</p>
+- Natural language processing with Gemma 3 - Real-time data integration - Personalized recommendations</p>
 <p><strong>Secondary Agent:</strong> Analytics &amp; Visualization<br>
-- Dashboard generation - Map previews - Performance tracking</p>
+- Dashboard generation and map previews - Performance tracking</p>
 <p><strong>BigQuery Pipeline:</strong> Statistical Processing<br>
-- Model training &amp; updates - Prediction validation - Performance monitoring</p>
+- Model training &amp; updates - Prediction validation</p>
+</div>
+</section>
+<section id="current-deployment-status" class="slide level2">
+<h2>Current Deployment Status</h2>
+<h3 id="live-system-components">Live System Components ✅</h3>
+<div class="compact-list">
+<ul>
+<li><strong>Firebase App Server</strong>: <code>localhost:3001</code><br>
+</li>
+<li><strong>Gemma 3 Service</strong>: <code>orcast-gemma3-gpu.europe-west4.run.app</code></li>
+<li><strong>Real APIs</strong>: All 6 endpoints responding<br>
+</li>
+<li><strong>Agent Integration</strong>: Schema-compliant JSON output</li>
+<li><strong>Map Module</strong>: Ready for teammate integration</li>
+</ul>
+</div>
+</section>
+<section id="agent-response-schema" class="slide level2">
+<h2>Agent Response Schema</h2>
+<h3 id="structured-output-format">Structured Output Format</h3>
+<div class="code-block">
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"forecast_overview"</span><span class="fu">:</span> <span class="st">"85% probability morning session"</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"time_series"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span><span class="dt">"time"</span><span class="fu">:</span> <span class="st">"07:30"</span><span class="fu">,</span> <span class="dt">"probability"</span><span class="fu">:</span> <span class="fl">0.85</span><span class="fu">,</span> <span class="dt">"conditions"</span><span class="fu">:</span> <span class="st">"optimal"</span><span class="fu">}</span></span>
+<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"map_config"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-7"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"center"</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">48.548</span><span class="ot">,</span> <span class="fl">-123.013</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"zoom"</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
+<span id="cb3-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"overlays"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"tidal"</span><span class="ot">,</span> <span class="st">"vessel_traffic"</span><span class="ot">]</span></span>
+<span id="cb3-10"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb3-11"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"actions"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"save_schedule"</span><span class="ot">,</span> <span class="st">"set_alert"</span><span class="ot">]</span></span>
+<span id="cb3-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="conservation-impact" class="slide level2">
@@ -474,82 +557,65 @@ Cost-Effective</p>
 <p><strong>Scientific Approach to Wildlife Viewing</strong></p>
 <ul>
 <li>Reduced vessel disturbance through optimal timing</li>
-<li>Educational value with reasoning explanations</li>
+<li>Educational value with reasoning explanations<br>
+</li>
 <li>Citizen science data contribution</li>
 <li>Research-backed predictions</li>
 </ul>
 </div>
 <p><strong>Enhancing experiences while protecting orcas</strong></p>
 </section>
+<section id="future-roadmap" class="slide level2">
+<h2>Future Roadmap</h2>
+<h3 id="planned-enhancements">Planned Enhancements</h3>
+<div class="compact-list">
+<p><strong>Advanced AI:</strong> - Multi-modal input (photos, preferences) - Long-term trend analysis - Social integration features</p>
+<p><strong>Data Expansion:</strong> - Hydrophone acoustic monitoring - Satellite imagery integration<br>
+- Climate change adaptation</p>
+</div>
+</section>
 <section id="live-demo" class="slide level2">
 <h2>Live Demo</h2>
 <h3 id="system-components-in-action">System Components in Action</h3>
-<div style="text-align: center; margin: 2rem 0;">
+<div style="text-align: center; margin: 1.5rem 0; font-size: 0.9em;">
 <p><strong>🎤 Voice Input Interface</strong></p>
 <p><strong>🗺️ Real-Time Probability Map</strong></p>
 <p><strong>📊 Statistical Predictions</strong></p>
 <p><strong>📱 Mobile-Optimized Experience</strong></p>
 </div>
 </section>
-<section id="future-roadmap" class="slide level2">
-<h2>Future Roadmap</h2>
-<h3 id="planned-enhancements">Planned Enhancements</h3>
-<p><strong>Advanced AI:</strong> - Multi-modal input (photos, preferences) - Long-term trend analysis - Social integration features</p>
-<p><strong>Data Expansion:</strong> - Hydrophone acoustic monitoring - Satellite imagery integration - Climate change adaptation</p>
-<p><strong>Platform Growth:</strong> - Mobile applications - Additional wildlife species - Global deployment</p>
+<section id="next-steps" class="slide level2">
+<h2>Next Steps</h2>
+<h3 id="integration-deployment">Integration &amp; Deployment</h3>
+<div class="compact-list">
+<p><strong>When map module is ready:</strong> 1. <strong>Review teammate’s PR</strong> → Check map module integration 2. <strong>Merge to main</strong> → Triggers deployment pipeline<br>
+3. <strong>Test end-to-end</strong> → Agent responses + map rendering 4. <strong>Deploy Firebase</strong> → <code>npm run build &amp;&amp; firebase deploy</code></p>
+</div>
+<p><strong>Agent emits</strong>: <code>agentResponseGenerated</code> events for map integration</p>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
-<div class="highlight-box">
-<p><strong>ORCAST successfully bridges scientific research and practical trip planning</strong></p>
-<ul>
-<li><strong>85% prediction accuracy</strong> for high-probability encounters</li>
-<li><strong>Natural language interface</strong> with voice capabilities<br>
-</li>
-<li><strong>Real-time environmental integration</strong> with 6-minute updates</li>
-<li><strong>Statistical modeling</strong> using verified research data</li>
-<li><strong>Scalable cloud infrastructure</strong> on Google Cloud Platform</li>
-</ul>
+<div class="highlight-box" style="font-size: 0.85em;">
+<p><strong>ORCAST bridges scientific research and practical trip planning</strong></p>
+<p>✅ <strong>85% prediction accuracy</strong> for high-probability encounters<br>
+✅ <strong>Natural language interface</strong> with voice capabilities<br>
+✅ <strong>Real-time environmental integration</strong> with 6-minute updates<br>
+✅ <strong>Statistical modeling</strong> using verified research data<br>
+✅ <strong>Agent-driven spatial planning</strong> with structured JSON output</p>
 </div>
-<h3 id="ready-for-broader-deployment-and-continued-development">Ready for broader deployment and continued development</h3>
+<h3 id="ready-for-broader-deployment">Ready for broader deployment</h3>
 </section>
 <section id="questions" class="slide level2">
 <h2>Questions?</h2>
 </section>
-<section id="thank-you" class="title-slide slide level1 center" style="text-align: center; padding: 3rem 0;">
+<section id="thank-you" class="title-slide slide level1 center" style="text-align: center; padding: 2rem 0;">
 <h1>Thank You</h1>
 <p><strong>ORCAST Development Team</strong></p>
 <p><em>Intelligent Wildlife Viewing Platform</em><br>
 <em>San Juan Islands, Washington</em></p>
 </section>
 
-<section id="technical-details" class="slide level2">
-<h2>Technical Details</h2>
-<h3 id="api-endpoints">API Endpoints</h3>
-<p><strong>Gemma 3 Service:</strong></p>
-<pre><code>POST https://orcast-gemma3-gpu-126424997157.europe-west4.run.app/chat</code></pre>
-<p><strong>Firebase Database:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="st">"environmental_data"</span><span class="op">:</span> {</span>
-<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tidal_data"</span><span class="op">:</span> { <span class="st">"level"</span><span class="op">:</span> <span class="fl">2.3</span><span class="op">,</span> <span class="st">"direction"</span><span class="op">:</span> <span class="st">"rising"</span> }<span class="op">,</span></span>
-<span id="cb4-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"marine_conditions"</span><span class="op">:</span> { <span class="st">"temperature"</span><span class="op">:</span> <span class="fl">18.5</span> }</span>
-<span id="cb4-5"><a href="" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-6"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="statistical-model" class="slide level2">
-<h2>Statistical Model</h2>
-<h3 id="bigquery-prediction-query">BigQuery Prediction Query</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
-<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>  zone_id,</span>
-<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a>  predicted_probability,</span>
-<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>  confidence_score,</span>
-<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a>  optimal_time_window</span>
-<span id="cb5-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ML.PREDICT(MODEL `orcast.orca_probability_model`,</span>
-<span id="cb5-7"><a href="" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> `orcast.current_conditions`))</span>
-<span id="cb5-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> predicted_probability <span class="op">&gt;</span> <span class="fl">0.6</span></span>
-<span id="cb5-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> predicted_probability <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

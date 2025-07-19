@@ -15,60 +15,102 @@ format:
     chalkboard: true
     controls: true
     css: |
-      .reveal h1, .reveal h2, .reveal h3 {
+      .reveal .slides section .fragment {
+        font-size: 0.9em;
+      }
+      .reveal h1 {
+        font-size: 2.2em;
         color: #64b5f6;
         font-weight: 600;
+        margin-bottom: 0.5em;
+      }
+      .reveal h2 {
+        font-size: 1.6em;
+        color: #64b5f6;
+        font-weight: 600;
+        margin-bottom: 0.4em;
+      }
+      .reveal h3 {
+        font-size: 1.3em;
+        color: #64b5f6;
+        font-weight: 500;
+        margin-bottom: 0.3em;
+      }
+      .reveal p, .reveal li {
+        font-size: 0.9em;
+        line-height: 1.4;
       }
       .hero-slide {
         background: linear-gradient(135deg, #1e3c72, #2a5298);
         color: white !important;
       }
-      .hero-slide h1, .hero-slide h2 {
+      .hero-slide h1, .hero-slide h2, .hero-slide h3 {
         color: white !important;
       }
       .tech-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-        margin: 2rem 0;
+        gap: 1.2rem;
+        margin: 1rem 0;
       }
       .tech-item {
         background: rgba(255,255,255,0.1);
-        padding: 1.5rem;
-        border-radius: 10px;
+        padding: 1rem;
+        border-radius: 8px;
         text-align: center;
-        border: 2px solid rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.2);
+        font-size: 0.85em;
+      }
+      .tech-item h4 {
+        font-size: 1em;
+        margin-bottom: 0.3em;
+        color: #64b5f6;
       }
       .highlight-box {
-        background: rgba(100,181,246,0.2);
-        border-left: 5px solid #64b5f6;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border-radius: 5px;
+        background: rgba(100,181,246,0.15);
+        border-left: 4px solid #64b5f6;
+        padding: 1rem;
+        margin: 0.8rem 0;
+        border-radius: 4px;
+        font-size: 0.85em;
       }
       .big-number {
-        font-size: 3rem;
+        font-size: 2.2em;
         font-weight: bold;
         color: #64b5f6;
+        margin-bottom: 0.2em;
       }
       .metric-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-        margin: 1rem 0;
+        gap: 1rem;
+        margin: 0.8rem 0;
       }
       .metric-item {
         text-align: center;
-        padding: 1rem;
+        padding: 0.8rem;
+        font-size: 0.8em;
+      }
+      .code-block {
+        font-size: 0.7em;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      .smaller-text {
+        font-size: 0.75em;
+      }
+      .compact-list li {
+        font-size: 0.8em;
+        margin-bottom: 0.2em;
       }
 ---
 
 ## {.hero-slide}
 
-::: {style="text-align: center; padding: 3rem 0;"}
+::: {style="text-align: center; padding: 2rem 0;"}
 # ORCAST
 
-### AI-Powered Orca Watching Trip Optimization
+## AI-Powered Orca Watching Trip Optimization
 
 **Intelligent Wildlife Viewing Platform**  
 *San Juan Islands, Washington*
@@ -82,14 +124,12 @@ format:
 **Traditional orca watching is unpredictable**
 
 - Random timing with low success rates
-- No scientific basis for planning
+- No scientific basis for planning  
 - Poor environmental awareness
 - Limited personalization
 :::
 
-::: {style="margin-top: 2rem;"}
 **Our Solution: AI + Real-Time Data + Statistical Modeling**
-:::
 
 ---
 
@@ -97,25 +137,25 @@ format:
 
 ::: {.tech-grid}
 ::: {.tech-item}
-**🤖 AI Trip Planner**  
+#### 🤖 AI Trip Planner
 Natural Language Processing  
 Voice & Text Input
 :::
 
 ::: {.tech-item}
-**🔥 Firebase Platform**  
+#### 🔥 Firebase Platform
 Real-Time Database  
 Live Environmental Data
 :::
 
 ::: {.tech-item}
-**🗄️ BigQuery Analytics**  
+#### 🗄️ BigQuery Analytics
 Statistical Modeling  
 ML Predictions
 :::
 
 ::: {.tech-item}
-**🗺️ Interactive Maps**  
+#### 🗺️ Interactive Maps
 Live Probability Zones  
 Route Optimization
 :::
@@ -123,21 +163,35 @@ Route Optimization
 
 ---
 
-## AI Trip Planner
+## AI Trip Planner Integration
 
 ### Natural Language Interface
 
 ::: {.highlight-box}
 **Users speak naturally to the system:**
 
-*"I want to see orcas tomorrow morning from my suite at Round House..."*
-
-*"Best kayaking times for August 13th with calm seas"*
-
-*"Show me high-probability zones near Lime Kiln Point"*
+- *"I want to see orcas tomorrow morning from my suite..."*
+- *"Best kayaking times for August 13th with calm seas"*
+- *"Show me high-probability zones near Lime Kiln Point"*
 :::
 
 **🎤 Voice Recognition • ⌨️ Text Input • ✨ Smart Prompts**
+
+---
+
+## Recent Integration Updates
+
+### Agent-Driven Spatial Planning ✅
+
+::: {.compact-list}
+- **Schema-compliant JSON output** with structured responses
+- **Interactive timeline** with 24-hour probability windows  
+- **Map configuration preview** with coordinates and overlays
+- **Action buttons** for saving, alerting, exporting
+- **Real-time data fetching** from live endpoints
+:::
+
+**API Endpoints**: `/api/predictions`, `/api/real-time-data`, `/health`
 
 ---
 
@@ -145,7 +199,7 @@ Route Optimization
 
 ### 5-Step Process
 
-::: {style="font-size: 1.2rem; line-height: 2;"}
+::: {style="font-size: 0.9em; line-height: 1.6;"}
 **1.** Natural Language Input  
 **2.** AI Constraint Extraction  
 **3.** Real-Time Data Integration  
@@ -157,42 +211,49 @@ Route Optimization
 
 ## Data Pipeline
 
-```mermaid
-graph TD
-    A[Firebase<br/>Source Data] --> B[BigQuery<br/>Processing]
-    B --> C[ML Models<br/>Predictions]
-    C --> D[User Interface<br/>Updates]
-    
-    style A fill:#ff9999
-    style B fill:#99ccff
-    style C fill:#99ff99
-    style D fill:#ffcc99
+::: {.smaller-text}
 ```
+Firebase (Source Data) 
+    ↓ Extract every 4 hours
+BigQuery (Statistical Processing)
+    ↓ ML model predictions  
+Enhanced Probability Data
+    ↓ Real-time updates every 6 minutes
+Interactive Map & AI Planner
+```
+:::
 
-**Real-time updates every 6 minutes**
+**Real-time environmental updates • Historical pattern analysis**
 
 ---
 
 ## Data Sources
 
-### Environmental Data
-- **NOAA Tidal Data** - Tide levels & currents
-- **Marine Weather** - Sea conditions & visibility  
-- **Open-Meteo APIs** - Atmospheric conditions
-- **Vessel Traffic** - Noise pollution indicators
+::: {.tech-grid}
+::: {.tech-item}
+#### Environmental Data
+NOAA Tidal Data  
+Marine Weather  
+Open-Meteo APIs  
+Vessel Traffic
+:::
 
-### Behavioral Data
-- **477+ User Sightings** - Verified encounters
-- **DTAG Research** - Academic behavioral patterns
-- **Environmental Correlations** - Multi-factor analysis
+::: {.tech-item}
+#### Behavioral Data  
+477+ User Sightings  
+DTAG Research  
+Environmental Correlations  
+Model Performance
+:::
+:::
 
 ---
 
 ## Machine Learning
 
-::: {style="text-align: center;"}
 ### BigQuery ML Model
 
+::: {.code-block}
 ```sql
 CREATE MODEL orca_probability_model
 OPTIONS(model_type='LOGISTIC_REG')
@@ -213,13 +274,12 @@ FROM orca_environmental_features;
 ### Example Trip Planning
 
 ::: {.highlight-box}
-**User Input:**  
-*"I'm staying at Round House Suite on August 13th and want the best orca viewing times"*
-:::
+**Input:** *"Round House Suite on August 13th, best orca viewing times"*
 
 **AI Output:**
 - **Morning Kayaking** (7:30 AM - 12:00 PM) - **85% probability**
 - **Evening Suite Viewing** (6:00 PM - 8:00 PM) - **78% probability**
+:::
 
 *With detailed reasoning for each recommendation*
 
@@ -232,28 +292,28 @@ FROM orca_environmental_features;
 ::: {.big-number}
 85%
 :::
-**Prediction Accuracy**
+Prediction Accuracy
 :::
 
 ::: {.metric-item}
 ::: {.big-number}
 477+
 :::
-**Verified Sightings**
+Verified Sightings
 :::
 
 ::: {.metric-item}
 ::: {.big-number}
 6min
 :::
-**Update Frequency**
+Update Frequency
 :::
 
 ::: {.metric-item}
 ::: {.big-number}
 50+
 :::
-**Probability Zones**
+Probability Zones
 :::
 :::
 
@@ -261,29 +321,27 @@ FROM orca_environmental_features;
 
 ## Technical Stack
 
-### Google Cloud Platform
-
 ::: {.tech-grid}
 ::: {.tech-item}
-**Cloud Run**  
+#### Cloud Run
 Gemma 3 LLM Service  
 GPU-Optimized
 :::
 
 ::: {.tech-item}
-**Firebase**  
+#### Firebase  
 Real-Time Database  
 Authentication
 :::
 
 ::: {.tech-item}
-**BigQuery**  
+#### BigQuery
 ML Model Storage  
 Data Processing
 :::
 
 ::: {.tech-item}
-**Admin SDK**  
+#### Admin SDK
 Direct Access  
 Cost-Effective
 :::
@@ -293,40 +351,77 @@ Cost-Effective
 
 ## Key Advantages
 
-### ✅ No External APIs
+::: {.compact-list}
+**✅ No External APIs**
 - Internal Google Cloud ecosystem
-- Direct database access
+- Direct database access  
 - Cost-effective scaling
 
-### ✅ Real-Time Intelligence  
+**✅ Real-Time Intelligence**  
 - Live environmental updates
 - Historical pattern recognition
 - Continuous learning
 
-### ✅ Natural Language
+**✅ Natural Language**
 - Voice-first interface
-- Context-aware processing
+- Context-aware processing  
 - Personalized optimization
+:::
 
 ---
 
 ## Multi-Agent Architecture
 
-::: {style="font-size: 1.1rem;"}
+::: {.smaller-text}
 **Primary Agent:** Trip Planning & Optimization  
-- Natural language processing
+- Natural language processing with Gemma 3
 - Real-time data integration
 - Personalized recommendations
 
 **Secondary Agent:** Analytics & Visualization  
-- Dashboard generation
-- Map previews
+- Dashboard generation and map previews
 - Performance tracking
 
 **BigQuery Pipeline:** Statistical Processing  
 - Model training & updates
 - Prediction validation
-- Performance monitoring
+:::
+
+---
+
+## Current Deployment Status
+
+### Live System Components ✅
+
+::: {.compact-list}
+- **Firebase App Server**: `localhost:3001`  
+- **Gemma 3 Service**: `orcast-gemma3-gpu.europe-west4.run.app`
+- **Real APIs**: All 6 endpoints responding  
+- **Agent Integration**: Schema-compliant JSON output
+- **Map Module**: Ready for teammate integration
+:::
+
+---
+
+## Agent Response Schema
+
+### Structured Output Format
+
+::: {.code-block}
+```json
+{
+  "forecast_overview": "85% probability morning session",
+  "time_series": [
+    {"time": "07:30", "probability": 0.85, "conditions": "optimal"}
+  ],
+  "map_config": {
+    "center": [48.548, -123.013],
+    "zoom": 12,
+    "overlays": ["tidal", "vessel_traffic"]
+  },
+  "actions": ["save_schedule", "set_alert"]
+}
+```
 :::
 
 ---
@@ -337,7 +432,7 @@ Cost-Effective
 **Scientific Approach to Wildlife Viewing**
 
 - Reduced vessel disturbance through optimal timing
-- Educational value with reasoning explanations
+- Educational value with reasoning explanations  
 - Citizen science data contribution
 - Research-backed predictions
 :::
@@ -346,11 +441,29 @@ Cost-Effective
 
 ---
 
+## Future Roadmap
+
+### Planned Enhancements
+
+::: {.compact-list}
+**Advanced AI:**
+- Multi-modal input (photos, preferences)
+- Long-term trend analysis
+- Social integration features
+
+**Data Expansion:**
+- Hydrophone acoustic monitoring
+- Satellite imagery integration  
+- Climate change adaptation
+:::
+
+---
+
 ## Live Demo
 
 ### System Components in Action
 
-::: {style="text-align: center; margin: 2rem 0;"}
+::: {style="text-align: center; margin: 1.5rem 0; font-size: 0.9em;"}
 **🎤 Voice Input Interface**
 
 **🗺️ Real-Time Probability Map**
@@ -362,89 +475,45 @@ Cost-Effective
 
 ---
 
-## Future Roadmap
+## Next Steps
 
-### Planned Enhancements
+### Integration & Deployment
 
-**Advanced AI:**
-- Multi-modal input (photos, preferences)
-- Long-term trend analysis
-- Social integration features
+::: {.compact-list}
+**When map module is ready:**
+1. **Review teammate's PR** → Check map module integration
+2. **Merge to main** → Triggers deployment pipeline  
+3. **Test end-to-end** → Agent responses + map rendering
+4. **Deploy Firebase** → `npm run build && firebase deploy`
+:::
 
-**Data Expansion:**
-- Hydrophone acoustic monitoring
-- Satellite imagery integration
-- Climate change adaptation
-
-**Platform Growth:**
-- Mobile applications
-- Additional wildlife species
-- Global deployment
+**Agent emits**: `agentResponseGenerated` events for map integration
 
 ---
 
 ## Summary
 
-::: {.highlight-box}
-**ORCAST successfully bridges scientific research and practical trip planning**
+::: {.highlight-box style="font-size: 0.85em;"}
+**ORCAST bridges scientific research and practical trip planning**
 
-- **85% prediction accuracy** for high-probability encounters
-- **Natural language interface** with voice capabilities  
-- **Real-time environmental integration** with 6-minute updates
-- **Statistical modeling** using verified research data
-- **Scalable cloud infrastructure** on Google Cloud Platform
+✅ **85% prediction accuracy** for high-probability encounters  
+✅ **Natural language interface** with voice capabilities  
+✅ **Real-time environmental integration** with 6-minute updates  
+✅ **Statistical modeling** using verified research data  
+✅ **Agent-driven spatial planning** with structured JSON output
 :::
 
-### Ready for broader deployment and continued development
+### Ready for broader deployment
 
 ---
 
 ## Questions?
 
-::: {style="text-align: center; padding: 3rem 0;"}
+::: {style="text-align: center; padding: 2rem 0;"}
 # Thank You
 
 **ORCAST Development Team**
 
 *Intelligent Wildlife Viewing Platform*  
 *San Juan Islands, Washington*
-:::
-
----
-
-## Technical Details
-
-### API Endpoints
-
-**Gemma 3 Service:**
-```
-POST https://orcast-gemma3-gpu-126424997157.europe-west4.run.app/chat
-```
-
-**Firebase Database:**
-```javascript
-{
-  "environmental_data": {
-    "tidal_data": { "level": 2.3, "direction": "rising" },
-    "marine_conditions": { "temperature": 18.5 }
-  }
-}
-```
-
----
-
-## Statistical Model
-
-### BigQuery Prediction Query
-
-```sql
-SELECT 
-  zone_id,
-  predicted_probability,
-  confidence_score,
-  optimal_time_window
-FROM ML.PREDICT(MODEL `orcast.orca_probability_model`,
-  (SELECT * FROM `orcast.current_conditions`))
-WHERE predicted_probability > 0.6
-ORDER BY predicted_probability DESC;
-``` 
+::: 
