@@ -8,6 +8,9 @@ config.json
 
 # Google Cloud credentials
 client_secret_*.json
+serviceAccountKey.json
+*-service-account-*.json
+orca-466204-*.json
 
 # Environment files
 .env.local

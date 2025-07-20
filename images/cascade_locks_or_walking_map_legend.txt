@@ -4,6 +4,6 @@ Hotel: Under Canvas Columbia River (Red H)
 Points of Interest:
 A - Bridge of the Gods
 B - Thunder Island Brewing
-C - Historic Locks and Dam
+C - Historic Locks
 D - Marine Park
 E - Columbia River Trail

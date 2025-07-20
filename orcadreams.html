@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORCA DREAMS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: #ffffff;
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.4;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+        }
+        
+        .title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 4rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            color: #888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .text-block {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            text-align: justify;
+            padding: 0 20px;
+        }
+        
+        .text-block::first-letter {
+            font-size: 4rem;
+            font-weight: 700;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            margin-top: 4px;
+            color: #ffffff;
+        }
+        
+        .emphasis {
+            font-weight: 500;
+            color: #ffffff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .climax {
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-align: center;
+            margin: 60px 0;
+            padding: 30px;
+            border-left: 3px solid #ffffff;
+            border-right: 3px solid #ffffff;
+            background: rgba(255,255,255,0.05);
+            line-height: 1.6;
+        }
+        
+        .ocean-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(0,100,150,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(0,150,200,0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .wave-accent {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 8rem;
+            color: rgba(255,255,255,0.05);
+            font-weight: 700;
+            z-index: 1;
+            user-select: none;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .page-container {
+                padding: 40px 20px;
+            }
+            .text-block {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean-bg"></div>
+    <div class="wave-accent">≋</div>
+    
+    <div class="page-container">
+        <h1 class="title">ORCA DREAMS</h1>
+        <p class="subtitle">A Childhood Obsession</p>
+        
+        <div class="content">
+            <div class="text-block">
+                When I watched <span class="emphasis">Free Willy</span> I used to sit on the edge of my seat and wait for the scene where he breaches and the sensation always carried me away. I did not understand that if I would only find a way to encounter it in its world to make it subside. That feeling also twisted and pulled and nudged and scratched the minds of my peers who also had dreams and drew pictures that would not satisfy that hunger.
+            </div>
+            
+            <div class="text-block">
+                To witness in its full glory, the <span class="emphasis">breaching whale</span> had nothing to do with wanting some freedom from our own lives, but for the orca. But as a foundational memory, the words to understand it were limited, so in most the idea remained a fire and burning desire to see a tormented and beautiful creature yearning for freedom in captivity.
+            </div>
+            
+            <div class="climax">
+                Until that glorious day<br>
+                when the orca found the strength to jump over the jetty and<br>
+                with its flight over the stones and the open sea ahead<br>
+                and fluke arched, soaring while water dripped off it and<br>
+                <span class="emphasis">poured into my dreams</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

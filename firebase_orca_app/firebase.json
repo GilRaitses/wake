@@ -28,22 +28,22 @@
       },
       {
         "source": "/api/predictions",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/api/sightings",
-        "destination": "/index.html"
+        "destination": "/api-predictions.json"
       },
       {
         "source": "/api/behavioral-analysis",
-        "destination": "/index.html"
+        "destination": "/api-behavioral-analysis.json"
       },
       {
         "source": "/api/real-time-data",
-        "destination": "/index.html"
+        "destination": "/api-real-time-data.json"
       },
       {
         "source": "/api/feeding-zones",
+        "destination": "/api-feeding-zones.json"
+      },
+      {
+        "source": "/api/sightings",
         "destination": "/index.html"
       },
       {

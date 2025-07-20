@@ -19,21 +19,21 @@
   },
   {
     "from": "Jerry Johnson Hot Springs, ID",
-    "to": "McCall, ID",
-    "distance_km": 306.035,
-    "distance_miles": 190.161273985,
-    "distance_text": "190 mi",
-    "driving_time_hours": 3.808611111111111,
-    "driving_time_text": "3 hours 49 mins"
+    "to": "Lucile, ID",
+    "distance_km": 217.14,
+    "distance_miles": 134.92449894,
+    "distance_text": "135 mi",
+    "driving_time_hours": 2.6727777777777777,
+    "driving_time_text": "2 hours 40 mins"
   },
   {
-    "from": "McCall, ID",
+    "from": "Lucile, ID",
     "to": "Joseph, OR",
-    "distance_km": 267.268,
-    "distance_miles": 166.07258442799997,
-    "distance_text": "166 mi",
-    "driving_time_hours": 4.318611111111111,
-    "driving_time_text": "4 hours 19 mins"
+    "distance_km": 312.669,
+    "distance_miles": 194.283449199,
+    "distance_text": "194 mi",
+    "driving_time_hours": 3.753888888888889,
+    "driving_time_text": "3 hours 45 mins"
   },
   {
     "from": "Joseph, OR",
@@ -50,16 +50,34 @@
     "distance_km": 330.547,
     "distance_miles": 205.39231993700002,
     "distance_text": "205 mi",
-    "driving_time_hours": 3.6166666666666667,
+    "driving_time_hours": 3.6158333333333332,
     "driving_time_text": "3 hours 37 mins"
   },
   {
     "from": "Columbia River Gorge, WA",
-    "to": "Seattle, WA",
-    "distance_km": 177.5,
-    "distance_miles": 110.2933525,
-    "distance_text": "110 mi",
-    "driving_time_hours": 2.163611111111111,
-    "driving_time_text": "2 hours 10 mins"
+    "to": "Mount Rainier National Park, WA",
+    "distance_km": 223.327,
+    "distance_miles": 138.768921317,
+    "distance_text": "139 mi",
+    "driving_time_hours": 2.7936111111111113,
+    "driving_time_text": "2 hours 48 mins"
+  },
+  {
+    "from": "Mount Rainier National Park, WA",
+    "to": "North Bend, WA",
+    "distance_km": 103.645,
+    "distance_miles": 64.401997295,
+    "distance_text": "64.4 mi",
+    "driving_time_hours": 1.3430555555555554,
+    "driving_time_text": "1 hour 21 mins"
+  },
+  {
+    "from": "North Bend, WA",
+    "to": "San Juan Islands, WA",
+    "distance_km": 199.534,
+    "distance_miles": 123.984641114,
+    "distance_text": "124 mi",
+    "driving_time_hours": 3.2683333333333335,
+    "driving_time_text": "3 hours 16 mins"
   }
 ]

@@ -1,0 +1,48 @@
+{
+  "firebase": {
+    "service_account_path": "config/firebase-service-account.json",
+    "project_id": "orca-904de",
+    "database_url": "https://orca-904de-default-rtdb.firebaseio.com"
+  },
+  "bigquery": {
+    "project_id": "orca-466204",
+    "dataset_id": "orcast_analytics",
+    "location": "US",
+    "tables": {
+      "sightings": "sightings_data",
+      "environmental": "environmental_data", 
+      "behavior": "behavior_data",
+      "predictions": "prediction_history"
+    }
+  },
+  "processing": {
+    "schedule": "0 */4 * * *",
+    "batch_size": 1000,
+    "retention_days": 365,
+    "confidence_threshold": 0.7
+  },
+  "models": {
+    "probability_model": {
+      "type": "LOGISTIC_REG",
+      "features": [
+        "hour_of_day",
+        "day_of_week", 
+        "month",
+        "tidal_height",
+        "salmon_count",
+        "vessel_noise",
+        "sea_temperature",
+        "wave_height",
+        "current_speed",
+        "longitude",
+        "latitude"
+      ],
+      "target": "has_sighting"
+    },
+    "temporal_model": {
+      "type": "TIME_SERIES",
+      "forecast_horizon": 24,
+      "seasonality": "weekly"
+    }
+  }
+} 

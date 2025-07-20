@@ -1,0 +1,46 @@
+[debug] [2025-07-19T02:26:06.157Z] ----------------------------------------------------------------------
+[debug] [2025-07-19T02:26:06.159Z] Command:       /opt/homebrew/Cellar/node/24.2.0/bin/node /opt/homebrew/bin/firebase init hosting --project orcast-1
+[debug] [2025-07-19T02:26:06.159Z] CLI Version:   14.8.0
+[debug] [2025-07-19T02:26:06.159Z] Platform:      darwin
+[debug] [2025-07-19T02:26:06.159Z] Node Version:  v24.2.0
+[debug] [2025-07-19T02:26:06.159Z] Time:          Fri Jul 18 2025 22:26:06 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-07-19T02:26:06.159Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-19T02:26:06.161Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-19T02:26:06.161Z] > authorizing via signed-in user (gilraitses@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/gilraitses/PNW_summer25
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-07-19T02:26:06.162Z] Using project from CLI flag: orcast-1
+[debug] [2025-07-19T02:26:06.163Z] Checked if tokens are valid: false, expires at: 1752892771591
+[debug] [2025-07-19T02:26:06.163Z] Checked if tokens are valid: false, expires at: 1752892771591
+[debug] [2025-07-19T02:26:06.163Z] > refreshing access token with scopes: []
+[debug] [2025-07-19T02:26:06.163Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-19T02:26:06.163Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-19T02:26:06.309Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-19T02:26:06.309Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-19T02:26:06.319Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/orcast-1 [none]
+[debug] [2025-07-19T02:26:06.768Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/orcast-1 403
+[debug] [2025-07-19T02:26:06.769Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/orcast-1 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-07-19T02:26:06.770Z] Request to https://firebase.googleapis.com/v1beta1/projects/orcast-1 had HTTP Error: 403, The caller does not have permission
+[debug] [2025-07-19T02:26:06.843Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/orcast-1 had HTTP Error: 403, The caller does not have permission
+    at responseToError (/opt/homebrew/lib/node_modules/firebase-tools/lib/responseToError.js:52:12)
+    at RetryOperation._fn (/opt/homebrew/lib/node_modules/firebase-tools/lib/apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project orcast-1. Please make sure the project exists and your account has permission to access it.
